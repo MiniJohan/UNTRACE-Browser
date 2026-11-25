@@ -5,7 +5,7 @@ members = ["crates/untrace-core", "crates/untrace-filter", "crates/untrace-net",
 exclude = ["spikes/harness", "spikes/s1-tauri"]
 
 [workspace.package]
-version = "1.0.0"
+version = "1.1.0"
 edition = "2024"
 rust-version = "1.90"
 publish = false

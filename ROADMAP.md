@@ -372,7 +372,7 @@ Still open (product owner):
 
 Accounts, sync, cloud services, telemetry, VPN, antivirus, password manager, extension store, bookmarks sync, reading mode, AI features, "security score", system-wide DNS/proxy/firewall changes, TLS interception. Any addition requires a DECISIONS entry and product-owner approval.
 
-## After 1.0.0 · bookmarks and theme fixes · **built 2026-11-25** (D-055, D-053)
+## After 1.0.0 · bookmarks and theme fixes · **release 1.1.0** (built and signed 2026-11-25; D-055, D-053)
 
 The product owner asked for bookmarks and reported grey areas in the Black theme.
 - **Bookmarks (D-055):**
