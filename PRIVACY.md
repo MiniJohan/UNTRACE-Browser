@@ -7,6 +7,7 @@ UNTRACE has no accounts, no cloud service and no analytics. It does not collect 
 Everything UNTRACE stores is in `%LOCALAPPDATA%\UNTRACE`, readable only by your Windows account:
 
 - **Settings:** your choices, including sites you made exceptions for.
+- **Bookmarks:** the pages you bookmarked, with their titles, folders and the icon each page showed. They stay until you remove them; deleting browsing data does not remove them. Bookmarks added from temporary tabs are kept too.
 - **Activity log:** what UNTRACE did and changed (settings, list updates, clearing, checks, errors). It never records addresses or sites, and it holds about 1 MB at most; older entries are dropped.
 - **Block lists:** the lists UNTRACE blocks and warns with.
 - **The browser engine's data:**
@@ -27,7 +28,7 @@ Settings › Your data lists what is stored and deletes it, per category or per 
   - `malware-filter.gitlab.io` for the malware and phishing lists.
   These requests carry nothing about you beyond what any download does: your IP address and a standard request.
 - **Update checks:** while "Check for UNTRACE updates" is on, UNTRACE asks GitHub once a day whether a new version exists, and downloads it from GitHub only when you choose to install it.
-- **Nothing else from UNTRACE itself:** no usage statistics, no crash uploads, no identifiers.
+- **Nothing else from UNTRACE itself:** no usage statistics, no crash uploads, no identifiers. Bookmarks are never sent anywhere; importing and exporting them only reads or writes the file you choose.
 
 ## Microsoft's WebView2 engine
 

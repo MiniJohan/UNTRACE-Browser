@@ -407,6 +407,7 @@ The per-user installer (M9) puts the program in the same folder, the installer's
 | Audit log | `logs\audit.log` | 2 × 512 KB rotating | No URLs or content |
 | Standard-profile web data | `content\` (WebView2) | Cookies and site data until deleted (per site, all, or on every exit); cache deleted on exit by default; history and download history cleared at the start of every session (D-038) | WebView2 keeps internal history (M0/S5); UNTRACE has no history UI. The engine also keeps per-site engagement scores that none of its delete functions remove; UNTRACE empties them at every start, before the engine runs (D-039) |
 | Exit-clearing record | `config\exit-clear.json` | Replaced each session | Pending/done/failed and what was owed; no sites |
+| Bookmarks (D-055) | `config\bookmarks.json` | Until the user removes them; not deleted with browsing data | **Reveals sites the user chose.** Web addresses, titles, one-level folders and the page's own icon; validated on load, written atomically; a damaged file is set aside, never deleted |
 | Temporary sessions | In memory (InPrivate) | Until the last temporary tab closes | Residue checked by self-check 23; an almost empty profile folder is removed at the next start |
 | Permission decisions | WebView2 profile | Until reset | Listed via read-back API |
 | Crash dumps | `content\EBWebView\Crashpad\reports` | Deleted after 7 days (at start) or on demand on the data page; **never uploaded by UNTRACE** | Can contain page memory — sensitive |

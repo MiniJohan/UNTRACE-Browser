@@ -62,6 +62,7 @@ Superseded entries are kept and marked, never deleted. Milestone 0 evidence: `sp
 | D-052 | "Keep WebRTC inside the network layer": own switch, on | **Accepted** (2026-11-24) |
 | D-053 | Appearance: Black theme, accent colour presets, websites follow the theme | **Accepted** (2026-11-24) |
 | D-054 | M9 release checklist run on the development PC, not a clean VM | **Accepted** (2026-11-25) |
+| D-055 | Bookmarks: local only, a side panel, one-level folders, HTML import and export | **Accepted** (2026-11-25) |
 
 ---
 
@@ -513,10 +514,31 @@ Superseded entries are kept and marked, never deleted. Milestone 0 evidence: `sp
     - Forcing a dark look onto sites without one is not included: it exists only as an unsupported engine flag.
 - **Privacy:** UNTRACE's own look is not visible to websites. The colour-scheme preference is, as in every browser.
 - **Not included:** tinted themes and custom colours (not chosen).
+- **Fixed after 1.0.0 (2026-11-25):** the product owner saw grey areas in the Black theme.
+  - **Title bar:** Windows drew its own grey title bar. It now takes the theme's top-bar colour and text colour (`DwmSetWindowAttribute`), also when Windows switches between light and dark. Windows 10 keeps its own title-bar colour.
+  - **Empty tab:** in dark mode the engine paints its blank page dark grey, whatever background UNTRACE sets. An empty tab the user opened now hides the page view, so the interface's own background shows. Pop-ups opened by pages are never hidden this way, because a page can write into its blank pop-up.
 - **Status:** Accepted by the product owner, 2026-11-24.
 
 ### D-054 — M9 release checklist on the development PC — **Accepted**
 - **Context:** M9's exit asks for the release checklist on a clean Windows 11 VM. This PC runs Windows 11 Home (no Hyper-V, no Windows Sandbox).
 - **Decision (product owner, 2026-11-25):** run the checklist on this PC instead: install for the current user, first run, self-check, update, uninstall.
 - **Not covered here:** a machine without the WebView2 Runtime (the installer's bootstrapper path), and a machine without development tools. These are listed as open in the release checklist and must be checked on a clean machine before a public release.
+- **Status:** Accepted, 2026-11-25.
+
+### D-055 — Bookmarks — **Accepted**
+- **Request (product owner, 2026-11-25):** a bookmark feature, with a small button next to the address bar that opens them. Bookmarks were a candidate post-v1 item ("local only").
+- **Decision (product owner, 2026-11-25):**
+  - **Where:** a star in the address bar (and Ctrl+D, also inside pages) adds the page and opens it for editing; a button beside the address bar opens the bookmarks panel.
+    - The panel slides in beside the page like the site and downloads panels. A drop-down over the page is not possible: the interface never draws over web content (D-021).
+  - **Folders:** one level. Folders from another browser's nested folders are named by their path ("Bookmarks bar / Work").
+  - **Import and export:** the standard bookmarks file (Netscape HTML) that Chrome, Edge and Firefox read and write. UNTRACE reads only the file the user picks; it never opens another browser's data on its own.
+  - **Icons:** the icon the page showed when it was bookmarked, as a PNG of at most 16 KB. UNTRACE never fetches an icon. Imported bookmarks show the first letter of their site.
+- **What is kept:** `config\bookmarks.json` on this computer only.
+  - Only web addresses (http, https). `javascript:` bookmarklets, local files and engine pages are refused, also on import.
+  - At most 10,000 bookmarks and 1,000 folders; titles are one line of at most 300 characters.
+  - The file is validated on every start. A damaged file is set aside under another name, never deleted; a repaired one is kept as it was before the repair.
+  - Bookmarks added from a temporary tab are kept too: adding one is an explicit choice, and the panel says so.
+  - Deleting browsing data does not delete bookmarks; the panel has "Delete all bookmarks" with a confirmation.
+- **Activity log:** imports, exports and "delete all" are recorded as counts. Addresses and titles never are.
+- **Not included:** sync (out of scope), a bookmarks bar, bookmarks on the new-tab page (not chosen), drag and drop (Up and Down buttons instead).
 - **Status:** Accepted, 2026-11-25.

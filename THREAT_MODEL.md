@@ -36,6 +36,7 @@ Status: **Proposed** · Method: asset/adversary analysis + STRIDE per trust boun
 | A3 | Downloads and files saved by the user | High (malware delivery) |
 | A4 | Site exceptions and permission decisions | Medium (reveal visited sites) |
 | A5 | UNTRACE settings and protection state | Medium (silent downgrade = harm) |
+| A11 | Bookmarks (D-055) | Medium (reveal sites the user chose) |
 | A6 | Filter lists, scriptlet resources, compiled engine | Medium (integrity: run in every page) |
 | A7 | App update channel | Critical (code execution) |
 | A8 | DNS queries | High |
@@ -156,6 +157,8 @@ Residual risk: **L** low · **M** medium · **H** high (after mitigation).
 | A temporary session leaks into the normal profile | I | Separate InPrivate profile with a random name; per-site choices made there stay in memory; pop-ups stay temporary (D-036) | L: downloaded files and crash reports persist |
 | Config tampering downgrades protections | T | Schema validation; tampered config → defaults + notice + audit entry; Diagnostics shows effective state from read-back | M (same-user malware out of scope) |
 | Crash dumps leak page memory | I | Local only, 7-day deletion, listed in inventory | L |
+| An imported bookmarks file (from anywhere) smuggles a script, a local file or an oversized entry into the bookmarks, or crashes the parser | T/E | D-055: the file is only parsed, never rendered; only http and https addresses are kept (`javascript:`, `file:` and engine pages refused); titles one line and bounded; icons from files ignored; limits on size, count and folder depth; the user picks the file. Fuzzed (`bookmarks_file`): HTML and tampered `bookmarks.json`, with the stored invariants and an export → import round trip checked | L |
+| Bookmarks reveal sites the user chose | I | Local only, never sent; the activity log records counts, not addresses; "Delete all bookmarks" in the panel | L: they are kept until the user removes them, also from temporary tabs (the panel says so) |
 | A saved security report or exported activity log reveals browsing | I | M7 (D-047): the report holds settings, check results, list state, DNS setup and a log summary; it never holds sites visited, host names contacted, cookies, downloads, saved permissions or per-site exceptions (unit test with a planted host name). Every mention of the user's profile folder appears as `%USERPROFILE%` (whole page, plain, JSON- and HTML-escaped; unit test through the full report). Written only where the user chooses in the Windows save dialog; a strict CSP and no scripts, so opening it runs nothing. The activity log never records addresses or sites | L: adapter names, DNS server addresses and the list of switches describe this computer's setup; a profile path written in 8.3 short form would not be masked. The exported activity log is a verbatim copy and keeps local file paths |
 | The self-check run from Diagnostics touches the user's profile or network | T/I | M7 (D-046): a separate process with its own data folder (`<data root>\self-check`), offline (its test pages are served from local folders under `.invalid` names, and it runs no list updates), no single-instance lock on the user's instance; it is stopped after 6 minutes | L |
 

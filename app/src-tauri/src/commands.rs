@@ -23,9 +23,9 @@ use crate::{
     privacy::{self, DataItem, EngineFacts, ExitRecord, with_host},
 };
 
-type R<T> = Result<T, String>;
+pub(crate) type R<T> = Result<T, String>;
 
-fn on_ui_thread(state: &AppState) -> R<()> {
+pub(crate) fn on_ui_thread(state: &AppState) -> R<()> {
     if std::thread::current().id() == state.main_thread {
         Ok(())
     } else {
@@ -447,6 +447,7 @@ pub struct AccentOption {
 
 /// Apply the saved look to the engine; a failure is reported, the setting stays saved.
 fn apply_appearance(app: &AppHandle) -> R<()> {
+    crate::appearance::apply_frame(app);
     match host() {
         Some(h) => crate::appearance::apply(app, &h).map_err(|e| format!("Saved, but the engine refused it ({e}).")),
         None => Ok(()),
@@ -1107,13 +1108,13 @@ pub fn audit_entries(state: State<AppState>) -> R<Vec<String>> {
     Ok(state.audit.all())
 }
 
-fn owner(app: &AppHandle) -> windows::Win32::Foundation::HWND {
+pub(crate) fn owner(app: &AppHandle) -> windows::Win32::Foundation::HWND {
     app.get_webview_window("main")
         .and_then(|w| w.hwnd().ok())
         .unwrap_or_default()
 }
 
-fn today() -> String {
+pub(crate) fn today() -> String {
     untrace_core::time::now_rfc3339().chars().take(10).collect()
 }
 

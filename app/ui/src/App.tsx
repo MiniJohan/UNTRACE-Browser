@@ -1,5 +1,17 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { api, errorText, onAppUpdate, onFocusAddress, onFocusPanel, onTabs, type SettingsView, type Snapshot } from "./api";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  api,
+  errorText,
+  onAppUpdate,
+  onBookmarkShortcut,
+  onFocusAddress,
+  onFocusPanel,
+  onTabs,
+  type BookmarksView,
+  type SettingsView,
+  type Snapshot,
+} from "./api";
+import { BookmarksPanel } from "./components/BookmarksPanel";
 import { ContentSlot } from "./components/ContentSlot";
 import { AboutPage } from "./components/AboutPage";
 import { ActivityPage } from "./components/ActivityPage";
@@ -56,6 +68,18 @@ export function App() {
   }, [page, welcomeOpen]);
   const [panel, setPanel] = useState<Panel>(null);
   const addressRef = useRef<HTMLInputElement>(null);
+
+  // D-055: bookmarks, read once and then kept from each command's answer.
+  const [bookmarks, setBookmarks] = useState<BookmarksView | null>(null);
+  const [bookmarksError, setBookmarksError] = useState<string | null>(null);
+  const [bookmarkEdit, setBookmarkEdit] = useState<number | null>(null);
+  const [bookmarkMessage, setBookmarkMessage] = useState<string | null>(null);
+  useEffect(() => {
+    api
+      .bookmarks()
+      .then(setBookmarks)
+      .catch((e) => setBookmarksError(errorText(e)));
+  }, []);
 
   const focusAddress = useCallback(() => {
     setPage("browse");
@@ -125,6 +149,9 @@ export function App() {
       } else if (ctrl && k === ",") {
         e.preventDefault();
         setPage("settings");
+      } else if (ctrl && k === "d" && !e.shiftKey) {
+        e.preventDefault();
+        bookmarkRef.current();
       } else if (ctrl && k === "j") {
         e.preventDefault();
         setPage("browse");
@@ -139,6 +166,38 @@ export function App() {
 
   const tab = snap.tabs.find((t) => t.id === snap.active);
   const engineError = hostError ?? snap.engineError;
+
+  const bookmarkedUrls = useMemo(() => {
+    const s = new Set<string>();
+    for (const it of bookmarks?.items ?? []) {
+      if (it.kind === "bookmark") s.add(it.url);
+      else it.items.forEach((b) => s.add(b.url));
+    }
+    return s;
+  }, [bookmarks]);
+
+  // The star and Ctrl+D: add the page (or find its bookmark) and open it for editing.
+  const bookmarkPage = useCallback(() => {
+    setPage("browse");
+    setPanel("bookmarks");
+    if (!tab) return;
+    api
+      .bookmarkAddTab(tab.id)
+      .then((r) => {
+        setBookmarks(r.view);
+        setBookmarkEdit(r.id);
+        setBookmarkMessage(null);
+      })
+      .catch((e) => setBookmarkMessage(errorText(e)));
+  }, [tab]);
+  const bookmarkRef = useRef(bookmarkPage);
+  bookmarkRef.current = bookmarkPage;
+  useEffect(() => {
+    const un = onBookmarkShortcut(() => bookmarkRef.current());
+    return () => {
+      un.then((f) => f());
+    };
+  }, []);
   const configured = (id: string) => {
     const v = settings?.protections.find((p) => p.id === id)?.configured;
     return typeof v === "boolean" ? v : null;
@@ -175,6 +234,8 @@ export function App() {
         onPanel={setPanel}
         onPage={setPage}
         updateVersion={updateVersion}
+        bookmarked={!!tab && bookmarkedUrls.has(tab.url)}
+        onBookmark={bookmarkPage}
       />
       <main className="main">
         {page === "browse" && (
@@ -198,6 +259,22 @@ export function App() {
               />
             )}
             {panel === "downloads" && <DownloadsPanel downloads={snap.downloads} onClose={() => setPanel(null)} />}
+            {panel === "bookmarks" && (
+              <BookmarksPanel
+                view={bookmarks}
+                loadError={bookmarksError}
+                onView={setBookmarks}
+                editId={bookmarkEdit}
+                onEdit={setBookmarkEdit}
+                message={bookmarkMessage}
+                tab={tab}
+                onClose={() => {
+                  setPanel(null);
+                  setBookmarkEdit(null);
+                  setBookmarkMessage(null);
+                }}
+              />
+            )}
           </div>
         )}
         {page === "settings" && settings && (

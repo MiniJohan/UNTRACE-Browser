@@ -53,6 +53,15 @@
     "allow-selftest-last",
     "allow-audit-entries",
     "allow-audit-export",
-    "allow-report-save"
+    "allow-report-save",
+    "allow-bookmarks-get",
+    "allow-bookmark-add-tab",
+    "allow-bookmark-edit",
+    "allow-bookmark-remove",
+    "allow-bookmark-folder-add",
+    "allow-bookmark-move",
+    "allow-bookmarks-import",
+    "allow-bookmarks-export",
+    "allow-bookmarks-delete-all"
   ]
 }

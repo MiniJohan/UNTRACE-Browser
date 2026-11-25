@@ -113,6 +113,8 @@ pub enum HostEvent {
     FocusAddress,
     /// UNTRACE's own panel replaced the active page; keyboard focus must move to the UI.
     FocusPanel,
+    /// The user pressed Ctrl+D inside content: bookmark the page (D-055).
+    Bookmark,
 }
 
 pub type Notify = Rc<dyn Fn(HostEvent)>;
@@ -345,6 +347,10 @@ pub struct TabInfo {
     pub temporary: bool,
     /// How the page's own address was reached, from the network layer (M5).
     pub network: Option<PageNetwork>,
+    /// An empty tab the user opened (no address yet, or `about:blank`), not a page's pop-up.
+    /// Its page view is hidden and the UI draws the area in the theme's background: in dark
+    /// mode the engine paints blank pages its own grey.
+    pub new_tab_page: bool,
 }
 
 /// The network layer's view of a page's host (read from the proxy's record, not assumed).
@@ -645,6 +651,9 @@ struct Upgrade {
 
 struct Tab {
     info: TabInfo,
+    /// Opened by a page (a pop-up), not by the user. A page can write into its own blank
+    /// pop-up, so such a tab is never treated as an empty new tab.
+    from_page: bool,
     controller: Option<ICoreWebView2Controller>,
     webview: Option<ICoreWebView2>,
     pending_url: Option<String>,
@@ -841,7 +850,13 @@ fn blank_info(id: u32) -> TabInfo {
         site: None,
         temporary: false,
         network: None,
+        new_tab_page: false,
     }
+}
+
+/// An address that shows nothing: a tab that has not loaded yet, or the engine's blank page.
+fn is_blank_address(url: &str) -> bool {
+    url.is_empty() || url == "about:blank"
 }
 
 fn take_str(f: impl FnOnce(&mut PWSTR) -> windows::core::Result<()>) -> Option<String> {
@@ -1321,6 +1336,24 @@ impl ContentHost {
     }
 
     fn changed(&self) {
+        // An empty new tab hides its page view (TabInfo::new_tab_page); when the active tab
+        // starts or stops being one, the page view is shown or hidden.
+        let relayout = {
+            let mut i = self.inner.borrow_mut();
+            let active = i.active;
+            let mut relayout = false;
+            for t in i.tabs.iter_mut() {
+                let empty = !t.from_page && is_blank_address(&t.info.url);
+                if t.info.new_tab_page != empty {
+                    t.info.new_tab_page = empty;
+                    relayout |= Some(t.info.id) == active;
+                }
+            }
+            relayout
+        };
+        if relayout {
+            self.layout();
+        }
         let notify = self.inner.borrow().notify.clone();
         notify(HostEvent::Changed);
     }
@@ -1443,11 +1476,14 @@ impl ContentHost {
                 ));
                 i.temp_profile = Some((name, None));
             }
+            let from_page = on_ready.is_some();
             i.tabs.push(Tab {
                 info: TabInfo {
                     temporary,
+                    new_tab_page: !from_page,
                     ..blank_info(id)
                 },
+                from_page,
                 controller: None,
                 webview: None,
                 pending_url: url,
@@ -2370,15 +2406,16 @@ impl ContentHost {
                 .tabs
                 .iter()
                 .find(|t| Some(t.info.id) == i.active)
-                .map(|t| t.info.interstitial.is_some())
+                .map(|t| t.info.interstitial.is_some() || t.info.new_tab_page)
                 .unwrap_or(false);
             let ctrls: Vec<(ICoreWebView2Controller, bool)> = i
                 .tabs
                 .iter()
                 .filter_map(|t| t.controller.clone().map(|c| (c, Some(t.info.id) == i.active)))
                 .collect();
-            // While UNTRACE's own panel is shown, the page view and its container are hidden so
-            // the UI can draw in that area (D-021: the UI never draws over web content).
+            // While UNTRACE's own panel or an empty new tab is shown, the page view and its
+            // container are hidden so the UI can draw in that area (D-021: the UI never draws
+            // over web content).
             (i.container, i.rect, i.visible && !active_blocked, ctrls)
         };
         let (w, h) = ((rect.right - rect.left).max(1), (rect.bottom - rect.top).max(1));
@@ -4035,6 +4072,7 @@ impl ContentHost {
             Close,
             Next,
             Prev,
+            Bookmark,
         }
         let act = if (ctrl && !shift && !alt && key(b'L'))
             || (alt && !ctrl && key(b'D'))
@@ -4049,6 +4087,8 @@ impl ContentHost {
             Some(if shift { Act::Prev } else { Act::Next })
         } else if ctrl && shift && !alt && key(b'N') {
             Some(Act::NewTemporary) // never the engine's own InPrivate window
+        } else if ctrl && !shift && !alt && key(b'D') {
+            Some(Act::Bookmark)
         } else {
             None
         };
@@ -4083,6 +4123,10 @@ impl ContentHost {
             }
             Act::Next => h.cycle(true),
             Act::Prev => h.cycle(false),
+            Act::Bookmark => {
+                let notify = h.inner.borrow().notify.clone();
+                notify(HostEvent::Bookmark);
+            }
         });
     }
 }

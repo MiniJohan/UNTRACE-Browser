@@ -4,11 +4,13 @@
 //! - [`settings`] / [`store`]: versioned settings, validated on load, written atomically.
 //! - [`registry`]: protection definitions and the apply → observe → commit/revert flow.
 //! - [`audit`]: size-capped local audit log that never records URLs.
+//! - [`bookmarks`]: bookmarks on this computer only, and the standard bookmarks file format.
 
 #![forbid(unsafe_code)]
 
 pub mod address;
 pub mod audit;
+pub mod bookmarks;
 pub mod paths;
 pub mod policy;
 pub mod registry;

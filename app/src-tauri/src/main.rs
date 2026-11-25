@@ -7,6 +7,7 @@
 
 mod appearance;
 mod appupdate;
+mod bookmarks;
 mod commands;
 mod fetch;
 mod filters;
@@ -74,6 +75,8 @@ pub struct AppState {
     pub self_check: bool,
     /// M9: UNTRACE's own updates (D-016).
     pub app_updates: appupdate::AppUpdates,
+    /// D-055: the bookmarks, or why they could not be opened (the browser works without them).
+    pub bookmarks: Mutex<Result<untrace_core::bookmarks::BookmarkStore, String>>,
 }
 
 impl AppState {
@@ -112,11 +115,7 @@ pub fn content_background(app: &AppHandle, theme: Theme) -> [u8; 3] {
     let dark = match theme {
         Theme::Dark | Theme::Black => true,
         Theme::Light => false,
-        Theme::System => app
-            .get_webview_window("main")
-            .and_then(|w| w.theme().ok())
-            .map(|t| t == tauri::Theme::Dark)
-            .unwrap_or(true),
+        Theme::System => appearance::windows_dark(app),
     };
     if dark { [14, 14, 15] } else { [255, 255, 255] }
 }
@@ -192,6 +191,7 @@ fn on_host_event(app: &AppHandle, ev: HostEvent) {
         HostEvent::Changed => schedule_emit(app),
         HostEvent::FocusAddress => focus_ui(app, "focus-address"),
         HostEvent::FocusPanel => focus_ui(app, "focus-panel"),
+        HostEvent::Bookmark => focus_ui(app, "bookmark-shortcut"),
     }
 }
 
@@ -262,6 +262,7 @@ fn setup(app: &mut tauri::App, self_check: Option<PathBuf>) -> Result<(), Box<dy
         .on_new_window(|_, _| tauri::webview::NewWindowResponse::Deny)
         .build()?;
     harden_ui_view(&win);
+    appearance::apply_frame(win.app_handle());
 
     let (devtools, https_only, theme) = {
         let store = state.store.lock().unwrap();
@@ -465,6 +466,7 @@ fn main() {
         .unwrap_or_else(|e| fatal(&format!("UNTRACE could not open its block-list folder: {e}")));
     let exit_clear = privacy::ExitClear::open(layout.config.join("exit-clear.json"));
     let app_updates = appupdate::AppUpdates::open(layout.config.join("app-update.json"));
+    let bookmarks = bookmarks::open(&layout.config, &audit);
 
     let state = AppState {
         store: Mutex::new(store),
@@ -482,6 +484,7 @@ fn main() {
         selftest: selftest::SelfTest::default(),
         self_check: self_check.is_some(),
         app_updates,
+        bookmarks: Mutex::new(bookmarks),
     };
 
     // M9 (D-016): the official updater; it verifies every download's signature.
@@ -545,10 +548,20 @@ fn main() {
             commands::audit_entries,
             commands::audit_export,
             commands::report_save,
+            bookmarks::bookmarks_get,
+            bookmarks::bookmark_add_tab,
+            bookmarks::bookmark_edit,
+            bookmarks::bookmark_remove,
+            bookmarks::bookmark_folder_add,
+            bookmarks::bookmark_move,
+            bookmarks::bookmarks_import,
+            bookmarks::bookmarks_export,
+            bookmarks::bookmarks_delete_all,
         ])
         .setup(move |app| setup(app, self_check.clone()))
         .on_window_event(|w, e| match e {
             WindowEvent::ScaleFactorChanged { .. } | WindowEvent::Resized(_) => apply_bounds(w.app_handle()),
+            WindowEvent::ThemeChanged(_) => appearance::windows_theme_changed(w.app_handle()),
             WindowEvent::CloseRequested { api, .. } => {
                 // "Delete … when UNTRACE closes": the window hides, the engine clears, and the
                 // window is destroyed when it has finished.

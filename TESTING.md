@@ -82,6 +82,8 @@ Reference machine: Ryzen 5 3600 / 32 GB / Windows 11 (development machine) plus 
   | `cosmetic_rules` | hiding rules, selector safety (no `{`, `}`, `/*` in generated CSS), scripts | 713,895 | 1,987 | none |
   | `user_input` | address bar, search templates, site names, custom DoH (settings and network layer agree) | 838,459 | 6,435 | none |
   | `request_match` | request matching against the bundled lists | 844,456 | 7,991 | none |
+  | `bookmarks_file` (D-055, 2026-11-25, 3 min) | imported bookmarks files and a tampered `bookmarks.json`: stored invariants, stable validation, export → import round trip | 70,219 to the finding | 2,510 | **Finding:** a title cut at 300 characters could end in a space, so validating it again changed it. Harmless, but not stable. Fixed in `clean_title` (trim after the cut), regression case added |
+  | `bookmarks_file`, after the fix (5 min) | the same | 699,118 | 3,194 | none |
 - UI navigation lock: attempts to navigate the UI view to remote URLs fail.
 - Proxy: unauthenticated connections rejected; malformed requests do not crash; no connection accepted from non-loopback. **M5:** unit tests (`untrace-net`: 407 without or with wrong credentials, malformed heads → 400, 200,000 mutated heads per run without a panic and with the forwarding invariants intact, plain HTTP forwarded without proxy headers, backstop, rebinding guard, paused proxy closes connections) and self-check 39. The listener binds `127.0.0.1` only. Coverage-guided fuzzing is part of the M8 campaign.
 - Update: tampered manifest or bad signature → update refused. **M9:**

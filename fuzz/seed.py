@@ -51,6 +51,17 @@ put('settings_file', [
     '"address":"192.0.2.53"}}',
 ])
 
+# D-055: byte 0 even = an imported HTML file, odd = UNTRACE's own bookmarks.json.
+bm_html = open(os.path.join(ROOT, '..', 'crates', 'untrace-core', 'src', 'bookmarks.rs'), encoding='utf-8').read()
+bm_html = bm_html[bm_html.index('const CHROME: &str = r#"') + 24:]
+bm_html = bm_html[:bm_html.index('"#;')]
+put('bookmarks_file', [
+    b'\x00' + bm_html.encode(),
+    b'\x00<DL><DT><H3>A</H3><DL><DT><A HREF="https://a.example/?x=1&amp;y=2">A &#38; B</A></DL></DL>',
+    b'\x01{"schema":1,"next_id":3,"items":[{"kind":"bookmark","id":1,"title":"t","url":"https://e.example"},'
+    b'{"kind":"folder","id":2,"title":"F","items":[{"kind":"bookmark","id":2,"title":"","url":"javascript:x"}]}]}',
+])
+
 lists = [('easylist.txt', 0), ('easyprivacy.txt', 1), ('urlhaus-domains.txt', 2), ('phishing-domains.txt', 3)]
 put('block_list', [bytes([i]) + ''.join(l + '\n' for l in lines(n, lambda l: True, 60)).encode() for n, i in lists])
 

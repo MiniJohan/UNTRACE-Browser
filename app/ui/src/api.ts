@@ -77,6 +77,8 @@ export type TabInfo = {
   /** Temporary tab: nothing is kept after the last temporary tab closes. */
   temporary: boolean;
   network: PageNetwork | null;
+  /** An empty tab the user opened: its page view is hidden, the UI's background shows. */
+  newTabPage: boolean;
 };
 
 /** The engine's own security verdict for a page (read back, not assumed). */
@@ -361,6 +363,17 @@ export type Diagnostics = {
 
 export type Bounds = { x: number; y: number; width: number; height: number; visible: boolean };
 
+/** D-055: bookmarks, kept only on this computer. */
+export type Bookmark = { kind: "bookmark"; id: number; title: string; url: string; icon?: string; added: number };
+export type BookmarkFolder = { kind: "folder"; id: number; title: string; added: number; items: Bookmark[] };
+export type BookmarkItem = Bookmark | BookmarkFolder;
+export type BookmarksView = { items: BookmarkItem[]; count: number; max: number };
+export type BookmarkAdded = { id: number; created: boolean; view: BookmarksView };
+export type BookmarkImport = {
+  report: { added: number; foldersAdded: number; duplicates: number; unsupported: number; overLimit: number };
+  view: BookmarksView;
+};
+
 export const api = {
   uiReady: () => invoke<Bootstrap>("ui_ready"),
   welcomeDone: () => invoke<void>("welcome_done"),
@@ -421,6 +434,17 @@ export const api = {
   showDownload: (id: number) => invoke<void>("download_show", { id }),
   cancelDownload: (id: number) => invoke<void>("download_cancel", { id }),
   clearDownloads: () => invoke<void>("downloads_clear"),
+  bookmarks: () => invoke<BookmarksView>("bookmarks_get"),
+  bookmarkAddTab: (tabId: number) => invoke<BookmarkAdded>("bookmark_add_tab", { tabId }),
+  bookmarkEdit: (id: number, title: string, url: string | null) =>
+    invoke<BookmarksView>("bookmark_edit", { id, title, url }),
+  bookmarkRemove: (id: number) => invoke<BookmarksView>("bookmark_remove", { id }),
+  bookmarkFolderAdd: (title: string) => invoke<BookmarkAdded>("bookmark_folder_add", { title }),
+  bookmarkMove: (id: number, folder: number | null, index: number) =>
+    invoke<BookmarksView>("bookmark_move", { id, folder, index }),
+  bookmarksImport: () => invoke<BookmarkImport | null>("bookmarks_import"),
+  bookmarksExport: () => invoke<string | null>("bookmarks_export"),
+  bookmarksDeleteAll: () => invoke<BookmarksView>("bookmarks_delete_all"),
 };
 
 export const onTabs = (cb: (s: Snapshot) => void): Promise<UnlistenFn> =>
@@ -436,6 +460,9 @@ export const onFocusAddress = (cb: () => void): Promise<UnlistenFn> => listen("f
 
 /** UNTRACE's own panel replaced the page: focus its main button. */
 export const onFocusPanel = (cb: () => void): Promise<UnlistenFn> => listen("focus-panel", () => cb());
+
+/** Ctrl+D was pressed inside a page (D-055). */
+export const onBookmarkShortcut = (cb: () => void): Promise<UnlistenFn> => listen("bookmark-shortcut", () => cb());
 
 export function errorText(e: unknown): string {
   return typeof e === "string" ? e : e instanceof Error ? e.message : "Something went wrong.";

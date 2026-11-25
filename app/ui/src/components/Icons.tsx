@@ -40,3 +40,23 @@ export const Download = (p: P) => (
 export const Temporary = (p: P) => (
   <Svg {...p}><circle cx="8" cy="8" r="5.75" strokeDasharray="2.2 1.9" /><path d="M8 5.6v4.8M5.6 8h4.8" /></Svg>
 );
+export const Star = ({ filled, ...p }: P & { filled?: boolean }) => (
+  <Svg {...p}>
+    <path
+      d="M8 2.2l1.75 3.6 3.95.55-2.87 2.77.69 3.93L8 11.2l-3.52 1.85.69-3.93L2.3 6.35l3.95-.55Z"
+      fill={filled ? "currentColor" : "none"}
+    />
+  </Svg>
+);
+export const BookmarkList = (p: P) => (
+  <Svg {...p}><path d="M4 2.5h8v11L8 10.75 4 13.5Z" /></Svg>
+);
+export const Folder = (p: P) => (
+  <Svg {...p}><path d="M2 4.25c0-.7.55-1.25 1.25-1.25h3l1.5 1.75h5c.7 0 1.25.55 1.25 1.25v5.75c0 .7-.55 1.25-1.25 1.25h-9.5C2.55 13 2 12.45 2 11.75Z" /></Svg>
+);
+export const Chevron = ({ open, ...p }: P & { open?: boolean }) => (
+  <Svg {...p}><path d={open ? "M4 6l4 4 4-4" : "M6 4l4 4-4 4"} /></Svg>
+);
+export const Edit = (p: P) => (
+  <Svg {...p}><path d="M10.5 2.75l2.75 2.75L6 12.75H3.25V10Z" /></Svg>
+);

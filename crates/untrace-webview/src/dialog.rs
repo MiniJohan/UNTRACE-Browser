@@ -1,4 +1,4 @@
-//! Native Windows dialogs and shell actions used by the download manager.
+//! Native Windows dialogs and shell actions: the download manager, exports and imports.
 
 use std::path::{Path, PathBuf};
 
@@ -7,11 +7,12 @@ use windows::{
         Foundation::HWND,
         System::Com::{CLSCTX_INPROC_SERVER, CoCreateInstance, CoTaskMemFree},
         UI::Shell::{
-            FOS_FORCEFILESYSTEM, FOS_NOREADONLYRETURN, FOS_OVERWRITEPROMPT, FOS_STRICTFILETYPES, FileSaveDialog,
-            IFileSaveDialog, IShellItem, SHCreateItemFromParsingName, SIGDN_FILESYSPATH,
+            Common::COMDLG_FILTERSPEC, FOS_FILEMUSTEXIST, FOS_FORCEFILESYSTEM, FOS_NOREADONLYRETURN,
+            FOS_OVERWRITEPROMPT, FOS_PATHMUSTEXIST, FOS_STRICTFILETYPES, FileOpenDialog, FileSaveDialog,
+            IFileOpenDialog, IFileSaveDialog, IShellItem, SHCreateItemFromParsingName, SIGDN_FILESYSPATH,
         },
     },
-    core::HSTRING,
+    core::{HSTRING, PCWSTR},
 };
 
 /// Ask the user where to save a download. `None` if they cancel.
@@ -31,6 +32,31 @@ pub fn save_as(owner: HWND, suggested: &Path) -> Option<PathBuf> {
         {
             let _ = dlg.SetFolder(&item);
         }
+        dlg.Show(Some(owner)).ok()?; // Err when the user cancels
+        let item = dlg.GetResult().ok()?;
+        let p = item.GetDisplayName(SIGDN_FILESYSPATH).ok()?;
+        let path = p.to_string().ok().map(PathBuf::from);
+        CoTaskMemFree(Some(p.0 as *const _));
+        path
+    }
+}
+
+/// Ask the user for one existing file of one type, e.g. ("Bookmarks file", "*.html;*.htm").
+/// `None` if they cancel. UNTRACE reads only the file the user picks.
+pub fn open_file(owner: HWND, type_name: &str, pattern: &str) -> Option<PathBuf> {
+    let (name, spec) = (HSTRING::from(type_name), HSTRING::from(pattern));
+    let types = [COMDLG_FILTERSPEC {
+        pszName: PCWSTR(name.as_ptr()),
+        pszSpec: PCWSTR(spec.as_ptr()),
+    }];
+    // SAFETY: standard COM use of the Windows file dialog on the UI (STA) thread; the filter
+    // strings outlive the dialog; the returned path string is freed with CoTaskMemFree.
+    unsafe {
+        let dlg: IFileOpenDialog = CoCreateInstance(&FileOpenDialog, None, CLSCTX_INPROC_SERVER).ok()?;
+        let opts = dlg.GetOptions().ok()?;
+        dlg.SetOptions(opts | FOS_FORCEFILESYSTEM | FOS_FILEMUSTEXIST | FOS_PATHMUSTEXIST)
+            .ok()?;
+        let _ = dlg.SetFileTypes(&types);
         dlg.Show(Some(owner)).ok()?; // Err when the user cancels
         let item = dlg.GetResult().ok()?;
         let p = item.GetDisplayName(SIGDN_FILESYSPATH).ok()?;

@@ -82,3 +82,10 @@ path = "fuzz_targets/request_match.rs"
 test = false
 doc = false
 bench = false
+
+[[bin]]
+name = "bookmarks_file"
+path = "fuzz_targets/bookmarks_file.rs"
+test = false
+doc = false
+bench = false

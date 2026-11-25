@@ -372,6 +372,17 @@ Still open (product owner):
 
 Accounts, sync, cloud services, telemetry, VPN, antivirus, password manager, extension store, bookmarks sync, reading mode, AI features, "security score", system-wide DNS/proxy/firewall changes, TLS interception. Any addition requires a DECISIONS entry and product-owner approval.
 
+## After 1.0.0 · bookmarks and theme fixes · **built 2026-11-25** (D-055, D-053)
+
+The product owner asked for bookmarks and reported grey areas in the Black theme.
+- **Bookmarks (D-055):**
+  - A star in the address bar and Ctrl+D (also inside pages) add the page; a button beside the address bar opens the bookmarks panel.
+  - The panel has search, one-level folders, editing with Up and Down, import and export of the standard bookmarks file, and "Delete all".
+  - The icon is the one the page showed; nothing is fetched.
+  - Unit tests in `untrace-core::bookmarks`; fuzz target `bookmarks_file`.
+  - Tried by hand in a scratch data folder: Ctrl+D inside a page, rename, new folder, move into it, import of a Chrome-format file (2 entries skipped: a `javascript:` bookmarklet and a local file), search, export, re-import, the star on a page with its own icon.
+- **Theme fixes (D-053):** the Windows title bar takes the theme's colour; an empty tab shows the interface's background instead of the engine's grey blank page. Checked by sampling the screen in the Black theme: title bar `#060607` like the tab strip, empty tab `#000000`.
+
 ## Candidate post-v1 items (need approval)
 
-Bookmarks (local only), optional session restore, default-browser registration (explicit, reversible), ARM64 build, per-site containers beyond temporary sessions.
+Optional session restore, default-browser registration (explicit, reversible), ARM64 build, per-site containers beyond temporary sessions.

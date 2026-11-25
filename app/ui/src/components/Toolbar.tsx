@@ -1,10 +1,10 @@
 import { useEffect, useState, type RefObject } from "react";
 import { api, errorText, type DownloadInfo, type TabInfo } from "../api";
 import { connectionOf, isBlank } from "../util";
-import { Back, Close, Download, Forward, Gear, Info, Pulse, Reload } from "./Icons";
+import { Back, BookmarkList, Close, Download, Forward, Gear, Info, Pulse, Reload, Star } from "./Icons";
 
 export type Page = "browse" | "settings" | "diagnostics" | "data" | "activity" | "welcome" | "about";
-export type Panel = "site" | "downloads" | null;
+export type Panel = "site" | "downloads" | "bookmarks" | null;
 
 type Props = {
   tab: TabInfo | undefined;
@@ -16,9 +16,12 @@ type Props = {
   onPage: (p: Page) => void;
   /** M9: a newer UNTRACE is waiting to be installed. */
   updateVersion: string | null;
+  /** D-055: the page is bookmarked; the star adds it or opens its bookmark. */
+  bookmarked: boolean;
+  onBookmark: () => void;
 };
 
-export function Toolbar({ tab, page, panel, downloads, addressRef, onPanel, onPage, updateVersion }: Props) {
+export function Toolbar({ tab, page, panel, downloads, addressRef, onPanel, onPage, updateVersion, bookmarked, onBookmark }: Props) {
   const url = tab?.url ?? "";
   const shown = isBlank(url) ? "" : url;
   const [value, setValue] = useState(shown);
@@ -48,6 +51,7 @@ export function Toolbar({ tab, page, panel, downloads, addressRef, onPanel, onPa
   };
 
   const insecure = connectionOf(url) === "http";
+  const canBookmark = !!tab && !tab.newTabPage && !tab.interstitial && (connectionOf(url) === "https" || insecure);
   const active = downloads.filter((d) => d.state === "in_progress").length;
 
   return (
@@ -110,9 +114,33 @@ export function Toolbar({ tab, page, panel, downloads, addressRef, onPanel, onPa
             {hint}
           </span>
         )}
+        {canBookmark && !editing && (
+          <button
+            className={`icon-btn star-btn${bookmarked ? " on" : ""}`}
+            aria-label={bookmarked ? "Edit bookmark (Ctrl+D)" : "Bookmark this page (Ctrl+D)"}
+            aria-pressed={bookmarked}
+            title={bookmarked ? "Edit bookmark (Ctrl+D)" : "Bookmark this page (Ctrl+D)"}
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={onBookmark}
+          >
+            <Star filled={bookmarked} />
+          </button>
+        )}
       </div>
 
       <div className="tool-buttons">
+        <button
+          className={`icon-btn${panel === "bookmarks" && page === "browse" ? " on" : ""}`}
+          aria-label="Bookmarks"
+          aria-pressed={panel === "bookmarks" && page === "browse"}
+          title="Bookmarks"
+          onClick={() => {
+            onPage("browse");
+            onPanel(panel === "bookmarks" ? null : "bookmarks");
+          }}
+        >
+          <BookmarkList />
+        </button>
         {downloads.length > 0 && (
           <button
             className={`icon-btn${panel === "downloads" && page === "browse" ? " on" : ""}${active ? " busy" : ""}`}

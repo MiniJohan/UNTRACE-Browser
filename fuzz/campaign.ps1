@@ -11,6 +11,7 @@ $targets = @{
     cosmetic_rules = 65536
     user_input     = 4096
     request_match  = 4096
+    bookmarks_file = 65536
 }
 cargo +nightly fuzz build --sanitizer none | Out-Null
 $logs = Join-Path $PSScriptRoot 'logs'

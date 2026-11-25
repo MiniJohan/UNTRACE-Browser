@@ -50,6 +50,15 @@ const COMMANDS: &[&str] = &[
     "audit_entries",
     "audit_export",
     "report_save",
+    "bookmarks_get",
+    "bookmark_add_tab",
+    "bookmark_edit",
+    "bookmark_remove",
+    "bookmark_folder_add",
+    "bookmark_move",
+    "bookmarks_import",
+    "bookmarks_export",
+    "bookmarks_delete_all",
 ];
 
 fn main() {

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-bookmark-add-tab"
+description = "Enables the bookmark_add_tab command without any pre-configured scope."
+commands.allow = ["bookmark_add_tab"]
+
+[[permission]]
+identifier = "deny-bookmark-add-tab"
+description = "Denies the bookmark_add_tab command without any pre-configured scope."
+commands.deny = ["bookmark_add_tab"]

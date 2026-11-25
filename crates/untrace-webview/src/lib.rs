@@ -14,7 +14,7 @@ mod engine_files;
 mod host;
 
 pub use container::defer;
-pub use dialog::save_as;
+pub use dialog::{open_file, save_as};
 pub use engine_files::{ScrubReport, WEBRTC_PROXY_ONLY, scrub_engine_files};
 pub use host::{
     Blocked, BlockedHost, CertInfo, ClearKinds, ConnectionInfo, ContentHost, CookieSite, DEVTOOLS_ID, DownloadInfo,

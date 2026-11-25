@@ -901,3 +901,139 @@ select {
   border-color: var(--accent);
   color: var(--text);
 }
+
+/* ------------------------------------------------------------ bookmarks (D-055) */
+
+.star-btn {
+  width: 26px;
+  height: 26px;
+  margin-right: -6px;
+  color: var(--text-3);
+}
+.star-btn.on {
+  color: var(--accent);
+}
+.bm-search {
+  width: 100%;
+  margin: 4px 0 10px;
+}
+.bm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bm-inner {
+  margin: 2px 0 6px 14px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border);
+}
+.bm-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border-radius: var(--radius);
+}
+.bm-row:hover,
+.bm-row:focus-within {
+  background: var(--hover);
+}
+.bm-open {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.bm-icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+.bm-letter {
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 10px;
+  font-weight: 600;
+}
+.bm-folder-icon {
+  color: var(--text-2);
+}
+.bm-text {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+}
+.bm-title,
+.bm-host {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.bm-host {
+  font-size: 11px;
+  color: var(--text-3);
+}
+.bm-edit-btn {
+  opacity: 0;
+}
+.bm-row:hover .bm-edit-btn,
+.bm-row:focus-within .bm-edit-btn {
+  opacity: 1;
+}
+.bm-edit {
+  margin: 4px 0 8px;
+  padding: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.bm-edit .text-input,
+.bm-edit .select {
+  width: 100%;
+}
+.bm-edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.btn.danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+.bm-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 14px 0 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.bm-footer .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.bm-file-actions {
+  display: flex;
+  gap: 6px;
+}
+.bm-confirm {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+}
+.bm-delete-all {
+  color: var(--text-2);
+}

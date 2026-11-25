@@ -68,6 +68,20 @@ pub enum AuditEvent {
     AppUpdate {
         result: String,
     },
+    /// D-055: counts only, never addresses or titles.
+    BookmarksLoaded {
+        outcome: String,
+    },
+    BookmarksImported {
+        added: usize,
+        skipped: usize,
+    },
+    BookmarksExported {
+        count: usize,
+    },
+    BookmarksDeleted {
+        count: usize,
+    },
 }
 
 pub struct AuditLog {

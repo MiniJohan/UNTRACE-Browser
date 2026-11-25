@@ -15,6 +15,7 @@ export function isBlank(url: string): boolean {
 
 export function tabTitle(t: TabInfo): string {
   if (t.crashed) return "Page stopped";
+  if (t.newTabPage) return "New tab";
   return t.title.trim() || hostOf(t.url) || "New tab";
 }
 

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-bookmark-folder-add"
+description = "Enables the bookmark_folder_add command without any pre-configured scope."
+commands.allow = ["bookmark_folder_add"]
+
+[[permission]]
+identifier = "deny-bookmark-folder-add"
+description = "Denies the bookmark_folder_add command without any pre-configured scope."
+commands.deny = ["bookmark_folder_add"]

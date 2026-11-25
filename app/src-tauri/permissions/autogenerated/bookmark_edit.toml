@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-bookmark-edit"
+description = "Enables the bookmark_edit command without any pre-configured scope."
+commands.allow = ["bookmark_edit"]
+
+[[permission]]
+identifier = "deny-bookmark-edit"
+description = "Denies the bookmark_edit command without any pre-configured scope."
+commands.deny = ["bookmark_edit"]
