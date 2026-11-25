@@ -1,0 +1,8 @@
+# M3 overhead tail check: the slowest sites of the paired run, repeated.
+https://vimeo.com/
+https://www.microsoft.com/
+https://www.youtube.com/
+https://www.netflix.com/
+https://www.office.com/
+https://www.twitch.tv/
+https://www.amazon.com/

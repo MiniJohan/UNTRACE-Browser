@@ -1,0 +1,99 @@
+/* UNTRACE design tokens — grayscale, dark first. One restrained red, reserved for danger. */
+:root {
+  color-scheme: dark;
+  --bg: #0e0e0f;
+  --chrome: #141415;
+  --surface: #1a1a1c;
+  --surface-2: #232326;
+  --hover: rgba(255, 255, 255, 0.06);
+  --press: rgba(255, 255, 255, 0.1);
+  --border: #2a2a2d;
+  --border-strong: #3b3b40;
+  --text: #ededef;
+  --text-2: #a3a3a9;
+  --text-3: #6e6e75;
+  --danger: #ff5a4f;
+  --focus-ring: var(--accent-dark, rgba(255, 255, 255, 0.4));
+
+  /* Accent (Settings › Appearance, D-053). The app sets --accent-dark/-dark-on and
+     --accent-light/-light-on on the root for a coloured accent; without them (Grey) the
+     neutral look stays. --accent-mark underlines the active tab only for a colour. */
+  --accent: var(--accent-dark, var(--text));
+  --accent-on: var(--accent-dark-on, var(--bg));
+  --accent-mark: var(--accent-dark, transparent);
+
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, monospace;
+
+  --radius-s: 6px;
+  --radius: 8px;
+  --radius-l: 12px;
+
+  --t-fast: 120ms;
+  --t: 180ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --tabbar-h: 38px;
+  --toolbar-h: 44px;
+  --panel-w: 340px;
+}
+
+/* Black (D-053): true-black surfaces, the dark theme's text and accent shades. */
+:root[data-theme="black"] {
+  --bg: #000000;
+  --chrome: #060607;
+  --surface: #0d0d0e;
+  --surface-2: #161618;
+  --border: #1e1e21;
+  --border-strong: #2c2c31;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --chrome: #f4f4f5;
+  --surface: #ffffff;
+  --surface-2: #e9e9ec;
+  --hover: rgba(0, 0, 0, 0.05);
+  --press: rgba(0, 0, 0, 0.09);
+  --border: #e0e0e4;
+  --border-strong: #c9c9cf;
+  --text: #161618;
+  --text-2: #5b5b62;
+  --text-3: #8c8c93;
+  --danger: #d0281c;
+  --focus-ring: var(--accent-light, rgba(0, 0, 0, 0.4));
+  --accent: var(--accent-light, var(--text));
+  --accent-on: var(--accent-light-on, var(--bg));
+  --accent-mark: var(--accent-light, transparent);
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-theme="system"] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --chrome: #f4f4f5;
+    --surface: #ffffff;
+    --surface-2: #e9e9ec;
+    --hover: rgba(0, 0, 0, 0.05);
+    --press: rgba(0, 0, 0, 0.09);
+    --border: #e0e0e4;
+    --border-strong: #c9c9cf;
+    --text: #161618;
+    --text-2: #5b5b62;
+    --text-3: #8c8c93;
+    --danger: #d0281c;
+    --focus-ring: var(--accent-light, rgba(0, 0, 0, 0.4));
+    --accent: var(--accent-light, var(--text));
+    --accent-on: var(--accent-light-on, var(--bg));
+    --accent-mark: var(--accent-light, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0ms;
+    --t: 0ms;
+  }
+}

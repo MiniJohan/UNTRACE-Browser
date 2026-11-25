@@ -1,0 +1,63 @@
+# M1 compatibility corpus: diverse, popular sites; front pages only, no sign-ins.
+# Reference and news
+https://www.wikipedia.org/
+https://en.wikipedia.org/wiki/Web_browser
+https://www.bbc.com/news
+https://www.theguardian.com/international
+https://www.nytimes.com/
+https://www.reuters.com/
+https://www.svt.se/
+https://www.dn.se/
+https://www.aftonbladet.se/
+https://news.ycombinator.com/
+https://developer.mozilla.org/en-US/
+https://stackoverflow.com/questions
+# Public services (Sweden)
+https://www.1177.se/
+https://www.skatteverket.se/
+https://www.smhi.se/
+https://www.yr.no/
+# Video and media
+https://www.youtube.com/
+https://vimeo.com/
+https://www.twitch.tv/
+https://open.spotify.com/
+https://www.netflix.com/
+https://www.imdb.com/
+# Social and community
+https://www.reddit.com/
+https://x.com/
+https://www.instagram.com/
+https://www.linkedin.com/
+https://github.com/
+# Search and maps
+https://duckduckgo.com/?q=privacy
+https://www.bing.com/
+https://www.google.com/
+https://www.google.com/maps
+https://www.openstreetmap.org/
+# Shopping and travel
+https://www.amazon.com/
+https://www.ebay.com/
+https://www.ikea.com/se/sv/
+https://www.blocket.se/
+https://www.booking.com/
+https://www.airbnb.com/
+# Vendors and services
+https://www.apple.com/
+https://www.microsoft.com/
+https://www.spotify.com/
+https://www.cloudflare.com/
+https://www.speedtest.net/
+# Web apps and sign-in pages
+https://outlook.live.com/
+https://mail.proton.me/
+https://docs.google.com/
+https://www.office.com/
+https://www.figma.com/
+https://www.notion.so/
+https://www.canva.com/
+# Payments and banking (front pages only)
+https://www.paypal.com/
+https://www.swedbank.se/
+https://www.handelsbanken.se/

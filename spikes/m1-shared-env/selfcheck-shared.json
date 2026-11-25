@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "detail": null,
+      "name": "engine and UI ready",
+      "ok": true
+    },
+    {
+      "detail": {
+        "ipc": "undefined",
+        "origin": "https://selfcheck.untrace.invalid",
+        "tauri": "undefined",
+        "tauriInternals": "undefined",
+        "title": "UNTRACE self-check"
+      },
+      "name": "content views carry no Tauri globals",
+      "ok": true
+    },
+    {
+      "detail": {
+        "detail": "UNTRACE refuses to start elevated.",
+        "ok": true
+      },
+      "name": "Running without administrator rights",
+      "ok": true
+    },
+    {
+      "detail": {
+        "detail": "Loaded and validated at start.",
+        "ok": true
+      },
+      "name": "Settings file valid",
+      "ok": true
+    },
+    {
+      "detail": {
+        "detail": "Web messages and host objects disabled (read back from the engine).",
+        "ok": true
+      },
+      "name": "Content views have no host bridge",
+      "ok": true
+    },
+    {
+      "detail": {
+        "detail": "Read back from the engine.",
+        "ok": true
+      },
+      "name": "Password saving and autofill off",
+      "ok": true
+    },
+    {
+      "detail": {
+        "detail": "No visited-site information is sent to Microsoft Defender SmartScreen.",
+        "ok": true
+      },
+      "name": "SmartScreen off (default)",
+      "ok": true
+    },
+    {
+      "detail": {
+        "detail": "The engine was started without local crash reporting: crash dumps may be sent to Microsoft.",
+        "ok": false
+      },
+      "name": "Crash reports stay on this device",
+      "ok": false
+    },
+    {
+      "detail": {
+        "detail": "WebView2 keeps history on disk; UNTRACE clears it before each session.",
+        "ok": true
+      },
+      "name": "Browsing history cleared at start",
+      "ok": true
+    },
+    {
+      "detail": "Some(Verified(Bool(false)))",
+      "name": "developer tools read back as off",
+      "ok": true
+    },
+    {
+      "detail": {
+        "blocked_attempts": 1,
+        "ui_url": "http://tauri.localhost/"
+      },
+      "name": "UI view cannot navigate away",
+      "ok": true
+    },
+    {
+      "detail": {
+        "content_pixel": "#00a000",
+        "rect_dip": [
+          0.0,
+          82.0,
+          1280.0,
+          758.0
+        ],
+        "top_bar_pixel": "#141415"
+      },
+      "name": "content view visible in its area, UI not covered",
+      "ok": true
+    }
+  ],
+  "passed": false,
+  "untrace_version": "0.1.0"
+}

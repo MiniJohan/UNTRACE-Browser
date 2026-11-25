@@ -1,0 +1,68 @@
+﻿[
+    {
+        "run":  1,
+        "mode":  "dedicated",
+        "page_loaded":  true,
+        "webview2_processes":  12,
+        "browser_processes":  2,
+        "webview2_private_mb":  332.4,
+        "webview2_ws_mb":  646.8,
+        "untrace_private_mb":  5.8,
+        "by_type":  "ui/browser=37MB ui/crashpad-handler=2MB ui/gpu-process=91MB ui/utility=19MB ui/renderer=28MB content/browser=39MB content/crashpad-handler=2MB content/gpu-process=73MB content/utility=19MB content/renderer=22MB"
+    },
+    {
+        "run":  1,
+        "mode":  "shared",
+        "page_loaded":  true,
+        "webview2_processes":  7,
+        "browser_processes":  1,
+        "webview2_private_mb":  273.8,
+        "webview2_ws_mb":  401.1,
+        "untrace_private_mb":  5.7,
+        "by_type":  "ui/browser=47MB ui/crashpad-handler=2MB ui/gpu-process=157MB ui/utility=19MB ui/renderer=48MB"
+    },
+    {
+        "run":  2,
+        "mode":  "dedicated",
+        "page_loaded":  true,
+        "webview2_processes":  12,
+        "browser_processes":  2,
+        "webview2_private_mb":  395,
+        "webview2_ws_mb":  652.3,
+        "untrace_private_mb":  5.8,
+        "by_type":  "ui/browser=38MB ui/crashpad-handler=2MB ui/gpu-process=152MB ui/utility=18MB ui/renderer=28MB content/browser=39MB content/crashpad-handler=2MB content/gpu-process=74MB content/utility=19MB content/renderer=22MB"
+    },
+    {
+        "run":  2,
+        "mode":  "shared",
+        "page_loaded":  true,
+        "webview2_processes":  7,
+        "browser_processes":  1,
+        "webview2_private_mb":  274.6,
+        "webview2_ws_mb":  397.1,
+        "untrace_private_mb":  5.6,
+        "by_type":  "ui/browser=46MB ui/crashpad-handler=2MB ui/gpu-process=158MB ui/utility=20MB ui/renderer=47MB"
+    },
+    {
+        "run":  3,
+        "mode":  "dedicated",
+        "page_loaded":  true,
+        "webview2_processes":  12,
+        "browser_processes":  2,
+        "webview2_private_mb":  395.9,
+        "webview2_ws_mb":  662.4,
+        "untrace_private_mb":  5.8,
+        "by_type":  "ui/browser=37MB ui/crashpad-handler=2MB ui/gpu-process=153MB ui/utility=18MB ui/renderer=29MB content/browser=41MB content/crashpad-handler=2MB content/gpu-process=69MB content/utility=19MB content/renderer=25MB"
+    },
+    {
+        "run":  3,
+        "mode":  "shared",
+        "page_loaded":  true,
+        "webview2_processes":  7,
+        "browser_processes":  1,
+        "webview2_private_mb":  284.7,
+        "webview2_ws_mb":  396.6,
+        "untrace_private_mb":  5.8,
+        "by_type":  "ui/browser=47MB ui/crashpad-handler=2MB ui/gpu-process=164MB ui/utility=20MB ui/renderer=51MB"
+    }
+]

@@ -1,0 +1,14 @@
+[package]
+name = "untrace-filter"
+description = "UNTRACE network filtering: block-list catalog, validation, storage and matching (adblock-rust). No unsafe code, no network access."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+adblock.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+untrace-core.workspace = true

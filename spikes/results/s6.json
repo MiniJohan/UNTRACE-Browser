@@ -1,0 +1,219 @@
+{
+  "baseline_balanced": {
+    "level_read_back": 2,
+    "result": {
+      "frame_title_on_site_a": "\"got:hdr=H1; pix=P1; jsid=JS1\"",
+      "frame_title_on_site_b": "\"got:hdr=H1; pix=P1; jsid=JS1\"",
+      "third_party_cookies_sent_on_second_site": true,
+      "tracker_requests": [
+        {
+          "cookie_header": null,
+          "path": "/s6/frame.html?from=site-a-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/pixel.png?from=site-a-1800.test"
+        },
+        {
+          "cookie_header": "hdr=H1; pix=P1; jsid=JS1",
+          "path": "/s6/pixel.png?from=site-b-1800.test"
+        },
+        {
+          "cookie_header": "hdr=H1; pix=P1; jsid=JS1",
+          "path": "/s6/frame.html?from=site-b-1800.test"
+        }
+      ]
+    }
+  },
+  "cdp_set_cookie_controls": {
+    "call_full": "Ok(\"{}\")",
+    "call_minimal": "None",
+    "network_enable": "Ok(\"{}\")",
+    "result_same_view": {
+      "frame_title_on_site_a": "\"got:jsid=JS1\"",
+      "frame_title_on_site_b": "\"got:jsid=JS1\"",
+      "third_party_cookies_sent_on_second_site": false,
+      "tracker_requests": [
+        {
+          "cookie_header": null,
+          "path": "/s6/frame.html?from=site-a-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/pixel.png?from=site-a-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/pixel.png?from=site-b-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/frame.html?from=site-b-1800.test"
+        }
+      ]
+    },
+    "result_same_view_later_sites": {
+      "frame_title_on_site_a": "\"got:jsid=JS1; pix=P1; hdr=H1\"",
+      "frame_title_on_site_b": "\"got:jsid=JS1; pix=P1; hdr=H1\"",
+      "third_party_cookies_sent_on_second_site": false,
+      "tracker_requests": [
+        {
+          "cookie_header": null,
+          "path": "/s6/pixel.png?from=site-c-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/frame.html?from=site-c-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/pixel.png?from=site-d-1800.test"
+        },
+        {
+          "cookie_header": null,
+          "path": "/s6/frame.html?from=site-d-1800.test"
+        }
+      ]
+    },
+    "result_second_view_same_profile": {
+      "frame_title_on_site_a": "\"got:jsid=JS1; pix=P1; hdr=H1\"",
+      "frame_title_on_site_b": "\"got:jsid=JS1; pix=P1; hdr=H1\"",
+      "third_party_cookies_sent_on_second_site": true,
+      "tracker_requests": [
+        {
+          "cookie_header": "jsid=JS1",
+          "path": "/s6/pixel.png?from=site-c-1800.test"
+        },
+        {
+          "cookie_header": "jsid=JS1",
+          "path": "/s6/frame.html?from=site-c-1800.test"
+        },
+        {
+          "cookie_header": "jsid=JS1; pix=P1; hdr=H1",
+          "path": "/s6/pixel.png?from=site-d-1800.test"
+        },
+        {
+          "cookie_header": "jsid=JS1; pix=P1; hdr=H1",
+          "path": "/s6/frame.html?from=site-d-1800.test"
+        }
+      ]
+    }
+  },
+  "edge_tracking_prevention_vs_known_trackers": {
+    "balanced": {
+      "level_read_back": 2,
+      "neutral_third_party_loaded": true,
+      "proxy_saw": [
+        "connect CONNECT connect.facebook.net:443",
+        "connect CONNECT www.google-analytics.com:443",
+        "http GET b.scorecardresearch.com:80/s6/pixel.png",
+        "http GET b.scorecardresearch.com:80/s6/t.js",
+        "http GET cdn.taboola.com:80/s6/pixel.png",
+        "http GET cdn.taboola.com:80/s6/t.js",
+        "http GET ib.adnxs.com:80/s6/pixel.png",
+        "http GET ib.adnxs.com:80/s6/t.js",
+        "http GET pixel.quantserve.com:80/s6/pixel.png",
+        "http GET pixel.quantserve.com:80/s6/t.js",
+        "http GET script.hotjar.com:80/s6/pixel.png",
+        "http GET script.hotjar.com:80/s6/t.js",
+        "http GET static.criteo.net:80/s6/pixel.png",
+        "http GET static.criteo.net:80/s6/t.js"
+      ],
+      "trackers_reached": [
+        "b.scorecardresearch.com",
+        "cdn.taboola.com",
+        "ib.adnxs.com",
+        "pixel.quantserve.com",
+        "script.hotjar.com",
+        "static.criteo.net"
+      ]
+    },
+    "basic": {
+      "level_read_back": 1,
+      "neutral_third_party_loaded": true,
+      "proxy_saw": [
+        "connect CONNECT connect.facebook.net:443",
+        "connect CONNECT www.google-analytics.com:443",
+        "http GET b.scorecardresearch.com:80/s6/pixel.png",
+        "http GET b.scorecardresearch.com:80/s6/t.js",
+        "http GET cdn.taboola.com:80/s6/pixel.png",
+        "http GET cdn.taboola.com:80/s6/t.js",
+        "http GET ib.adnxs.com:80/s6/pixel.png",
+        "http GET ib.adnxs.com:80/s6/t.js",
+        "http GET pixel.quantserve.com:80/s6/pixel.png",
+        "http GET pixel.quantserve.com:80/s6/t.js",
+        "http GET script.hotjar.com:80/s6/pixel.png",
+        "http GET script.hotjar.com:80/s6/t.js",
+        "http GET static.criteo.net:80/s6/pixel.png",
+        "http GET static.criteo.net:80/s6/t.js"
+      ],
+      "trackers_reached": [
+        "b.scorecardresearch.com",
+        "cdn.taboola.com",
+        "ib.adnxs.com",
+        "pixel.quantserve.com",
+        "script.hotjar.com",
+        "static.criteo.net"
+      ]
+    },
+    "none": {
+      "level_read_back": 0,
+      "neutral_third_party_loaded": true,
+      "proxy_saw": [
+        "connect CONNECT connect.facebook.net:443",
+        "connect CONNECT www.google-analytics.com:443",
+        "http GET b.scorecardresearch.com:80/s6/pixel.png",
+        "http GET b.scorecardresearch.com:80/s6/t.js",
+        "http GET cdn.taboola.com:80/s6/pixel.png",
+        "http GET cdn.taboola.com:80/s6/t.js",
+        "http GET ib.adnxs.com:80/s6/pixel.png",
+        "http GET ib.adnxs.com:80/s6/t.js",
+        "http GET pixel.quantserve.com:80/s6/pixel.png",
+        "http GET pixel.quantserve.com:80/s6/t.js",
+        "http GET script.hotjar.com:80/s6/pixel.png",
+        "http GET script.hotjar.com:80/s6/t.js",
+        "http GET static.criteo.net:80/s6/pixel.png",
+        "http GET static.criteo.net:80/s6/t.js"
+      ],
+      "trackers_reached": [
+        "b.scorecardresearch.com",
+        "cdn.taboola.com",
+        "ib.adnxs.com",
+        "pixel.quantserve.com",
+        "script.hotjar.com",
+        "static.criteo.net"
+      ]
+    },
+    "strict": {
+      "level_read_back": 3,
+      "neutral_third_party_loaded": true,
+      "proxy_saw": [],
+      "trackers_reached": []
+    }
+  },
+  "proxy_refused_hosts": [
+    "CONNECT config.edge.skype.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT config.edge.skype.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443",
+    "CONNECT nav-edge.smartscreen.microsoft.com:443"
+  ],
+  "spike": "S6 third-party cookies"
+}

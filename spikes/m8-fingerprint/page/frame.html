@@ -1,0 +1,7 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="/fp/fp.js"></script>
+<script>
+  const ctx = new URLSearchParams(location.search).get('ctx');
+  FP.collect(ctx, self).then(d => parent.postMessage({ fpctx: ctx, data: d }, '*'));
+</script>

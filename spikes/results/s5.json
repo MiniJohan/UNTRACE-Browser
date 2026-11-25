@@ -1,0 +1,48 @@
+{
+  "crash": {
+    "custom_crash_reporting": true,
+    "failure_report_folder": "%USERPROFILE%\\AppData\\Local\\Temp\\claude\\4e39e8858bf503a2\\9d2901b2-b4bb-48ad-a558-cd138dae5c32\\scratchpad\\u\\s5-15284\\EBWebView\\Crashpad\\reports",
+    "files_after": 1,
+    "files_before": 0,
+    "page_crash_cdp": "Err(\"timeout\")"
+  },
+  "download": {
+    "download_starting_raised": true,
+    "file_written": true,
+    "suggested_path": "%USERPROFILE%\\Downloads\\spike-download.exe",
+    "zone_identifier": "[ZoneTransfer]\r\nZoneId=3\r\nHostUrl=https://dl-15284.test/s5/file.exe\u0000"
+  },
+  "history_clear_H": {
+    "clear_ok": true,
+    "disk_hits_after_clear": [
+      "EBWebView\\WV2Profile_persisth\\IndexedDB\\https_site-15284.test_0.indexeddb.leveldb\\000003.log",
+      "EBWebView\\WV2Profile_persisth\\Local Storage\\leveldb\\000003.log",
+      "EBWebView\\WV2Profile_persisth\\Service Worker\\CacheStorage\\9be0bd3ddb167b364f56b1f9dd8913da110cc6bc\\18fdcaef-0dbc-47e4-8e7f-1cb139606ed3\\194f368b091ca2ce_0"
+    ],
+    "page_stored": true
+  },
+  "inprivate_B": {
+    "cookies_visible_during_session": 2,
+    "disk_hits_after_close": [],
+    "page_stored": true,
+    "profile_dirs_named_tempb": [
+      "EBWebView\\WV2Profile_tempb"
+    ]
+  },
+  "isolation": {
+    "inprivate_C_sees_cookies": 0,
+    "persistent_D_sees_cookies": 0
+  },
+  "persistent_A": {
+    "cookies_visible": 2,
+    "disk_hits": [
+      "EBWebView\\WV2Profile_persista\\History",
+      "EBWebView\\WV2Profile_persista\\IndexedDB\\https_site-15284.test_0.indexeddb.leveldb\\000003.log",
+      "EBWebView\\WV2Profile_persista\\Local Storage\\leveldb\\000003.log",
+      "EBWebView\\WV2Profile_persista\\Service Worker\\CacheStorage\\9be0bd3ddb167b364f56b1f9dd8913da110cc6bc\\881eab1a-cd08-4eb8-a19c-63f73200c86f\\194f368b091ca2ce_0"
+    ],
+    "page_stored": true
+  },
+  "spike": "S5 sessions & storage",
+  "udf": "%USERPROFILE%\\AppData\\Local\\Temp\\claude\\4e39e8858bf503a2\\9d2901b2-b4bb-48ad-a558-cd138dae5c32\\scratchpad\\u\\s5-15284"
+}

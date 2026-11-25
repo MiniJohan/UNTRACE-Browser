@@ -1,0 +1,412 @@
+{
+  "csp_reports": 0,
+  "rule_build_ms": 45.4593,
+  "rules": {
+    "actions": 44,
+    "exceptions": 340,
+    "generic": 13638,
+    "genericByClassOrId": 13205,
+    "hosts": 8298,
+    "procedural": 294,
+    "scriptlets": 34,
+    "specific": 10520,
+    "unsupported": 1
+  },
+  "script_bytes": {
+    "all": 1364796,
+    "observe": 842555
+  },
+  "spike": "M6 cosmetic script cost and correctness",
+  "targets": {
+    "generic_class": "-advertsSidebar",
+    "generic_id": "AC_ad",
+    "specific_class": "banner",
+    "specific_host": "1001games.com"
+  },
+  "variants": [
+    {
+      "dcl_ms_median": 95.39999997615814,
+      "frame_script_started_ms_median": null,
+      "frame_setup_ms_median": null,
+      "generic_rules_matched_top_median": null,
+      "last_run": {
+        "done": true,
+        "nav": "Some(Nav { ok: true, status: 0 })",
+        "result": {
+          "dcl": 96.10000002384186,
+          "frames": [
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            },
+            {
+              "hidden": "block",
+              "stats": null
+            }
+          ],
+          "hidden": {
+            "control": "block",
+            "generic_class": "block",
+            "generic_id": "block",
+            "specific": "block"
+          },
+          "load": 271.80000001192093,
+          "stats": null
+        }
+      },
+      "load_event_ms_median": 267.69999998807907,
+      "runs": 9,
+      "top_script_started_ms_median": null,
+      "top_setup_ms_median": null,
+      "variant": "baseline"
+    },
+    {
+      "dcl_ms_median": 42.80000001192093,
+      "frame_script_started_ms_median": 157.89999997615814,
+      "frame_setup_ms_median": 0.30000001192092896,
+      "generic_rules_matched_top_median": null,
+      "last_run": {
+        "done": true,
+        "nav": "Some(Nav { ok: true, status: 0 })",
+        "result": {
+          "dcl": 41.5,
+          "frames": [
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.30000001192092896,
+                "started": 196.5999999642372
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.30000001192092896,
+                "started": 131.5
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.30000001192092896,
+                "started": 117.69999998807909
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.30000001192092896,
+                "started": 183.5999999642372
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.3999999761581421,
+                "started": 103.4000000357628
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.19999998807907104,
+                "started": 148.5
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.19999998807907104,
+                "started": 175.30000001192093
+              }
+            },
+            {
+              "hidden": "block",
+              "stats": {
+                "off": true,
+                "setupMs": 0.19999998807907104,
+                "started": 162.19999998807907
+              }
+            }
+          ],
+          "hidden": {
+            "control": "block",
+            "generic_class": "block",
+            "generic_id": "block",
+            "specific": "block"
+          },
+          "load": 298.60000002384186,
+          "stats": {
+            "off": true,
+            "setupMs": 0.30000001192092896,
+            "started": 22.30000001192093
+          }
+        }
+      },
+      "load_event_ms_median": 307.5,
+      "runs": 9,
+      "top_script_started_ms_median": 22.899999976158146,
+      "top_setup_ms_median": 0.19999998807907104,
+      "variant": "parse_only"
+    },
+    {
+      "dcl_ms_median": 76.19999998807907,
+      "frame_script_started_ms_median": 133.5,
+      "frame_setup_ms_median": 2.199999988079071,
+      "generic_rules_matched_top_median": 2.0,
+      "last_run": {
+        "done": true,
+        "nav": "Some(Nav { ok: true, status: 0 })",
+        "result": {
+          "dcl": 86.40000003576279,
+          "frames": [
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f7-18376.test",
+                "matched": 1,
+                "setupMs": 2.399999976158142,
+                "started": 200.69999998807907
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f0-18376.test",
+                "matched": 1,
+                "setupMs": 2.400000035762787,
+                "started": 90.5999999642372
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f5-18376.test",
+                "matched": 1,
+                "setupMs": 2.199999988079071,
+                "started": 133.5
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f3-18376.test",
+                "matched": 1,
+                "setupMs": 2.199999988079071,
+                "started": 143
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f2-18376.test",
+                "matched": 1,
+                "setupMs": 2.400000035762787,
+                "started": 97.5
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f4-18376.test",
+                "matched": 1,
+                "setupMs": 2.300000011920929,
+                "started": 157
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f1-18376.test",
+                "matched": 1,
+                "setupMs": 2.300000011920929,
+                "started": 89.59999996423721
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f6-18376.test",
+                "matched": 1,
+                "setupMs": 2.400000035762787,
+                "started": 179.69999998807907
+              }
+            }
+          ],
+          "hidden": {
+            "control": "block",
+            "generic_class": "none",
+            "generic_id": "none",
+            "specific": "none"
+          },
+          "load": 326.60000002384186,
+          "stats": {
+            "hide": 4,
+            "host": "1001games.com",
+            "matched": 2,
+            "setupMs": 1.699999988079071,
+            "started": 26.100000023841854
+          }
+        }
+      },
+      "load_event_ms_median": 308.89999997615814,
+      "runs": 9,
+      "top_script_started_ms_median": 22.599999964237213,
+      "top_setup_ms_median": 1.399999976158142,
+      "variant": "observe"
+    },
+    {
+      "dcl_ms_median": 45.30000001192093,
+      "frame_script_started_ms_median": 203.89999997615817,
+      "frame_setup_ms_median": 8.199999988079071,
+      "generic_rules_matched_top_median": 0.0,
+      "last_run": {
+        "done": true,
+        "nav": "Some(Nav { ok: true, status: 0 })",
+        "result": {
+          "dcl": 45.69999998807907,
+          "frames": [
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f7-18376.test",
+                "matched": 0,
+                "setupMs": 9.800000011920927,
+                "started": 118.89999997615814
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f3-18376.test",
+                "matched": 0,
+                "setupMs": 7.800000011920929,
+                "started": 168.89999997615814
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f1-18376.test",
+                "matched": 0,
+                "setupMs": 10.900000035762789,
+                "started": 195.80000001192093
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f4-18376.test",
+                "matched": 0,
+                "setupMs": 7.800000011920929,
+                "started": 215
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f0-18376.test",
+                "matched": 0,
+                "setupMs": 9.800000011920927,
+                "started": 147.0999999642372
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f5-18376.test",
+                "matched": 0,
+                "setupMs": 7.699999988079071,
+                "started": 234.30000001192093
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f6-18376.test",
+                "matched": 0,
+                "setupMs": 10.700000047683716,
+                "started": 274.7999999523163
+              }
+            },
+            {
+              "hidden": "none",
+              "stats": {
+                "hide": 0,
+                "host": "f2-18376.test",
+                "matched": 0,
+                "setupMs": 7.800000011920929,
+                "started": 256.2999999523163
+              }
+            }
+          ],
+          "hidden": {
+            "control": "block",
+            "generic_class": "none",
+            "generic_id": "none",
+            "specific": "none"
+          },
+          "load": 392.5,
+          "stats": {
+            "hide": 4,
+            "host": "1001games.com",
+            "matched": 0,
+            "setupMs": 8,
+            "started": 24.5
+          }
+        }
+      },
+      "load_event_ms_median": 382.89999997615814,
+      "runs": 9,
+      "top_script_started_ms_median": 24.399999976158146,
+      "top_setup_ms_median": 7.800000011920929,
+      "variant": "all"
+    }
+  ]
+}

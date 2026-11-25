@@ -1,0 +1,241 @@
+{
+  "legend": {
+    "csp_reports": "CSP violation reports received by the fixture",
+    "dyn": "computed display of .ad-banner after 1.5 s (none = hidden by dynamic rule)",
+    "early_dyn": "display of .ad-banner from a page script placed right after the element (none = hidden before first paint, no flash)",
+    "stat": "computed display of .ad-banner-static (only the extension's static CSS targets it)"
+  },
+  "spike": "S4 cosmetic vehicles",
+  "vehicles": {
+    "a1": {
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        }
+      },
+      "setup": "Ok(\"2\")",
+      "strict": {
+        "csp_reports": 2,
+        "frame": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        },
+        "main_world_error": "NetworkError: Failed to execute 'send' on 'XMLHttpRequest': Failed to load 'https://cosmetic.untrace.invalid/css?u=https%3A%2F%2Fsite-a-3276.test%2Fs4%2Fstrict.html'.",
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      }
+    },
+    "a2": {
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        }
+      },
+      "setup": "Ok(\"2\")",
+      "strict": {
+        "csp_reports": 2,
+        "frame": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        },
+        "main_world_error": "NetworkError: Failed to execute 'send' on 'XMLHttpRequest': Failed to load 'https://cosmetic.untrace.invalid/css?u=https%3A%2F%2Fsite-a-3276.test%2Fs4%2Fstrict.html'.",
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      }
+    },
+    "a3": {
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        }
+      },
+      "setup": "Ok(\"2\")",
+      "strict": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        }
+      }
+    },
+    "a4": {
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      },
+      "setup": "dynamic",
+      "strict": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "block"
+        }
+      }
+    },
+    "b1": {
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      },
+      "setup": "Ok(\"{\\\"identifier\\\":\\\"1\\\"}\")",
+      "strict": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      }
+    },
+    "baseline_no_vehicle": {
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      },
+      "strict": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "block",
+          "early_dyn": "block",
+          "stat": "block"
+        }
+      }
+    },
+    "c_extension": {
+      "add_extension": "Ok(()) id=Some(\"kgkgkgbachlcbaenopobjljgdnehpfbb\")",
+      "plain": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "block",
+          "stat": "none"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "block",
+          "stat": "none"
+        }
+      },
+      "strict": {
+        "csp_reports": 0,
+        "frame": {
+          "dyn": "none",
+          "early_dyn": "block",
+          "stat": "none"
+        },
+        "main_world_error": null,
+        "nav_ok": true,
+        "top": {
+          "dyn": "none",
+          "early_dyn": "none",
+          "stat": "none"
+        }
+      }
+    }
+  }
+}

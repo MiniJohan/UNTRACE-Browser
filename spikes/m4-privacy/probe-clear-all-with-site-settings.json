@@ -1,0 +1,151 @@
+{
+  "1_page": {
+    "href": "http://127.0.0.1:55982/landing?keep=1",
+    "names": [
+      "utm_source",
+      "fbclid"
+    ],
+    "params": 2,
+    "server_saw": [
+      "GET /landing?keep=1 HTTP/1.1",
+      "GET /favicon.ico HTTP/1.1"
+    ],
+    "tab_url": "http://127.0.0.1:55982/landing?keep=1"
+  },
+  "2_redirect": {
+    "href": "http://127.0.0.1:55982/landing?keep=1",
+    "params": 1,
+    "server_saw": [
+      "GET /r HTTP/1.1",
+      "GET /landing?keep=1 HTTP/1.1",
+      "GET /favicon.ico HTTP/1.1"
+    ]
+  },
+  "3_frame": {
+    "frame_href": "http://127.0.0.1:55982/landing?k=2",
+    "params": 1,
+    "server_saw": [
+      "GET /frame-host HTTP/1.1",
+      "GET /landing?k=2 HTTP/1.1",
+      "GET /favicon.ico HTTP/1.1"
+    ]
+  },
+  "4_post": {
+    "href": "http://127.0.0.1:55982/landing?utm_source=post&p=1",
+    "server_saw": [
+      "GET /form HTTP/1.1",
+      "GET /favicon.ico HTTP/1.1",
+      "POST /landing?utm_source=post&p=1 HTTP/1.1 body=a=b",
+      "GET /favicon.ico HTTP/1.1"
+    ]
+  },
+  "5_temporary": {
+    "cookie_sites_while_temp_open": {
+      "Ok": []
+    },
+    "files_with_std_marker (positive control)": [
+      "%USERPROFILE%/AppData/Local/Temp/claude/797e70fb143e49a2/6ebabd28-4377-42cd-bc36-8ff0724ccc95/scratchpad/m4probe-data\\EBWebView\\WV2Profile_standard\\IndexedDB\\http_127.0.0.1_55982.indexeddb.leveldb\\000003.log",
+      "%USERPROFILE%/AppData/Local/Temp/claude/797e70fb143e49a2/6ebabd28-4377-42cd-bc36-8ff0724ccc95/scratchpad/m4probe-data\\EBWebView\\WV2Profile_standard\\Local Storage\\leveldb\\000003.log"
+    ],
+    "files_with_temp_marker_after_close": [],
+    "normal_tab_sees": " | null",
+    "profile_folders_after_close": [
+      "AutoLaunchProtocolsComponent",
+      "CertificateRevocation",
+      "component_crx_cache",
+      "Crashpad",
+      "Default",
+      "GPUPersistentCache",
+      "GrShaderCache",
+      "hyphen-data",
+      "Last Version",
+      "Local State",
+      "Local Traces",
+      "lockfile",
+      "MEIPreload",
+      "OriginTrials",
+      "PKIMetadata",
+      "ShaderCache",
+      "SmartScreen",
+      "Speech Recognition",
+      "Subresource Filter",
+      "Trust Protection Lists",
+      "TrustTokenKeyCommitments",
+      "Variations",
+      "VariationsRuntimeSeedV2",
+      "VariationsSafeSeedV2",
+      "VariationsSeedV2",
+      "WidevineCdm",
+      "WV2Profile_standard",
+      "WV2Profile_temp-10bc1ab7317f5ade43aa13dd063b7d59"
+    ],
+    "profile_folders_while_open": [
+      "AutoLaunchProtocolsComponent",
+      "CertificateRevocation",
+      "component_crx_cache",
+      "Crashpad",
+      "Default",
+      "GPUPersistentCache",
+      "GrShaderCache",
+      "hyphen-data",
+      "Last Version",
+      "Local State",
+      "Local Traces",
+      "lockfile",
+      "MEIPreload",
+      "OriginTrials",
+      "PKIMetadata",
+      "ShaderCache",
+      "SmartScreen",
+      "Speech Recognition",
+      "Subresource Filter",
+      "Trust Protection Lists",
+      "TrustTokenKeyCommitments",
+      "Variations",
+      "VariationsRuntimeSeedV2",
+      "VariationsSafeSeedV2",
+      "VariationsSeedV2",
+      "WidevineCdm",
+      "WV2Profile_standard",
+      "WV2Profile_temp-10bc1ab7317f5ade43aa13dd063b7d59"
+    ],
+    "std_tracking_level": "balanced",
+    "temp_tab_sees": "m4temp=M4TEMPRESIDUE7731 | M4TEMPRESIDUE7731",
+    "temp_tracking_level": "balanced",
+    "worker_blocked_after_temp_worker": 1,
+    "worker_owner_std": 1
+  },
+  "6_cookies": {
+    "cache_clear": true,
+    "cookies_left_after_delete": {
+      "Ok": 0
+    },
+    "page_sees_after_delete": " | null",
+    "sites_before": {
+      "Ok": [
+        {
+          "cookies": 1,
+          "hosts": [
+            "127.0.0.1"
+          ],
+          "site": "127.0.0.1"
+        }
+      ]
+    }
+  },
+  "7_after_clear_all": {
+    "after_engine_closed": {
+      "files_naming_127.0.0.1": [
+        "%USERPROFILE%/AppData/Local/Temp/claude/797e70fb143e49a2/6ebabd28-4377-42cd-bc36-8ff0724ccc95/scratchpad/m4probe-data\\EBWebView\\WV2Profile_standard\\Preferences"
+      ],
+      "files_naming_host_and_port": [
+        "%USERPROFILE%/AppData/Local/Temp/claude/797e70fb143e49a2/6ebabd28-4377-42cd-bc36-8ff0724ccc95/scratchpad/m4probe-data\\EBWebView\\WV2Profile_standard\\Preferences"
+      ]
+    },
+    "cleared": true,
+    "files_naming_127.0.0.1_15s_after_clear": [
+      "%USERPROFILE%/AppData/Local/Temp/claude/797e70fb143e49a2/6ebabd28-4377-42cd-bc36-8ff0724ccc95/scratchpad/m4probe-data\\EBWebView\\WV2Profile_standard\\DIPS-wal",
+      "%USERPROFILE%/AppData/Local/Temp/claude/797e70fb143e49a2/6ebabd28-4377-42cd-bc36-8ff0724ccc95/scratchpad/m4probe-data\\EBWebView\\WV2Profile_standard\\Preferences"
+    ]
+  }
+}

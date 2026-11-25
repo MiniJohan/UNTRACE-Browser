@@ -1,0 +1,3604 @@
+{
+  "pairs": [
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1712,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1693,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 93,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1854,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1837,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 92,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 4359,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 4354,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 3206,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 3197,
+          "readyState": "complete",
+          "resources": 173,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 1
+    },
+    {
+      "first": "on",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2399,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1370,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2583,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1356,
+          "readyState": "complete",
+          "resources": 130,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://www.netflix.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1910,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1885,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 10,
+              "host": "logs.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "ichnaea-web.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.googletagmanager.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "analytics.tiktok.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "connect.facebook.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "js.adsrvr.org",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "sc-static.net",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 17,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1888,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1848,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "round": 1
+    },
+    {
+      "first": "on",
+      "input": "https://www.office.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1765,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1164,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            },
+            {
+              "count": 5,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "admin.microsoft.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 7,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1636,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1051,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1335,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1326,
+          "readyState": "complete",
+          "resources": 148,
+          "scripts": 123,
+          "textLength": 3373
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1248,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1239,
+          "readyState": "complete",
+          "resources": 148,
+          "scripts": 123,
+          "textLength": 3612
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 1
+    },
+    {
+      "first": "on",
+      "input": "https://www.amazon.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 373,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 247,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 7,
+              "host": "fls-na.amazon.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "m.media-amazon.com",
+              "threat": null
+            },
+            {
+              "count": 8,
+              "host": "unagi.amazon.com",
+              "threat": null
+            },
+            {
+              "count": 3,
+              "host": "unagi-na.amazon.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            },
+            {
+              "count": 2,
+              "host": "www.amazon.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 22,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 1656,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.amazon.com/",
+          "images": 70,
+          "loadEventMs": 1243,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 144,
+          "textLength": 4923
+        },
+        "started": true,
+        "title": "Amazon.com. Spend less. Smile more."
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1770,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1756,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 91,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 3202,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 3185,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 94,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 3277,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 3266,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 3643,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 3638,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 2
+    },
+    {
+      "first": "off",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2450,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1359,
+          "readyState": "complete",
+          "resources": 136,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2328,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1271,
+          "readyState": "complete",
+          "resources": 130,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://www.netflix.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 2103,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 2071,
+          "readyState": "complete",
+          "resources": 72,
+          "scripts": 17,
+          "textLength": 1660
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 10,
+              "host": "logs.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "ichnaea-web.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.googletagmanager.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "js.adsrvr.org",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "sc-static.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "connect.facebook.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "analytics.tiktok.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 17,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1798,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1785,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "round": 2
+    },
+    {
+      "first": "off",
+      "input": "https://www.office.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 2171,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1548,
+          "readyState": "complete",
+          "resources": 55,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            },
+            {
+              "count": 5,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "admin.microsoft.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 7,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1423,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1052,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1291,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1281,
+          "readyState": "complete",
+          "resources": 149,
+          "scripts": 123,
+          "textLength": 3356
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 3,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 6,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1162,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1157,
+          "readyState": "complete",
+          "resources": 148,
+          "scripts": 123,
+          "textLength": 3339
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 2
+    },
+    {
+      "first": "off",
+      "input": "https://www.amazon.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 378,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 303,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 268,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 244,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1733,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1716,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 92,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1777,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1764,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 93,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2966,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2961,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2359,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2348,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 3
+    },
+    {
+      "first": "on",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 1938,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 989,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 45,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 1906,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 917,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://www.netflix.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 2044,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 2019,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 10,
+              "host": "logs.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "ichnaea-web.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.googletagmanager.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "connect.facebook.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "js.adsrvr.org",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "analytics.tiktok.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "sc-static.net",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 17,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1893,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1851,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "round": 3
+    },
+    {
+      "first": "on",
+      "input": "https://www.office.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1453,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1052,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            },
+            {
+              "count": 5,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "admin.microsoft.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 7,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1645,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1204,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1181,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1174,
+          "readyState": "complete",
+          "resources": 149,
+          "scripts": 123,
+          "textLength": 3599
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1238,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1229,
+          "readyState": "complete",
+          "resources": 148,
+          "scripts": 123,
+          "textLength": 3362
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 3
+    },
+    {
+      "first": "on",
+      "input": "https://www.amazon.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 265,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 249,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 325,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 304,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1846,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1833,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 97,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1907,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1890,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 94,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2753,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2743,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2497,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2492,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 4
+    },
+    {
+      "first": "off",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2318,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1287,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2409,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1340,
+          "readyState": "complete",
+          "resources": 144,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://www.netflix.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1936,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1905,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 10,
+              "host": "logs.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "ichnaea-web.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.googletagmanager.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "analytics.tiktok.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "connect.facebook.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "js.adsrvr.org",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "sc-static.net",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 17,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1917,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1891,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "round": 4
+    },
+    {
+      "first": "off",
+      "input": "https://www.office.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1515,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1078,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            },
+            {
+              "count": 5,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "admin.microsoft.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 7,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1451,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1018,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1269,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1259,
+          "readyState": "complete",
+          "resources": 149,
+          "scripts": 123,
+          "textLength": 3352
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 3,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 6,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1175,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1165,
+          "readyState": "complete",
+          "resources": 158,
+          "scripts": 123,
+          "textLength": 3366
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 4
+    },
+    {
+      "first": "off",
+      "input": "https://www.amazon.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 320,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 281,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 333,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 239,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1682,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1658,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 93,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1921,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1907,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 94,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2584,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2579,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2779,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2767,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 5
+    },
+    {
+      "first": "on",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2455,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1399,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2386,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1325,
+          "readyState": "complete",
+          "resources": 131,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://www.netflix.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1882,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1857,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 10,
+              "host": "logs.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "ichnaea-web.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.googletagmanager.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "js.adsrvr.org",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "sc-static.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "analytics.tiktok.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "connect.facebook.net",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 17,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1776,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1755,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "round": 5
+    },
+    {
+      "first": "on",
+      "input": "https://www.office.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1450,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1008,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            },
+            {
+              "count": 5,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "admin.microsoft.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 7,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 2885,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 2321,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1347,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1341,
+          "readyState": "complete",
+          "resources": 146,
+          "scripts": 123,
+          "textLength": 3345
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1299,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1285,
+          "readyState": "complete",
+          "resources": 148,
+          "scripts": 123,
+          "textLength": 3374
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 5
+    },
+    {
+      "first": "on",
+      "input": "https://www.amazon.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 267,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 304,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 378,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 256,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1905,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1891,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 94,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1870,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1852,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 91,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2894,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2883,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2293,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2288,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 6
+    },
+    {
+      "first": "off",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2503,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1284,
+          "readyState": "complete",
+          "resources": 111,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 2315,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1271,
+          "readyState": "complete",
+          "resources": 128,
+          "scripts": 45,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://www.netflix.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 2075,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 2032,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 10,
+              "host": "logs.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "ichnaea-web.netflix.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.googletagmanager.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "analytics.tiktok.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "connect.facebook.net",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "js.adsrvr.org",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "sc-static.net",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 17,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.netflix.com/se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.netflix.com/",
+        "interstitial": null,
+        "load_ms": 1930,
+        "probe": {
+          "frames": 5,
+          "href": "https://www.netflix.com/se/",
+          "images": 4,
+          "loadEventMs": 1904,
+          "readyState": "complete",
+          "resources": 66,
+          "scripts": 15,
+          "textLength": 1668
+        },
+        "started": true,
+        "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+      },
+      "round": 6
+    },
+    {
+      "first": "off",
+      "input": "https://www.office.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1906,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1252,
+          "readyState": "complete",
+          "resources": 58,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "threat": null
+            },
+            {
+              "count": 6,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "admin.microsoft.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 8,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://m365.cloud.microsoft/sv-se/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.office.com/",
+        "interstitial": null,
+        "load_ms": 1762,
+        "probe": {
+          "frames": 1,
+          "href": "https://m365.cloud.microsoft/sv-se/",
+          "images": 21,
+          "loadEventMs": 1230,
+          "readyState": "complete",
+          "resources": 59,
+          "scripts": 29,
+          "textLength": 3827
+        },
+        "started": true,
+        "title": "Microsoft 365 – Logga in på Copilot"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1233,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1223,
+          "readyState": "complete",
+          "resources": 159,
+          "scripts": 123,
+          "textLength": 3357
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 3,
+              "host": "browser.events.data.microsoft.com",
+              "threat": null
+            },
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 6,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1273,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1268,
+          "readyState": "complete",
+          "resources": 147,
+          "scripts": 123,
+          "textLength": 3343
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 6
+    },
+    {
+      "first": "off",
+      "input": "https://www.amazon.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 404,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 322,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://www.amazon.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.amazon.com/",
+        "interstitial": null,
+        "load_ms": 279,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.amazon.com/",
+          "images": 0,
+          "loadEventMs": 238,
+          "readyState": "complete",
+          "resources": 2,
+          "scripts": 0,
+          "textLength": 146
+        },
+        "started": true,
+        "title": "Amazon.com"
+      },
+      "round": 6
+    }
+  ],
+  "summary": {
+    "blocked_requests_per_page": {
+      "max": 22.0,
+      "median": 5.0,
+      "total": 248.0
+    },
+    "failed": [],
+    "load_event_ms": {
+      "median_change_pct": -2.5,
+      "off": {
+        "median": 1359.0,
+        "p95": 2883.0
+      },
+      "on": {
+        "median": 1325.0,
+        "p95": 2767.0
+      },
+      "on_faster_in": 28,
+      "p95_change_pct": -4.0,
+      "paired_ratio_on_over_off": {
+        "median": 0.947,
+        "p95": 1.221
+      },
+      "pairs": 42
+    },
+    "load_ms": {
+      "median_change_pct": 0.4,
+      "off": {
+        "median": 1846.0,
+        "p95": 2894.0
+      },
+      "on": {
+        "median": 1854.0,
+        "p95": 2885.0
+      },
+      "on_faster_in": 25,
+      "p95_change_pct": -0.3,
+      "paired_ratio_on_over_off": {
+        "median": 0.972,
+        "p95": 1.416
+      },
+      "pairs": 42
+    },
+    "pairs_loaded_both": 42,
+    "pairs_total": 42,
+    "resources_per_page": {
+      "off_median": 116.0,
+      "on_median": 117.0
+    }
+  }
+}

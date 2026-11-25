@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-about-get"
+description = "Enables the about_get command without any pre-configured scope."
+commands.allow = ["about_get"]
+
+[[permission]]
+identifier = "deny-about-get"
+description = "Denies the about_get command without any pre-configured scope."
+commands.deny = ["about_get"]

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-tab-cycle"
+description = "Enables the tab_cycle command without any pre-configured scope."
+commands.allow = ["tab_cycle"]
+
+[[permission]]
+identifier = "deny-tab-cycle"
+description = "Denies the tab_cycle command without any pre-configured scope."
+commands.deny = ["tab_cycle"]

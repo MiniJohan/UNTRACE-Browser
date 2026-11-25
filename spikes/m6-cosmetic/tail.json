@@ -1,0 +1,5060 @@
+{
+  "mode": "paired-hide",
+  "pairs": [
+    {
+      "first": "on",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 3836,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1536,
+          "readyState": "complete",
+          "resources": 129,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/?themeRefresh=1",
+        "finished": true,
+        "http_status": null,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 5004,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/?themeRefresh=1",
+          "images": 3,
+          "loadEventMs": 0,
+          "readyState": "loading",
+          "resources": 16,
+          "scripts": 27,
+          "textLength": 0
+        },
+        "started": false,
+        "title": "YouTube"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2708,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 2667,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 101,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1989,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1950,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 99,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 1
+    },
+    {
+      "first": "on",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 2272,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 2261,
+          "readyState": "complete",
+          "resources": 155,
+          "scripts": 123,
+          "textLength": 3506
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1311,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1304,
+          "readyState": "complete",
+          "resources": 145,
+          "scripts": 123,
+          "textLength": 3503
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 1307,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 1299,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2351,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2335,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 1
+    },
+    {
+      "first": "on",
+      "input": "https://www.instagram.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 1399,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 1385,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 1105,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 1083,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://www.ikea.com/se/sv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 1625,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 1615,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 11957
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 3954,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 3942,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12206
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "round": 1
+    },
+    {
+      "first": "on",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2137,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2126,
+          "readyState": "complete",
+          "resources": 181,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 8306,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 8301,
+          "readyState": "complete",
+          "resources": 183,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://www.notion.so/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 2976,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 2969,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 2747,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 2737,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 72,
+          "textLength": 3747
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 16817,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 8008,
+          "readyState": "complete",
+          "resources": 134,
+          "scripts": 45,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 5345,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 3489,
+          "readyState": "complete",
+          "resources": 129,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2301,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 2247,
+          "readyState": "complete",
+          "resources": 115,
+          "scripts": 101,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1810,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1768,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 95,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 2
+    },
+    {
+      "first": "off",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1529,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1524,
+          "readyState": "complete",
+          "resources": 109,
+          "scripts": 144,
+          "textLength": 3242
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 3870,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 3861,
+          "readyState": "complete",
+          "resources": 123,
+          "scripts": 144,
+          "textLength": 3251
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2240,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2222,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2738,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2731,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 2
+    },
+    {
+      "first": "off",
+      "input": "https://www.instagram.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 856,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 845,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 2315,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 2301,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://www.ikea.com/se/sv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 1520,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 1508,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12159
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 1364,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 1355,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12060
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "round": 2
+    },
+    {
+      "first": "off",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 4457,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 4453,
+          "readyState": "complete",
+          "resources": 182,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 3465,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 3456,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://www.notion.so/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 1053,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 1045,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "browser.events.data.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 2038,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 2032,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 10826,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 1546,
+          "readyState": "complete",
+          "resources": 134,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "",
+        "finished": true,
+        "http_status": null,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 5005,
+        "probe": {
+          "frames": 0,
+          "href": "about:blank",
+          "images": 0,
+          "loadEventMs": 6,
+          "readyState": "complete",
+          "resources": 0,
+          "scripts": 0,
+          "textLength": 0
+        },
+        "started": false,
+        "title": ""
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 4579,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 4535,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 93,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2119,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 2075,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 97,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 3
+    },
+    {
+      "first": "on",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 2046,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 2036,
+          "readyState": "complete",
+          "resources": 157,
+          "scripts": 123,
+          "textLength": 3276
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1976,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1972,
+          "readyState": "complete",
+          "resources": 144,
+          "scripts": 123,
+          "textLength": 3514
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 1002,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 998,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2351,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2335,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 3
+    },
+    {
+      "first": "on",
+      "input": "https://www.instagram.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 2729,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 2716,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 1421,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 1400,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://www.ikea.com/se/sv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 4959,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 4948,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12111
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 3822,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 3810,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12072
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "round": 3
+    },
+    {
+      "first": "on",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 1809,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 1798,
+          "readyState": "complete",
+          "resources": 182,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 6291,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 6286,
+          "readyState": "complete",
+          "resources": 179,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://www.notion.so/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "browser.events.data.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 881,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 875,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 3000,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 2990,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 9689,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 4822,
+          "readyState": "complete",
+          "resources": 121,
+          "scripts": 44,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 5555,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 3975,
+          "readyState": "complete",
+          "resources": 91,
+          "scripts": 46,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1722,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1673,
+          "readyState": "complete",
+          "resources": 115,
+          "scripts": 92,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 4259,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 4231,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 91,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 4
+    },
+    {
+      "first": "off",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1726,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1721,
+          "readyState": "complete",
+          "resources": 132,
+          "scripts": 144,
+          "textLength": 3235
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "cloudflare.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 4937,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 4927,
+          "readyState": "complete",
+          "resources": 161,
+          "scripts": 123,
+          "textLength": 3285
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2040,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2026,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 3505,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 3497,
+          "readyState": "complete",
+          "resources": 141,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 4
+    },
+    {
+      "first": "off",
+      "input": "https://www.instagram.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 799,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 790,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 1015,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 991,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://www.ikea.com/se/sv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 5036,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 5023,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 11935
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 2865,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 2851,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12014
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "round": 4
+    },
+    {
+      "first": "off",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2874,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2869,
+          "readyState": "complete",
+          "resources": 179,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 3055,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 3043,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://www.notion.so/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 800,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 790,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "browser.events.data.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 1685,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 1678,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 9415,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 8,
+          "loadEventMs": 6133,
+          "readyState": "complete",
+          "resources": 130,
+          "scripts": 47,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "",
+        "finished": true,
+        "http_status": null,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 5008,
+        "probe": {
+          "frames": 0,
+          "href": "about:blank",
+          "images": 0,
+          "loadEventMs": 7,
+          "readyState": "complete",
+          "resources": 0,
+          "scripts": 0,
+          "textLength": 0
+        },
+        "started": false,
+        "title": ""
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1852,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1810,
+          "readyState": "complete",
+          "resources": 115,
+          "scripts": 93,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1823,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1775,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 94,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 5
+    },
+    {
+      "first": "on",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1658,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 1649,
+          "readyState": "complete",
+          "resources": 145,
+          "scripts": 124,
+          "textLength": 3269
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 2299,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 2292,
+          "readyState": "complete",
+          "resources": 155,
+          "scripts": 123,
+          "textLength": 3268
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2181,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2171,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2492,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2473,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 5
+    },
+    {
+      "first": "on",
+      "input": "https://www.instagram.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 1516,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 1502,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 690,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 681,
+          "readyState": "complete",
+          "resources": 42,
+          "scripts": 117,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://www.ikea.com/se/sv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 3943,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 3934,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12082
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 7744,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 7733,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12197
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "round": 5
+    },
+    {
+      "first": "on",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 3421,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 3409,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 4106,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 4101,
+          "readyState": "complete",
+          "resources": 179,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://www.notion.so/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "browser.events.data.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 788,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 782,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 1728,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 1719,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://www.youtube.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 5233,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 4,
+          "loadEventMs": 1726,
+          "readyState": "complete",
+          "resources": 126,
+          "scripts": 40,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.youtube.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.youtube.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.youtube.com/",
+        "interstitial": null,
+        "load_ms": 4852,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.youtube.com/",
+          "images": 4,
+          "loadEventMs": 2070,
+          "readyState": "complete",
+          "resources": 130,
+          "scripts": 43,
+          "textLength": 1914
+        },
+        "started": true,
+        "title": "YouTube"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2064,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 2027,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 98,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 5188,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 5155,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 98,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 6
+    },
+    {
+      "first": "off",
+      "input": "https://www.twitch.tv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 2988,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 38,
+          "loadEventMs": 2983,
+          "readyState": "complete",
+          "resources": 129,
+          "scripts": 123,
+          "textLength": 3528
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "edge.ads.twitch.tv",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "s.amazon-adsystem.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.twitch.tv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.twitch.tv/",
+        "interstitial": null,
+        "load_ms": 1574,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.twitch.tv/",
+          "images": 37,
+          "loadEventMs": 1564,
+          "readyState": "complete",
+          "resources": 13,
+          "scripts": 172,
+          "textLength": 3182
+        },
+        "started": true,
+        "title": "Twitch"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 1918,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 1892,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 5477,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 5471,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 6
+    },
+    {
+      "first": "off",
+      "input": "https://www.instagram.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 2296,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 2286,
+          "readyState": "complete",
+          "resources": 40,
+          "scripts": 105,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 2,
+              "host": "gew4-spclient.spotify.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 7,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 10,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.instagram.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.instagram.com/",
+        "interstitial": null,
+        "load_ms": 1335,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.instagram.com/",
+          "images": 1,
+          "loadEventMs": 1321,
+          "readyState": "complete",
+          "resources": 38,
+          "scripts": 113,
+          "textLength": 2872
+        },
+        "started": true,
+        "title": "Instagram"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://www.ikea.com/se/sv/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.instagram.com",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 1,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 3950,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 3938,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12090
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.ikea.com/se/sv/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.ikea.com/se/sv/",
+        "interstitial": null,
+        "load_ms": 3231,
+        "probe": {
+          "frames": 0,
+          "href": "https://www.ikea.com/se/sv/",
+          "images": 163,
+          "loadEventMs": 3221,
+          "readyState": "complete",
+          "resources": 250,
+          "scripts": 85,
+          "textLength": 12091
+        },
+        "started": true,
+        "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+      },
+      "round": 6
+    },
+    {
+      "first": "off",
+      "input": "https://www.microsoft.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 4462,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 4456,
+          "readyState": "complete",
+          "resources": 177,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "rum.hlx.page",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.clarity.ms",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.microsoft.com/sv-se",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.microsoft.com/",
+        "interstitial": null,
+        "load_ms": 2264,
+        "probe": {
+          "frames": 2,
+          "href": "https://www.microsoft.com/sv-se",
+          "images": 24,
+          "loadEventMs": 2253,
+          "readyState": "complete",
+          "resources": 175,
+          "scripts": 147,
+          "textLength": 3435
+        },
+        "started": true,
+        "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://www.notion.so/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 3,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 1481,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 1470,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "browser.events.data.microsoft.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "www.notion.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "http-inputs-notion.splunkcloud.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o324374.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://www.notion.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://www.notion.so/",
+        "interstitial": null,
+        "load_ms": 1308,
+        "probe": {
+          "frames": 1,
+          "href": "https://www.notion.com/",
+          "images": 106,
+          "loadEventMs": 1301,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 72,
+          "textLength": 3920
+        },
+        "started": true,
+        "title": "A shared brain for your team and agents. | Notion"
+      },
+      "round": 6
+    }
+  ],
+  "summary": {
+    "blocked_requests_per_page": {
+      "max": 10.0,
+      "median": 3.0,
+      "total": 165.0
+    },
+    "failed": [
+      {
+        "input": "https://www.youtube.com/",
+        "off": {
+          "http": 200,
+          "loaded": true
+        },
+        "on": {
+          "http": null,
+          "loaded": false
+        },
+        "round": 1
+      },
+      {
+        "input": "https://www.youtube.com/",
+        "off": {
+          "http": 200,
+          "loaded": true
+        },
+        "on": {
+          "http": null,
+          "loaded": false
+        },
+        "round": 3
+      },
+      {
+        "input": "https://www.youtube.com/",
+        "off": {
+          "http": 200,
+          "loaded": true
+        },
+        "on": {
+          "http": null,
+          "loaded": false
+        },
+        "round": 5
+      }
+    ],
+    "load_event_ms": {
+      "median_change_pct": 15.2,
+      "off": {
+        "median": 2027.0,
+        "p95": 4822.0
+      },
+      "on": {
+        "median": 2335.0,
+        "p95": 5471.0
+      },
+      "on_faster_in": 21,
+      "p95_change_pct": 13.5,
+      "paired_ratio_on_over_off": {
+        "median": 1.139,
+        "p95": 2.892
+      },
+      "pairs": 45
+    },
+    "load_ms": {
+      "median_change_pct": 20.7,
+      "off": {
+        "median": 2064.0,
+        "p95": 5036.0
+      },
+      "on": {
+        "median": 2492.0,
+        "p95": 5555.0
+      },
+      "on_faster_in": 22,
+      "p95_change_pct": 10.3,
+      "paired_ratio_on_over_off": {
+        "median": 1.063,
+        "p95": 2.86
+      },
+      "pairs": 45
+    },
+    "pairs_loaded_both": 45,
+    "pairs_total": 48,
+    "resources_per_page": {
+      "off_median": 138.0,
+      "on_median": 138.0
+    }
+  }
+}

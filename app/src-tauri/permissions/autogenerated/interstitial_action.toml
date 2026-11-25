@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-interstitial-action"
+description = "Enables the interstitial_action command without any pre-configured scope."
+commands.allow = ["interstitial_action"]
+
+[[permission]]
+identifier = "deny-interstitial-action"
+description = "Denies the interstitial_action command without any pre-configured scope."
+commands.deny = ["interstitial_action"]

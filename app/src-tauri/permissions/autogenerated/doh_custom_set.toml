@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-doh-custom-set"
+description = "Enables the doh_custom_set command without any pre-configured scope."
+commands.allow = ["doh_custom_set"]
+
+[[permission]]
+identifier = "deny-doh-custom-set"
+description = "Denies the doh_custom_set command without any pre-configured scope."
+commands.deny = ["doh_custom_set"]

@@ -1,0 +1,84 @@
+# M8 fuzzing campaign (D-050): coverage-guided fuzzing with cargo-fuzz (libFuzzer) on a
+# nightly toolchain. Test tooling only: not part of the UNTRACE build or workspace.
+#
+#   cargo +nightly fuzz run --sanitizer none <target> -- -max_total_time=600
+#
+# --sanitizer none: this machine's Visual Studio has no AddressSanitizer runtime; build.rs
+# supplies what libFuzzer needs instead. The targeted code is safe Rust.
+#
+# See TESTING.md §5 and spikes/m8-fingerprint/RESULTS.md for the runs and what they found.
+[package]
+name = "untrace-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+serde_json = "1.0.154"
+untrace-core = { path = "../crates/untrace-core" }
+untrace-filter = { path = "../crates/untrace-filter" }
+untrace-net = { path = "../crates/untrace-net" }
+
+# Windows without the ASan runtime: section boundaries for libFuzzer (build.rs).
+[build-dependencies]
+cc = "1"
+
+# Its own workspace, so the product workspace never builds it.
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "proxy_head"
+path = "fuzz_targets/proxy_head.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "web_urls"
+path = "fuzz_targets/web_urls.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "settings_file"
+path = "fuzz_targets/settings_file.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "block_list"
+path = "fuzz_targets/block_list.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "cosmetic_rules"
+path = "fuzz_targets/cosmetic_rules.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "user_input"
+path = "fuzz_targets/user_input.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "request_match"
+path = "fuzz_targets/request_match.rs"
+test = false
+doc = false
+bench = false

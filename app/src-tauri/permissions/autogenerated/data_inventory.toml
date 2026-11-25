@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-data-inventory"
+description = "Enables the data_inventory command without any pre-configured scope."
+commands.allow = ["data_inventory"]
+
+[[permission]]
+identifier = "deny-data-inventory"
+description = "Denies the data_inventory command without any pre-configured scope."
+commands.deny = ["data_inventory"]

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "UNTRACE",
+  "version": "0.1.0",
+  "identifier": "org.untrace.desktop",
+  "build": {
+    "frontendDist": "../ui/dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src ipc: http://ipc.localhost; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'",
+      "freezePrototype": true,
+      "capabilities": [
+        "main-window"
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "icons/icon.ico"
+    ],
+    "publisher": "UNTRACE",
+    "category": "Utility",
+    "shortDescription": "A privacy browser for Windows",
+    "longDescription": "UNTRACE blocks ads and trackers, warns before malware and phishing sites, keeps DNS and WebRTC inside its own network layer and tells you plainly what it does and does not do.",
+    "license": "MPL-2.0",
+    "licenseFile": "../../LICENSE",
+    "resources": {
+      "THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt"
+    },
+    "windows": {
+      "webviewInstallMode": {
+        "type": "embedBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": [
+          "English"
+        ],
+        "displayLanguageSelector": false,
+        "installerHooks": "./installer-hooks.nsh"
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDlBOUJFQTYxQ0MzNUE3N0YKUldSL3B6WE1ZZXFibXI1dXc5S05Ua2VhTTJaME9IOXQ4R3JhSkFyblRJQlpGQXpualhZVFNxV3UK",
+      "endpoints": [
+        "https://github.com/MiniJohan/UNTRACE-Browser/releases/latest/download/latest.json"
+      ],
+      "requireSignedVersion": true,
+      "allowDowngrades": false,
+      "windows": {
+        "installMode": "passive"
+      }
+    }
+  }
+}

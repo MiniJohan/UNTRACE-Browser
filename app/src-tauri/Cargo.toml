@@ -1,0 +1,40 @@
+[package]
+name = "untrace"
+description = "UNTRACE — minimal, local-first privacy browser for Windows"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "untrace"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+tauri.workspace = true
+tauri-plugin-single-instance.workspace = true
+tauri-plugin-updater.workspace = true
+untrace-core.workspace = true
+untrace-filter.workspace = true
+untrace-net.workspace = true
+untrace-webview.workspace = true
+url.workspace = true
+webview2-com.workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Gdi",
+    "Win32_Networking_WinHttp",
+    "Win32_Security",
+    "Win32_Storage_Xps",
+    "Win32_System_Threading",
+    "Win32_UI_WindowsAndMessaging",
+]

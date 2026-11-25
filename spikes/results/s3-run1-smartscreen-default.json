@@ -1,0 +1,61 @@
+{
+  "browser_args": "--proxy-server=http://127.0.0.1:60721 --proxy-bypass-list=<-loopback>",
+  "control_no_proxy_nav": "Some(Nav { ok: false, status: 13 })",
+  "fail_closed": {
+    "direct_loopback_nav_after_proxy_stop": "Some(Nav { ok: false, status: 0 })",
+    "fixture_requests_after_stop": [],
+    "named_nav_after_proxy_stop": "Some(Nav { ok: false, status: 0 })"
+  },
+  "fixture_served": [
+    "a-8224.test/s3/page.html tls=false ",
+    "ws-8224.test/s3/socket tls=false (websocket upgrade)",
+    "127.0.0.1/s3/loopback tls=false ",
+    "b-8224.test/s3/img.png tls=true ",
+    "a-8224.test/favicon.ico tls=false "
+  ],
+  "os_dns_cache_entries_for_test_names": [],
+  "page_script_done": true,
+  "proxied_nav": "Some(Nav { ok: false, status: 18 })",
+  "proxy_events_by_kind": {
+    "auth-challenge": [
+      "CONNECT config.edge.skype.com:443",
+      "CONNECT nav-edge.smartscreen.microsoft.com:443",
+      "GET a-8224.test:80",
+      "CONNECT nav-edge.smartscreen.microsoft.com:443",
+      "CONNECT config.edge.skype.com:443"
+    ],
+    "connect": [
+      "CONNECT b-8224.test:443",
+      "CONNECT ws-8224.test:80",
+      "CONNECT leak2-8224.test:443",
+      "CONNECT b-8224.test:443"
+    ],
+    "http": [
+      "GET a-8224.test:80/s3/page.html",
+      "GET 127.0.0.1:60719/s3/loopback",
+      "GET a-8224.test:80/favicon.ico"
+    ]
+  },
+  "runtime_background_hosts_refused": [],
+  "spike": "S3 proxy & DNS",
+  "windows_doh_api": [
+    {
+      "a_records": [],
+      "ms": 0.0087,
+      "name": "example.com",
+      "query_status": 0,
+      "status": 87,
+      "template": "https://dns.quad9.net/dns-query",
+      "udp_fallback": false
+    },
+    {
+      "a_records": [],
+      "ms": 0.00009999999999999999,
+      "name": "example.com",
+      "query_status": 0,
+      "status": 87,
+      "template": "https://dns.quad9.net/not-a-doh-path",
+      "udp_fallback": false
+    }
+  ]
+}

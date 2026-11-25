@@ -1,0 +1,63 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>rtc</title>
+<body>
+<script>
+// WebRTC probe: does the engine send UDP outside UNTRACE's network layer? The STUN "servers"
+// are a UDP listener on this computer's LAN address (counted by the test server) and a name
+// under .invalid (looked for in the engine's net-log). Then: does a direct data channel
+// between two peers in this page still open?
+(async function () {
+  const p = new URLSearchParams(location.search);
+  const run = p.get('run') || 'unnamed';
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const R = { run: run, kind: 'rtc' };
+  try {
+    const urls = [];
+    if (p.get('lan')) urls.push('stun:' + p.get('lan') + ':' + p.get('port'));
+    if (p.get('name')) urls.push('stun:' + p.get('name') + ':' + p.get('port'));
+    const pc = new RTCPeerConnection({ iceServers: [{ urls: urls }] });
+    pc.createDataChannel('probe');
+    const cands = [];
+    pc.onicecandidate = e => { if (e.candidate && e.candidate.candidate) cands.push(e.candidate.candidate); };
+    pc.onicecandidateerror = e => { (R.iceErrors = R.iceErrors || []).push(e.errorCode + ' ' + (e.url || '') + ' ' + e.errorText); };
+    await pc.setLocalDescription(await pc.createOffer());
+    await sleep(6000);
+    R.gathering = pc.iceGatheringState;
+    R.candidates = cands.map(c => {
+      const f = c.split(' ');
+      return { protocol: f[2], type: f[7], address: (f[4] || '').endsWith('.local') ? '(mdns name)' : f[4] };
+    });
+    pc.close();
+  } catch (e) {
+    R.error = e.name + ': ' + e.message;
+  }
+  R.loopbackChannel = await (async () => {
+    try {
+      const a = new RTCPeerConnection();
+      const b = new RTCPeerConnection();
+      a.onicecandidate = e => { if (e.candidate) b.addIceCandidate(e.candidate); };
+      b.onicecandidate = e => { if (e.candidate) a.addIceCandidate(e.candidate); };
+      const ch = a.createDataChannel('x');
+      const got = new Promise(r => { b.ondatachannel = e => { e.channel.onmessage = m => r(m.data); }; });
+      ch.onopen = () => ch.send('hello');
+      await a.setLocalDescription(await a.createOffer());
+      await b.setRemoteDescription(a.localDescription);
+      await b.setLocalDescription(await b.createAnswer());
+      await a.setRemoteDescription(b.localDescription);
+      const r = await Promise.race([got.then(x => 'opened, message: ' + x), sleep(8000).then(() => 'TIMEOUT')]);
+      a.close();
+      b.close();
+      return r;
+    } catch (e) {
+      return 'ERR:' + e.name;
+    }
+  })();
+  window.__fp = R;
+  try {
+    await fetch('/fp/result?run=' + encodeURIComponent(run), { method: 'POST', body: JSON.stringify(R) });
+  } catch (e) {}
+  document.title = 'fp-done';
+})();
+</script>
+</body>

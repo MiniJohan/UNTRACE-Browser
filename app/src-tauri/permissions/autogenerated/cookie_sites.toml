@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-cookie-sites"
+description = "Enables the cookie_sites command without any pre-configured scope."
+commands.allow = ["cookie_sites"]
+
+[[permission]]
+identifier = "deny-cookie-sites"
+description = "Denies the cookie_sites command without any pre-configured scope."
+commands.deny = ["cookie_sites"]

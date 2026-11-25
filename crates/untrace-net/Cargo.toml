@@ -1,0 +1,24 @@
+[package]
+name = "untrace-net"
+description = "UNTRACE network layer (M5): loopback proxy for the content engine, name resolution through the Windows DNS client (DNS over HTTPS), local-address rules and read-only DNS diagnostics. No TLS interception."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+untrace-filter.workspace = true
+
+[dependencies.windows]
+workspace = true
+features = [
+    "Win32_Foundation",
+    "Win32_NetworkManagement_Dns",
+    "Win32_NetworkManagement_IpHelper",
+    "Win32_NetworkManagement_Ndis",
+    "Win32_Networking_WinSock",
+    "Win32_Security_Cryptography",
+    "Win32_System_Registry",
+]

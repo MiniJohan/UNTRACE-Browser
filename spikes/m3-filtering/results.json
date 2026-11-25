@@ -1,0 +1,2442 @@
+[
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.wikipedia.org/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.wikipedia.org/",
+    "interstitial": null,
+    "load_ms": 5,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.wikipedia.org/",
+      "images": 7,
+      "loadEventMs": 686,
+      "readyState": "complete",
+      "resources": 7,
+      "scripts": 4,
+      "textLength": 2007
+    },
+    "started": true,
+    "title": "Wikipedia"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "en.wikipedia.org",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 1,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://en.wikipedia.org/wiki/Web_browser",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://en.wikipedia.org/wiki/Web_browser",
+    "interstitial": null,
+    "load_ms": 488,
+    "probe": {
+      "frames": 0,
+      "href": "https://en.wikipedia.org/wiki/Web_browser",
+      "images": 12,
+      "loadEventMs": 486,
+      "readyState": "complete",
+      "resources": 38,
+      "scripts": 5,
+      "textLength": 20365
+    },
+    "started": true,
+    "title": "Web browser - Wikipedia"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "uk-script.dotmetrics.net",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "cdn.privacy-mgmt.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 2,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.bbc.com/news",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.bbc.com/news",
+    "interstitial": null,
+    "load_ms": 450,
+    "probe": {
+      "frames": 3,
+      "href": "https://www.bbc.com/news",
+      "images": 33,
+      "loadEventMs": 445,
+      "readyState": "complete",
+      "resources": 90,
+      "scripts": 75,
+      "textLength": 7682
+    },
+    "started": true,
+    "title": "BBC News - Breaking news, video and the latest top stories from the U.S. and around the world"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 11,
+          "host": "ophan.theguardian.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "sourcepoint.theguardian.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 12,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.theguardian.com/international",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.theguardian.com/international",
+    "interstitial": null,
+    "load_ms": 623,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.theguardian.com/international",
+      "images": 115,
+      "loadEventMs": 618,
+      "readyState": "complete",
+      "resources": 105,
+      "scripts": 21,
+      "textLength": 18687
+    },
+    "started": true,
+    "title": "Latest news, sport and opinion from the Guardian"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": "The page could not be loaded.",
+    "final_url": "https://www.nytimes.com/",
+    "finished": true,
+    "http_status": 403,
+    "input": "https://www.nytimes.com/",
+    "interstitial": {
+      "host": "www.nytimes.com",
+      "kind": "load_error",
+      "reason": "The page could not be loaded.",
+      "url": "https://www.nytimes.com/"
+    },
+    "load_ms": 1308,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.nytimes.com/",
+      "images": 0,
+      "loadEventMs": 1298,
+      "readyState": "complete",
+      "resources": 3,
+      "scripts": 2,
+      "textLength": 0
+    },
+    "started": true,
+    "title": "nytimes.com"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": "The page could not be loaded.",
+    "final_url": "https://www.reuters.com/",
+    "finished": true,
+    "http_status": 401,
+    "input": "https://www.reuters.com/",
+    "interstitial": {
+      "host": "www.reuters.com",
+      "kind": "load_error",
+      "reason": "The page could not be loaded.",
+      "url": "https://www.reuters.com/"
+    },
+    "load_ms": 484,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.reuters.com/",
+      "images": 0,
+      "loadEventMs": 476,
+      "readyState": "complete",
+      "resources": 3,
+      "scripts": 2,
+      "textLength": 0
+    },
+    "started": true,
+    "title": "reuters.com"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "analytics.codigo.se",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o98317.ingest.us.sentry.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 2,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.svt.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.svt.se/",
+    "interstitial": null,
+    "load_ms": 774,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.svt.se/",
+      "images": 148,
+      "loadEventMs": 770,
+      "readyState": "complete",
+      "resources": 62,
+      "scripts": 13,
+      "textLength": 10747
+    },
+    "started": true,
+    "title": "SVT Nyheter"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "o98317.ingest.us.sentry.io",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "tracking.dn.se",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "securepubads.g.doubleclick.net",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "assets.bonad.io",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "micro.rubiconproject.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "imasdk.googleapis.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 6,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.dn.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.dn.se/",
+    "interstitial": null,
+    "load_ms": 948,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.dn.se/",
+      "images": 113,
+      "loadEventMs": 944,
+      "readyState": "complete",
+      "resources": 43,
+      "scripts": 26,
+      "textLength": 17561
+    },
+    "started": true,
+    "title": "Dagens Nyheter – senaste nyheterna från Sverige och världen"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "adsdk.microsoft.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "ib.adnxs.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "ads.inventory.schibsted.io",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "dc.schibsted.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 4,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.aftonbladet.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.aftonbladet.se/",
+    "interstitial": null,
+    "load_ms": 737,
+    "probe": {
+      "frames": 6,
+      "href": "https://www.aftonbladet.se/",
+      "images": 46,
+      "loadEventMs": 731,
+      "readyState": "complete",
+      "resources": 130,
+      "scripts": 60,
+      "textLength": 3398
+    },
+    "started": true,
+    "title": "Aftonbladet"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://news.ycombinator.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://news.ycombinator.com/",
+    "interstitial": null,
+    "load_ms": 1083,
+    "probe": {
+      "frames": 0,
+      "href": "https://news.ycombinator.com/",
+      "images": 2,
+      "loadEventMs": 1079,
+      "readyState": "complete",
+      "resources": 6,
+      "scripts": 1,
+      "textLength": 4000
+    },
+    "started": true,
+    "title": "Hacker News"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "developer.mozilla.org",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 1,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://developer.mozilla.org/en-US/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://developer.mozilla.org/en-US/",
+    "interstitial": null,
+    "load_ms": 265,
+    "probe": {
+      "frames": 0,
+      "href": "https://developer.mozilla.org/en-US/",
+      "images": 1,
+      "loadEventMs": 255,
+      "readyState": "complete",
+      "resources": 66,
+      "scripts": 6,
+      "textLength": 5088
+    },
+    "started": true,
+    "title": "MDN Web Docs"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "stackoverflow.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.googletagmanager.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "securepubads.g.doubleclick.net",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "htlbid.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 5,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://stackoverflow.com/questions",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://stackoverflow.com/questions",
+    "interstitial": null,
+    "load_ms": 327,
+    "probe": {
+      "frames": 0,
+      "href": "https://stackoverflow.com/questions",
+      "images": 18,
+      "loadEventMs": 827,
+      "readyState": "complete",
+      "resources": 62,
+      "scripts": 60,
+      "textLength": 8766
+    },
+    "started": true,
+    "title": "Newest Questions - Stack Overflow"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "webanalytics.inera.se",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 1,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.1177.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.1177.se/",
+    "interstitial": null,
+    "load_ms": 579,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.1177.se/",
+      "images": 9,
+      "loadEventMs": 575,
+      "readyState": "complete",
+      "resources": 34,
+      "scripts": 12,
+      "textLength": 3063
+    },
+    "started": true,
+    "title": "1177"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.skatteverket.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.skatteverket.se/",
+    "interstitial": null,
+    "load_ms": 498,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.skatteverket.se/",
+      "images": 5,
+      "loadEventMs": 489,
+      "readyState": "complete",
+      "resources": 44,
+      "scripts": 44,
+      "textLength": 2040
+    },
+    "started": true,
+    "title": "Startsida | Skatteverket"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.smhi.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.smhi.se/",
+    "interstitial": null,
+    "load_ms": 497,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.smhi.se/",
+      "images": 25,
+      "loadEventMs": 491,
+      "readyState": "complete",
+      "resources": 90,
+      "scripts": 103,
+      "textLength": 7823
+    },
+    "started": true,
+    "title": "SMHI"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "data.nrk.no",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "log.medietall.no",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "ssl-nrk.tns-cs.net",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.yr.no/nb",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.yr.no/",
+    "interstitial": null,
+    "load_ms": 574,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.yr.no/nb",
+      "images": 30,
+      "loadEventMs": 568,
+      "readyState": "complete",
+      "resources": 53,
+      "scripts": 20,
+      "textLength": 3309
+    },
+    "started": true,
+    "title": "Yr"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "www.youtube.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 1,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.youtube.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.youtube.com/",
+    "interstitial": null,
+    "load_ms": 2333,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.youtube.com/",
+      "images": 8,
+      "loadEventMs": 1296,
+      "readyState": "complete",
+      "resources": 135,
+      "scripts": 45,
+      "textLength": 1914
+    },
+    "started": true,
+    "title": "YouTube"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 4,
+          "host": "arclight.vimeo.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "vimeo.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 5,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://vimeo.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://vimeo.com/",
+    "interstitial": null,
+    "load_ms": 1669,
+    "probe": {
+      "frames": 2,
+      "href": "https://vimeo.com/",
+      "images": 129,
+      "loadEventMs": 1640,
+      "readyState": "complete",
+      "resources": 116,
+      "scripts": 91,
+      "textLength": 9492
+    },
+    "started": true,
+    "title": "Vimeo - All-in-One Video Platform"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "edge.ads.twitch.tv",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "s.amazon-adsystem.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.twitch.tv/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.twitch.tv/",
+    "interstitial": null,
+    "load_ms": 1255,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.twitch.tv/",
+      "images": 39,
+      "loadEventMs": 1250,
+      "readyState": "complete",
+      "resources": 148,
+      "scripts": 123,
+      "textLength": 3204
+    },
+    "started": true,
+    "title": "Twitch"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "open.spotifycdn.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o22381.ingest.sentry.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 2,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://open.spotify.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://open.spotify.com/",
+    "interstitial": null,
+    "load_ms": 1701,
+    "probe": {
+      "frames": 2,
+      "href": "https://open.spotify.com/",
+      "images": 40,
+      "loadEventMs": 1694,
+      "readyState": "complete",
+      "resources": 138,
+      "scripts": 16,
+      "textLength": 2088
+    },
+    "started": true,
+    "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "o22381.ingest.sentry.io",
+          "threat": null
+        },
+        {
+          "count": 10,
+          "host": "logs.netflix.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.netflix.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "ichnaea-web.netflix.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.googletagmanager.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "connect.facebook.net",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "analytics.tiktok.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "js.adsrvr.org",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "sc-static.net",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 18,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.netflix.com/se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.netflix.com/",
+    "interstitial": null,
+    "load_ms": 2053,
+    "probe": {
+      "frames": 5,
+      "href": "https://www.netflix.com/se/",
+      "images": 4,
+      "loadEventMs": 2045,
+      "readyState": "complete",
+      "resources": 72,
+      "scripts": 17,
+      "textLength": 1668
+    },
+    "started": true,
+    "title": "Netflix Sverige – Titta på serier online, titta på filmer online"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 4,
+          "host": "m.media-amazon.com",
+          "threat": null
+        },
+        {
+          "count": 3,
+          "host": "fls-na.amazon.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "sb.scorecardresearch.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "aax-eu.amazon-adsystem.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "cdn.prod.metrics.imdb.com",
+          "threat": null
+        },
+        {
+          "count": 4,
+          "host": "unagi.amazon.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "fb423e1ef94f.d0a40594.us-east-1.token.awswaf.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 17,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.imdb.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.imdb.com/",
+    "interstitial": null,
+    "load_ms": 532,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.imdb.com/",
+      "images": 37,
+      "loadEventMs": 1215,
+      "readyState": "complete",
+      "resources": 67,
+      "scripts": 161,
+      "textLength": 3365
+    },
+    "started": true,
+    "title": "IMDb: Ratings, Reviews, and Where to Watch the Best Movies & TV Shows"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "unagi.amazon.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "www.redditstatic.com",
+          "threat": null
+        },
+        {
+          "count": 4,
+          "host": "w3-reporting.reddit.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "alb.reddit.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.reddit.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 10,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.reddit.com/?solution=38d19339922f8f5a38d19339922f8f5a&js_challenge=1&jsc_token=2824be10929bdc604753c70a67a1c331ce8385266e780842b5863026654cd4e1&jsc_orig_r=",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.reddit.com/",
+    "interstitial": null,
+    "load_ms": 93,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.reddit.com/?solution=38d19339922f8f5a38d19339922f8f5a&js_challenge=1&jsc_token=2824be10929bdc604753c70a67a1c331ce8385266e780842b5863026654cd4e1&jsc_orig_r=",
+      "images": 143,
+      "loadEventMs": 1976,
+      "readyState": "complete",
+      "resources": 83,
+      "scripts": 74,
+      "textLength": 12294
+    },
+    "started": true,
+    "title": "Reddit – Internets hjärta"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "w3-reporting.reddit.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o30969.ingest.us.sentry.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 2,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://x.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://x.com/",
+    "interstitial": null,
+    "load_ms": 777,
+    "probe": {
+      "frames": 2,
+      "href": "https://x.com/",
+      "images": 1,
+      "loadEventMs": 768,
+      "readyState": "complete",
+      "resources": 38,
+      "scripts": 3,
+      "textLength": 741
+    },
+    "started": true,
+    "title": "X. Det är där det händer / X"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 3,
+          "host": "x.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o30969.ingest.us.sentry.io",
+          "threat": null
+        },
+        {
+          "count": 7,
+          "host": "www.instagram.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 11,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.instagram.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.instagram.com/",
+    "interstitial": null,
+    "load_ms": 751,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.instagram.com/",
+      "images": 1,
+      "loadEventMs": 747,
+      "readyState": "complete",
+      "resources": 42,
+      "scripts": 109,
+      "textLength": 2872
+    },
+    "started": true,
+    "title": "Instagram"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "platform.linkedin.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "li.protechts.net",
+          "threat": null
+        },
+        {
+          "count": 6,
+          "host": "www.linkedin.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 8,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.linkedin.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.linkedin.com/",
+    "interstitial": null,
+    "load_ms": 516,
+    "probe": {
+      "frames": 6,
+      "href": "https://www.linkedin.com/",
+      "images": 8,
+      "loadEventMs": 506,
+      "readyState": "complete",
+      "resources": 40,
+      "scripts": 9,
+      "textLength": 3393
+    },
+    "started": true,
+    "title": "LinkedIn: Logga in eller registrera dig"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "www.linkedin.com",
+          "threat": null
+        },
+        {
+          "count": 3,
+          "host": "collector.github.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 5,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://github.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://github.com/",
+    "interstitial": null,
+    "load_ms": 1030,
+    "probe": {
+      "frames": 0,
+      "href": "https://github.com/",
+      "images": 22,
+      "loadEventMs": 1025,
+      "readyState": "complete",
+      "resources": 97,
+      "scripts": 13,
+      "textLength": 3857
+    },
+    "started": true,
+    "title": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub · GitHub"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "api.github.com",
+          "threat": null
+        },
+        {
+          "count": 4,
+          "host": "collector.github.com",
+          "threat": null
+        },
+        {
+          "count": 28,
+          "host": "improving.duckduckgo.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 34,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://duckduckgo.com/?q=privacy&ia=web",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://duckduckgo.com/?q=privacy",
+    "interstitial": null,
+    "load_ms": 1107,
+    "probe": {
+      "frames": 1,
+      "href": "https://duckduckgo.com/?q=privacy&ia=web",
+      "images": 19,
+      "loadEventMs": 1097,
+      "readyState": "complete",
+      "resources": 100,
+      "scripts": 28,
+      "textLength": 6759
+    },
+    "started": true,
+    "title": "privacy at DuckDuckGo"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 3,
+          "host": "improving.duckduckgo.com",
+          "threat": null
+        },
+        {
+          "count": 3,
+          "host": "www.bing.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "c.msn.com",
+          "threat": null
+        },
+        {
+          "count": 9,
+          "host": "browser.events.data.msn.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 16,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.bing.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.bing.com/",
+    "interstitial": null,
+    "load_ms": 307,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.bing.com/",
+      "images": 29,
+      "loadEventMs": 303,
+      "readyState": "complete",
+      "resources": 250,
+      "scripts": 78,
+      "textLength": 1342
+    },
+    "started": true,
+    "title": "Sök – Microsoft Bing"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "browser.events.data.msn.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "www.bing.com",
+          "threat": null
+        },
+        {
+          "count": 11,
+          "host": "www.google.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "play.google.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 15,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.google.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.google.com/",
+    "interstitial": null,
+    "load_ms": 437,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.google.com/",
+      "images": 9,
+      "loadEventMs": 425,
+      "readyState": "complete",
+      "resources": 38,
+      "scripts": 22,
+      "textLength": 1687
+    },
+    "started": true,
+    "title": "Google"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "play.google.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.google.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://consent.google.com/m?continue=https://www.google.com/maps&gl=SE&m=0&pc=m&uxe=eomtm&cm=2&hl=sv&src=1",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.google.com/maps",
+    "interstitial": null,
+    "load_ms": 278,
+    "probe": {
+      "frames": 0,
+      "href": "https://consent.google.com/m?continue=https://www.google.com/maps&gl=SE&m=0&pc=m&uxe=eomtm&cm=2&hl=sv&src=1",
+      "images": 1,
+      "loadEventMs": 271,
+      "readyState": "complete",
+      "resources": 17,
+      "scripts": 19,
+      "textLength": 1543
+    },
+    "started": true,
+    "title": "Innan du fortsätter till Google Maps"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "matomo.openstreetmap.org",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 1,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.openstreetmap.org/#map=5/62.99/17.64",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.openstreetmap.org/",
+    "interstitial": null,
+    "load_ms": 523,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.openstreetmap.org/#map=5/62.99/17.64",
+      "images": 25,
+      "loadEventMs": 516,
+      "readyState": "complete",
+      "resources": 39,
+      "scripts": 4,
+      "textLength": 606
+    },
+    "started": true,
+    "title": "OpenStreetMap"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.amazon.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.amazon.com/",
+    "interstitial": null,
+    "load_ms": 338,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.amazon.com/",
+      "images": 0,
+      "loadEventMs": 236,
+      "readyState": "complete",
+      "resources": 2,
+      "scripts": 0,
+      "textLength": 146
+    },
+    "started": true,
+    "title": "Amazon.com"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "sherlock-events-sampler.ebay.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "rover.ebay.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "ir.ebaystatic.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "backstory.ebay.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 5,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.ebay.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.ebay.com/",
+    "interstitial": null,
+    "load_ms": 1225,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.ebay.com/",
+      "images": 35,
+      "loadEventMs": 1217,
+      "readyState": "complete",
+      "resources": 81,
+      "scripts": 38,
+      "textLength": 5628
+    },
+    "started": true,
+    "title": "Electronics, Cars, Fashion, Collectibles & More | eBay"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "edgetrksvc.ebay.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "backstory.ebay.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "svcs.ebay.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "sofe.ebay.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 4,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.ikea.com/se/sv/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.ikea.com/se/sv/",
+    "interstitial": null,
+    "load_ms": 1104,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.ikea.com/se/sv/",
+      "images": 160,
+      "loadEventMs": 1086,
+      "readyState": "complete",
+      "resources": 250,
+      "scripts": 85,
+      "textLength": 12266
+    },
+    "started": true,
+    "title": "Prisvärda möbler & heminredning – allt för ditt hem - IKEA"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "schibstedse-cdn.relevant-digital.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "securepubads.g.doubleclick.net",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.googletagmanager.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "cmpv2.blocket.se",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 4,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.blocket.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.blocket.se/",
+    "interstitial": null,
+    "load_ms": 654,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.blocket.se/",
+      "images": 16,
+      "loadEventMs": 648,
+      "readyState": "complete",
+      "resources": 128,
+      "scripts": 64,
+      "textLength": 4443
+    },
+    "started": true,
+    "title": "Nytt och begagnat, köp och sälj på Blocket – alltid en bra affär"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "cdn.cookielaw.org",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "pagead2.googlesyndication.com",
+          "threat": null
+        },
+        {
+          "count": 7,
+          "host": "sink.gw.booking.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.googletagmanager.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "www.booking.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "d8c14d4960ca.edge.sdk.awswaf.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 14,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.booking.com/index.sv.html?aid=304142&label=mkt123sc-aea8ffa8-e9e4-414a-8369-a551895aab50&chal_t=1795343393102&force_referer=",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.booking.com/",
+    "interstitial": null,
+    "load_ms": 343,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.booking.com/index.sv.html?aid=304142&label=mkt123sc-aea8ffa8-e9e4-414a-8369-a551895aab50&chal_t=1795343393102&force_referer=",
+      "images": 116,
+      "loadEventMs": 828,
+      "readyState": "complete",
+      "resources": 182,
+      "scripts": 87,
+      "textLength": 10765
+    },
+    "started": true,
+    "title": "Booking.com | Officiell webbplats | Hotell, flyg, hyrbilar och boende"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 17,
+          "host": "www.airbnb.se",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 17,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.airbnb.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.airbnb.com/",
+    "interstitial": null,
+    "load_ms": 262,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.airbnb.se/",
+      "images": 40,
+      "loadEventMs": 1016,
+      "readyState": "complete",
+      "resources": 199,
+      "scripts": 133,
+      "textLength": 8095
+    },
+    "started": true,
+    "title": "Airbnb | Semesterbostäder, stugor, strandhus med mera"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 2,
+          "host": "www.airbnb.se",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "securemetrics.apple.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.apple.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.apple.com/",
+    "interstitial": null,
+    "load_ms": 614,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.apple.com/",
+      "images": 50,
+      "loadEventMs": 602,
+      "readyState": "complete",
+      "resources": 48,
+      "scripts": 18,
+      "textLength": 6557
+    },
+    "started": true,
+    "title": "Apple"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "rum.hlx.page",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.microsoft.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.clarity.ms",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.microsoft.com/sv-se",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.microsoft.com/",
+    "interstitial": null,
+    "load_ms": 2417,
+    "probe": {
+      "frames": 2,
+      "href": "https://www.microsoft.com/sv-se",
+      "images": 24,
+      "loadEventMs": 2411,
+      "readyState": "complete",
+      "resources": 175,
+      "scripts": 147,
+      "textLength": 3435
+    },
+    "started": true,
+    "title": "Microsoft – AI, molnet, produktivitet, datorer, spel och appar"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "browser.events.data.microsoft.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "open.spotifycdn.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "o22381.ingest.sentry.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 4,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://open.spotify.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.spotify.com/",
+    "interstitial": null,
+    "load_ms": 674,
+    "probe": {
+      "frames": 2,
+      "href": "https://open.spotify.com/",
+      "images": 40,
+      "loadEventMs": 668,
+      "readyState": "complete",
+      "resources": 138,
+      "scripts": 16,
+      "textLength": 2088
+    },
+    "started": true,
+    "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "o22381.ingest.sentry.io",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "static.cloudflareinsights.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.googletagmanager.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.cloudflare.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.cloudflare.com/",
+    "interstitial": null,
+    "load_ms": 492,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.cloudflare.com/",
+      "images": 68,
+      "loadEventMs": 484,
+      "readyState": "complete",
+      "resources": 146,
+      "scripts": 45,
+      "textLength": 10026
+    },
+    "started": true,
+    "title": "Cloudflare: Build for the agent era"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "privacyportal.onetrust.com",
+          "threat": null
+        },
+        {
+          "count": 4,
+          "host": "cdn.ziffstatic.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "securepubads.g.doubleclick.net",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "btloader.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 7,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.speedtest.net/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.speedtest.net/",
+    "interstitial": null,
+    "load_ms": 850,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.speedtest.net/",
+      "images": 5,
+      "loadEventMs": 844,
+      "readyState": "complete",
+      "resources": 26,
+      "scripts": 10,
+      "textLength": 888
+    },
+    "started": true,
+    "title": "Speedtest by Ookla - The Global Broadband Speed Test"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "eu-office.events.data.microsoft.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "rum.hlx.page",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 2,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.microsoft.com/sv-se/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2Fmail%2F&sdf=0&sessionId=f839854b-79d1-457a-a848-f1c98979ec0d",
+    "finished": true,
+    "http_status": null,
+    "input": "https://outlook.live.com/",
+    "interstitial": null,
+    "load_ms": 430,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.microsoft.com/sv-se/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2Fmail%2F&sdf=0&sessionId=f839854b-79d1-457a-a848-f1c98979ec0d",
+      "images": 98,
+      "loadEventMs": 0,
+      "readyState": "loading",
+      "resources": 85,
+      "scripts": 64,
+      "textLength": 4785
+    },
+    "started": true,
+    "title": "Microsoft Outlook – privat e-post och kalender | Microsoft 365"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://account.proton.me/mail",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://mail.proton.me/",
+    "interstitial": null,
+    "load_ms": 496,
+    "probe": {
+      "frames": 2,
+      "href": "https://account.proton.me/mail",
+      "images": 2,
+      "loadEventMs": 512,
+      "readyState": "complete",
+      "resources": 56,
+      "scripts": 4,
+      "textLength": 302
+    },
+    "started": true,
+    "title": "Proton Mail: Inloggning"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "accounts.google.com",
+          "threat": null
+        },
+        {
+          "count": 2,
+          "host": "play.google.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/&emr=1&followup=https://docs.google.com/&osid=1&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1492208016:1795343427161545",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://docs.google.com/",
+    "interstitial": null,
+    "load_ms": 1000,
+    "probe": {
+      "frames": 2,
+      "href": "https://accounts.google.com/v3/signin/identifier?continue=https://docs.google.com/&emr=1&followup=https://docs.google.com/&osid=1&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1492208016:1795343427161545",
+      "images": 2,
+      "loadEventMs": 996,
+      "readyState": "complete",
+      "resources": 22,
+      "scripts": 24,
+      "textLength": 244
+    },
+    "started": true,
+    "title": "Logga in – Google Konton"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "www.clarity.ms",
+          "threat": null
+        },
+        {
+          "count": 5,
+          "host": "browser.events.data.microsoft.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "admin.microsoft.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 7,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://m365.cloud.microsoft/sv-se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.office.com/",
+    "interstitial": null,
+    "load_ms": 1758,
+    "probe": {
+      "frames": 1,
+      "href": "https://m365.cloud.microsoft/sv-se/",
+      "images": 21,
+      "loadEventMs": 1180,
+      "readyState": "complete",
+      "resources": 58,
+      "scripts": 29,
+      "textLength": 3827
+    },
+    "started": true,
+    "title": "Microsoft 365 – Logga in på Copilot"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 3,
+          "host": "browser.events.data.microsoft.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.figma.com",
+          "threat": null
+        },
+        {
+          "count": 24,
+          "host": "arclight.vimeo.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 28,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.figma.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.figma.com/",
+    "interstitial": null,
+    "load_ms": 760,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.figma.com/",
+      "images": 140,
+      "loadEventMs": 755,
+      "readyState": "complete",
+      "resources": 95,
+      "scripts": 122,
+      "textLength": 3087
+    },
+    "started": true,
+    "title": "Figma: The collaborative canvas for design, code, and AI"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "www.notion.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "http-inputs-notion.splunkcloud.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o324374.ingest.sentry.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 3,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.notion.com/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.notion.so/",
+    "interstitial": null,
+    "load_ms": 766,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.notion.com/",
+      "images": 106,
+      "loadEventMs": 762,
+      "readyState": "complete",
+      "resources": 138,
+      "scripts": 72,
+      "textLength": 3920
+    },
+    "started": true,
+    "title": "A shared brain for your team and agents. | Notion"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "static.cloudflareinsights.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o324374.ingest.sentry.io",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "exp.notion.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o13855.ingest.sentry.io",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 4,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.canva.com/sv_se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.canva.com/",
+    "interstitial": null,
+    "load_ms": 1116,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.canva.com/sv_se/",
+      "images": 13,
+      "loadEventMs": 1110,
+      "readyState": "complete",
+      "resources": 61,
+      "scripts": 16,
+      "textLength": 5575
+    },
+    "started": true,
+    "title": "Canva: Bildsvit för alla"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "telemetry.canva.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "o13855.ingest.sentry.io",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.googletagmanager.com",
+          "threat": null
+        },
+        {
+          "count": 13,
+          "host": "browser-intake-us5-datadoghq.com",
+          "threat": null
+        },
+        {
+          "count": 4,
+          "host": "t.paypal.com",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 20,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.paypal.com/se/home",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.paypal.com/",
+    "interstitial": null,
+    "load_ms": 845,
+    "probe": {
+      "frames": 1,
+      "href": "https://www.paypal.com/se/home",
+      "images": 3,
+      "loadEventMs": 841,
+      "readyState": "complete",
+      "resources": 110,
+      "scripts": 33,
+      "textLength": 1769
+    },
+    "started": true,
+    "title": "Skicka pengar, handla, hantera betalningar med mera | PayPal SE"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [
+        {
+          "count": 1,
+          "host": "browser-intake-us5-datadoghq.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "www.swedbank.se",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "t.paypal.com",
+          "threat": null
+        },
+        {
+          "count": 1,
+          "host": "swedbankab.d3.sc.omtrdc.net",
+          "threat": null
+        }
+      ],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 4,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.swedbank.se/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.swedbank.se/",
+    "interstitial": null,
+    "load_ms": 548,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.swedbank.se/",
+      "images": 8,
+      "loadEventMs": 542,
+      "readyState": "complete",
+      "resources": 171,
+      "scripts": 83,
+      "textLength": 5211
+    },
+    "started": true,
+    "title": "Bank med banktjänster och försäkring | Privat | Swedbank"
+  },
+  {
+    "blocked": {
+      "certificateErrors": 0,
+      "externalApps": 0,
+      "hosts": [],
+      "navigations": 0,
+      "permissions": 0,
+      "popups": 0,
+      "requests": 0,
+      "threats": 0
+    },
+    "crashed": false,
+    "error": null,
+    "final_url": "https://www.handelsbanken.se/sv/",
+    "finished": true,
+    "http_status": 200,
+    "input": "https://www.handelsbanken.se/",
+    "interstitial": null,
+    "load_ms": 694,
+    "probe": {
+      "frames": 0,
+      "href": "https://www.handelsbanken.se/sv/",
+      "images": 18,
+      "loadEventMs": 690,
+      "readyState": "complete",
+      "resources": 50,
+      "scripts": 6,
+      "textLength": 3729
+    },
+    "started": true,
+    "title": "Välkommen till världens tryggaste affärsbank | Handelsbanken"
+  }
+]

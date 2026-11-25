@@ -1,0 +1,434 @@
+{
+  "pairs": [
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1771,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1751,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 104,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 5,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1737,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1714,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 91,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2027,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1995,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 96,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1738,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1718,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 92,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1600,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1578,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 98,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1727,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1713,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 91,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1882,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 1868,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 95,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 1813,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 55,
+          "loadEventMs": 1798,
+          "readyState": "complete",
+          "resources": 117,
+          "scripts": 92,
+          "textLength": 8812
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://vimeo.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 0,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2847,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 2830,
+          "readyState": "complete",
+          "resources": 115,
+          "scripts": 97,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 4,
+              "host": "arclight.vimeo.com",
+              "threat": null
+            }
+          ],
+          "navigations": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 4,
+          "threats": 0
+        },
+        "crashed": false,
+        "error": null,
+        "final_url": "https://vimeo.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://vimeo.com/",
+        "interstitial": null,
+        "load_ms": 2840,
+        "probe": {
+          "frames": 2,
+          "href": "https://vimeo.com/",
+          "images": 129,
+          "loadEventMs": 2826,
+          "readyState": "complete",
+          "resources": 116,
+          "scripts": 100,
+          "textLength": 9492
+        },
+        "started": true,
+        "title": "Vimeo - All-in-One Video Platform"
+      },
+      "round": 5
+    }
+  ],
+  "summary": {
+    "blocked_requests_per_page": {
+      "max": 5.0,
+      "median": 4.0,
+      "total": 21.0
+    },
+    "failed": [],
+    "load_event_ms": {
+      "median_change_pct": -8.0,
+      "off": {
+        "median": 1868.0,
+        "p95": 1995.0
+      },
+      "on": {
+        "median": 1718.0,
+        "p95": 1798.0
+      },
+      "on_faster_in": 4,
+      "p95_change_pct": -9.9,
+      "paired_ratio_on_over_off": {
+        "median": 0.979,
+        "p95": 0.999
+      },
+      "pairs": 5
+    },
+    "load_ms": {
+      "median_change_pct": -7.7,
+      "off": {
+        "median": 1882.0,
+        "p95": 2027.0
+      },
+      "on": {
+        "median": 1738.0,
+        "p95": 1813.0
+      },
+      "on_faster_in": 4,
+      "p95_change_pct": -10.6,
+      "paired_ratio_on_over_off": {
+        "median": 0.981,
+        "p95": 0.998
+      },
+      "pairs": 5
+    },
+    "pairs_loaded_both": 5,
+    "pairs_total": 5,
+    "resources_per_page": {
+      "off_median": 117.0,
+      "on_median": 117.0
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-tab-new-temporary"
+description = "Enables the tab_new_temporary command without any pre-configured scope."
+commands.allow = ["tab_new_temporary"]
+
+[[permission]]
+identifier = "deny-tab-new-temporary"
+description = "Denies the tab_new_temporary command without any pre-configured scope."
+commands.deny = ["tab_new_temporary"]

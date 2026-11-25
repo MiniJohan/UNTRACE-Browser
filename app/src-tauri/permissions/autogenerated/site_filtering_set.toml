@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-site-filtering-set"
+description = "Enables the site_filtering_set command without any pre-configured scope."
+commands.allow = ["site_filtering_set"]
+
+[[permission]]
+identifier = "deny-site-filtering-set"
+description = "Denies the site_filtering_set command without any pre-configured scope."
+commands.deny = ["site_filtering_set"]

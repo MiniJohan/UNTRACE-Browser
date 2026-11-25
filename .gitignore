@@ -1,0 +1,22 @@
+/target/
+node_modules/
+/app/ui/dist/
+/app/src-tauri/gen/
+/spikes/*/target/
+/spikes/data/
+/spikes/results/s1.ready
+*.log
+
+# M8 fuzzing: build output, generated corpora, crash artifacts and logs (fuzz/seed.py rebuilds the seeds).
+/fuzz/target/
+/fuzz/corpus/
+/fuzz/artifacts/
+/fuzz/logs/
+
+# M9 release: update-signing keys never go into the repository (D-016).
+*.key
+*.key.pub.bak
+/release/
+.env
+/spikes/results/m8*.json
+/scripts/notices/target/

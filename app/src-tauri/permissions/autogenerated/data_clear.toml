@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-data-clear"
+description = "Enables the data_clear command without any pre-configured scope."
+commands.allow = ["data_clear"]
+
+[[permission]]
+identifier = "deny-data-clear"
+description = "Denies the data_clear command without any pre-configured scope."
+commands.deny = ["data_clear"]

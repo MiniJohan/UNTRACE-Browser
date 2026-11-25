@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-site-local-set"
+description = "Enables the site_local_set command without any pre-configured scope."
+commands.allow = ["site_local_set"]
+
+[[permission]]
+identifier = "deny-site-local-set"
+description = "Denies the site_local_set command without any pre-configured scope."
+commands.deny = ["site_local_set"]

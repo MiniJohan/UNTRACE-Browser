@@ -1,0 +1,60 @@
+//! Declares UNTRACE's own IPC commands so they are subject to Tauri's capability ACL
+//! (capabilities/main.json grants them to the `main` window only).
+
+const COMMANDS: &[&str] = &[
+    "ui_ready",
+    "tab_new",
+    "tab_close",
+    "tab_activate",
+    "tab_cycle",
+    "navigate",
+    "go_back",
+    "go_forward",
+    "reload",
+    "stop",
+    "set_content_bounds",
+    "focus_content",
+    "settings_get",
+    "protection_set",
+    "theme_set",
+    "accent_set",
+    "welcome_done",
+    "about_get",
+    "notices_get",
+    "app_update_status",
+    "app_update_check",
+    "app_update_install",
+    "pages_theme_set",
+    "search_set",
+    "diagnostics_get",
+    "audit_clear",
+    "interstitial_action",
+    "notice_dismiss",
+    "prompt_respond",
+    "permission_reset",
+    "download_show",
+    "download_cancel",
+    "downloads_clear",
+    "site_filtering_set",
+    "filters_update_now",
+    "tab_new_temporary",
+    "cookie_sites",
+    "site_data_delete",
+    "data_inventory",
+    "data_clear",
+    "site_local_set",
+    "doh_custom_set",
+    "network_records_clear",
+    "selftest_start",
+    "selftest_last",
+    "audit_entries",
+    "audit_export",
+    "report_save",
+];
+
+fn main() {
+    tauri_build::try_build(
+        tauri_build::Attributes::new().app_manifest(tauri_build::AppManifest::new().commands(COMMANDS)),
+    )
+    .expect("tauri build");
+}

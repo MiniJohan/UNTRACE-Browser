@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-filters-update-now"
+description = "Enables the filters_update_now command without any pre-configured scope."
+commands.allow = ["filters_update_now"]
+
+[[permission]]
+identifier = "deny-filters-update-now"
+description = "Denies the filters_update_now command without any pre-configured scope."
+commands.deny = ["filters_update_now"]

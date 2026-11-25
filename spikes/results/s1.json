@@ -1,0 +1,222 @@
+{
+  "accelerator_keys_seen": [
+    "kind=0 vk=0x11 ctrl=true",
+    "kind=0 vk=0x4C ctrl=true",
+    "kind=1 vk=0x4C ctrl=true",
+    "kind=0 vk=0x54 ctrl=true",
+    "kind=1 vk=0x54 ctrl=true",
+    "kind=1 vk=0x11 ctrl=false"
+  ],
+  "content_probe_bridge_enabled": {
+    "chrome_keys": [
+      "loadTimes",
+      "csi",
+      "app",
+      "webview"
+    ],
+    "chrome_webview": "object",
+    "chrome_webview_hostObjects": "function",
+    "chrome_webview_postMessage": "function",
+    "tauri_global": "undefined",
+    "tauri_internals": "undefined",
+    "ua_brands": [
+      {
+        "brand": "Chromium",
+        "version": "157"
+      },
+      {
+        "brand": "Microsoft Edge WebView2",
+        "version": "157"
+      },
+      {
+        "brand": "Not-A.Brand",
+        "version": "99"
+      },
+      {
+        "brand": "Microsoft Edge",
+        "version": "157"
+      }
+    ],
+    "ua_high_entropy": {
+      "architecture": "x86",
+      "brands": [
+        {
+          "brand": "Chromium",
+          "version": "157"
+        },
+        {
+          "brand": "Microsoft Edge WebView2",
+          "version": "157"
+        },
+        {
+          "brand": "Not-A.Brand",
+          "version": "99"
+        },
+        {
+          "brand": "Microsoft Edge",
+          "version": "157"
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "Chromium",
+          "version": "157.0.8103.80"
+        },
+        {
+          "brand": "Microsoft Edge WebView2",
+          "version": "157.0.4341.60"
+        },
+        {
+          "brand": "Not-A.Brand",
+          "version": "99.0.0.0"
+        },
+        {
+          "brand": "Microsoft Edge",
+          "version": "157.0.4341.60"
+        }
+      ],
+      "mobile": false,
+      "platform": "Windows",
+      "platformVersion": "19.0.0"
+    },
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+    "window_ipc": "undefined"
+  },
+  "content_probe_hardened": {
+    "chrome_keys": [
+      "loadTimes",
+      "csi",
+      "app",
+      "webview"
+    ],
+    "chrome_webview": "object",
+    "chrome_webview_hostObjects": "function",
+    "chrome_webview_postMessage": "function",
+    "tauri_global": "undefined",
+    "tauri_internals": "undefined",
+    "ua_brands": [
+      {
+        "brand": "Chromium",
+        "version": "157"
+      },
+      {
+        "brand": "Microsoft Edge WebView2",
+        "version": "157"
+      },
+      {
+        "brand": "Not-A.Brand",
+        "version": "99"
+      },
+      {
+        "brand": "Microsoft Edge",
+        "version": "157"
+      }
+    ],
+    "ua_high_entropy": {
+      "architecture": "x86",
+      "brands": [
+        {
+          "brand": "Chromium",
+          "version": "157"
+        },
+        {
+          "brand": "Microsoft Edge WebView2",
+          "version": "157"
+        },
+        {
+          "brand": "Not-A.Brand",
+          "version": "99"
+        },
+        {
+          "brand": "Microsoft Edge",
+          "version": "157"
+        }
+      ],
+      "fullVersionList": [
+        {
+          "brand": "Chromium",
+          "version": "157.0.8103.80"
+        },
+        {
+          "brand": "Microsoft Edge WebView2",
+          "version": "157.0.4341.60"
+        },
+        {
+          "brand": "Not-A.Brand",
+          "version": "99.0.0.0"
+        },
+        {
+          "brand": "Microsoft Edge",
+          "version": "157.0.4341.60"
+        }
+      ],
+      "mobile": false,
+      "platform": "Windows",
+      "platformVersion": "19.0.0"
+    },
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+    "window_ipc": "undefined"
+  },
+  "content_view_created": true,
+  "foreground": {
+    "is_foreground": true,
+    "set_foreground_ok": true
+  },
+  "pid": 23636,
+  "pixels_after_resize": {
+    "bar_center": "#202020",
+    "bar_px": 48,
+    "child_zorder_top_first": [
+      "WRY_WEBVIEW visible=true rect=(268,291,1152,872)",
+      "Chrome_WidgetWin_0 visible=true rect=(268,339,1152,872)"
+    ],
+    "client": [
+      884,
+      581
+    ],
+    "container_mode": false,
+    "content_bottom_right": "#ff00ff",
+    "content_center": "#ff00ff",
+    "controller_bounds": [
+      0,
+      48,
+      884,
+      581
+    ],
+    "expect": {
+      "bar": "#202020",
+      "content": "#00a000",
+      "uncovered_ui": "#ff00ff"
+    },
+    "printwindow_ok": true
+  },
+  "pixels_initial": {
+    "bar_center": "#202020",
+    "bar_px": 48,
+    "child_zorder_top_first": [
+      "WRY_WEBVIEW visible=true rect=(268,291,1368,1041)",
+      "Chrome_WidgetWin_0 visible=true rect=(268,339,1368,1041)"
+    ],
+    "client": [
+      1100,
+      750
+    ],
+    "container_mode": false,
+    "content_bottom_right": "#ff00ff",
+    "content_center": "#ff00ff",
+    "controller_bounds": [
+      0,
+      48,
+      1100,
+      750
+    ],
+    "expect": {
+      "bar": "#202020",
+      "content": "#00a000",
+      "uncovered_ui": "#ff00ff"
+    },
+    "printwindow_ok": true
+  },
+  "sendinput_events": 6,
+  "tauri_version": "2.12.7"
+}

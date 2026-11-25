@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-selftest-last"
+description = "Enables the selftest_last command without any pre-configured scope."
+commands.allow = ["selftest_last"]
+
+[[permission]]
+identifier = "deny-selftest-last"
+description = "Denies the selftest_last command without any pre-configured scope."
+commands.deny = ["selftest_last"]

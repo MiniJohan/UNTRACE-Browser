@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>fp</title>
+<script src="/fp/fp.js"></script>
+</head>
+<body>
+<p id="s">collecting…</p>
+<script>
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const run = params.get('run') || 'unnamed';
+  const cross = params.get('cross'); // origin of the cross-site frame, e.g. http://localhost:PORT
+  const R = { run: run, href: location.href };
+  const withTimeout = (p, ms) => Promise.race([p, new Promise(r => setTimeout(() => r('TIMEOUT'), ms))]);
+
+  // 1. A fresh about:blank frame, read synchronously before anything else can run in it.
+  const f = document.createElement('iframe');
+  document.body.appendChild(f);
+  const w = f.contentWindow;
+  R.blankImmediate = {
+    chromeWebview: FP.safe(() => typeof w.chrome === 'undefined' ? '(no chrome object)' : ('webview' in w.chrome)),
+    brands: FP.safe(() => w.navigator.userAgentData.brands.map(b => b.brand + '/' + b.version).join(', ')),
+  };
+  R.top = await FP.collect('top', self);
+  // The same collector, run inside the about:blank frame's own realm.
+  R.blankFrame = await withTimeout((async () => {
+    const src = await (await fetch('/fp/fp.js', { cache: 'no-store' })).text();
+    // fp.js is strict code, so its `var FP` stays inside the eval: take it as the result.
+    const F = w.eval(src + '\n;FP');
+    return F.collect('blankFrame', w);
+  })().catch(e => 'ERR:' + e.name), 15000);
+
+  // 2. Same-origin and cross-site frames report by postMessage.
+  const frames = {};
+  const want = cross ? 2 : 1;
+  const got = new Promise(res => {
+    addEventListener('message', e => {
+      if (e.data && e.data.fpctx) {
+        frames[e.data.fpctx] = e.data.data;
+        if (Object.keys(frames).length >= want) res();
+      }
+    });
+  });
+  const add = src => { const i = document.createElement('iframe'); i.src = src; document.body.appendChild(i); };
+  add('/fp/frame.html?ctx=sameFrame');
+  if (cross) add(cross + '/fp/frame.html?ctx=crossFrame');
+  await withTimeout(got, 20000);
+  R.sameFrame = frames.sameFrame || 'TIMEOUT';
+  R.crossFrame = cross ? (frames.crossFrame || 'TIMEOUT') : '(not run)';
+
+  // 3. Workers.
+  R.worker = await withTimeout(new Promise(res => {
+    const wk = new Worker('/fp/worker.js');
+    wk.onmessage = e => res(e.data);
+    wk.onerror = e => res('ERR:' + e.message);
+    wk.postMessage('go');
+  }), 20000);
+  R.sharedWorker = typeof SharedWorker === 'undefined' ? '(none)' : await withTimeout(new Promise(res => {
+    const sw = new SharedWorker('/fp/shared.js');
+    sw.port.onmessage = e => res(e.data);
+    sw.onerror = e => res('ERR:' + (e.message || 'error'));
+    sw.port.start();
+    sw.port.postMessage('go');
+  }), 20000);
+  R.serviceWorker = await withTimeout((async () => {
+    if (!navigator.serviceWorker) return '(none)';
+    const reg = await navigator.serviceWorker.register('/fp/sw.js', { scope: '/fp/' });
+    const sw = reg.active || await new Promise(r => {
+      const x = reg.installing || reg.waiting;
+      x.addEventListener('statechange', () => { if (x.state === 'activated') r(x); });
+    });
+    return await new Promise(r => {
+      const ch = new MessageChannel();
+      ch.port1.onmessage = e => r(e.data);
+      sw.postMessage('go', [ch.port2]);
+    });
+  })().catch(e => 'ERR:' + e.name + ' ' + e.message), 25000);
+
+  // 4. Report to the loopback server, and leave the result on the page for the host to read.
+  window.__fp = R;
+  try {
+    await fetch('/fp/result?run=' + encodeURIComponent(run), { method: 'POST', body: JSON.stringify(R) });
+  } catch (e) {}
+  document.getElementById('s').textContent = 'done';
+  document.title = 'fp-done';
+})();
+</script>
+</body>
+</html>

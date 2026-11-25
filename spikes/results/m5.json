@@ -1,0 +1,254 @@
+{
+  "browser_arguments": "--proxy-server=http://127.0.0.1:56202 --proxy-bypass-list=<-loopback> --log-net-log=D:\\CODING\\UNTRACE\\spikes\\data\\udf\\m5-12860\\netlog.json",
+  "bypass_detection": {
+    "check_request_seen_from_engine_without_proxy_arguments": false,
+    "check_request_seen_through_proxy": true
+  },
+  "cancelled_navigation": {
+    "completion": "Some(Nav { ok: false, status: 14 })",
+    "fixture_requests": [
+      "cancelled-12860.test/m5/cancelled"
+    ],
+    "proxy_record": {
+      "authenticated": 3,
+      "connections": 3,
+      "refused_unauthenticated": 0
+    }
+  },
+  "cancelled_navigation_plus_request_blocked": {
+    "completion": "Some(Nav { ok: false, status: 14 })",
+    "fixture_requests": [],
+    "proxy_record": {
+      "authenticated": 2,
+      "connections": 2,
+      "refused_unauthenticated": 0
+    },
+    "request_events": [
+      "context=1 https://blocked-12860.test:56201/m5/blocked"
+    ]
+  },
+  "cancelled_plain_http_navigation": {
+    "completion": "Some(Nav { ok: false, status: 14 })",
+    "fixture_requests": [
+      "GET plain-12860.test/m5/plain?secret=1 tls=false"
+    ]
+  },
+  "fail_closed": {
+    "fixture_requests_after_stop": [],
+    "loopback_after_stop": "Some(Nav { ok: false, status: 0 })",
+    "named_after_stop": "Some(Nav { ok: false, status: 0 })"
+  },
+  "inprivate_first_navigation": {
+    "auth_events": [
+      "auth requested (ours: true)"
+    ],
+    "first_completion": "Some(Nav { ok: false, status: 18 })",
+    "navigation_events": [
+      "starting id=5",
+      "completed id=5 ok=false status=18",
+      "starting id=6",
+      "completed id=6 ok=true status=0"
+    ],
+    "page_loaded": true
+  },
+  "netlog_dns_for_page_names": {
+    "events_total": 5128,
+    "hits": [
+      {
+        "events_mentioning": 112,
+        "name": "page-12860.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 41,
+        "name": "img-12860.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 41,
+        "name": "api-12860.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 36,
+        "name": "ws-12860.test",
+        "resolver_event_types": []
+      },
+      {
+        "events_mentioning": 0,
+        "name": "prefetch-12860.test",
+        "resolver_event_types": []
+      },
+      {
+        "events_mentioning": 9,
+        "name": "preconnect-12860.test",
+        "resolver_event_types": []
+      },
+      {
+        "events_mentioning": 82,
+        "name": "temp-12860.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 28,
+        "name": "cancelled-12860.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 12,
+        "name": "blocked-12860.test",
+        "resolver_event_types": []
+      },
+      {
+        "events_mentioning": 16,
+        "name": "plain-12860.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      }
+    ],
+    "parsed": true
+  },
+  "netlog_exists_while_running": true,
+  "probe": "M5 network layer with the real engine",
+  "proxy_records": [
+    {
+      "authenticated": 4,
+      "connections": 4,
+      "host": "api-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 2,
+      "connections": 2,
+      "host": "blocked-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 3,
+      "connections": 3,
+      "host": "cancelled-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 0,
+      "connections": 0,
+      "host": "config.edge.skype.com",
+      "refused_unauthenticated": 2,
+      "via": "None"
+    },
+    {
+      "authenticated": 4,
+      "connections": 4,
+      "host": "img-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 0,
+      "connections": 0,
+      "host": "nav-edge.smartscreen.microsoft.com",
+      "refused_unauthenticated": 7,
+      "via": "None"
+    },
+    {
+      "authenticated": 1,
+      "connections": 0,
+      "host": "netcheck-9bfc2738ce11fbe0.untrace.invalid",
+      "refused_unauthenticated": 0,
+      "via": "None"
+    },
+    {
+      "authenticated": 5,
+      "connections": 5,
+      "host": "page-12860.test",
+      "refused_unauthenticated": 3,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 1,
+      "connections": 1,
+      "host": "plain-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 1,
+      "connections": 1,
+      "host": "preconnect-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 5,
+      "connections": 5,
+      "host": "temp-12860.test",
+      "refused_unauthenticated": 2,
+      "via": "Some(Test)"
+    },
+    {
+      "authenticated": 4,
+      "connections": 4,
+      "host": "ws-12860.test",
+      "refused_unauthenticated": 0,
+      "via": "Some(Test)"
+    }
+  ],
+  "proxy_stats": {
+    "active": 0,
+    "blockedLocal": 0,
+    "blockedThreats": 0,
+    "connections": 29,
+    "dnsCacheEntries": 0,
+    "failed": 0,
+    "hostsNotListed": 0,
+    "malformed": 0,
+    "port": 56202,
+    "refusedUnauthenticated": 14,
+    "resolver": {
+      "cached": 0,
+      "encrypted": 0,
+      "failed": 0,
+      "fallbacks": 0,
+      "windows": 0
+    }
+  },
+  "runtime": "157.0.4341.60",
+  "standard_profile": {
+    "auth_events": [
+      "auth requested (ours: true)"
+    ],
+    "fixture_served": [
+      "page-12860.test/m5/page.html",
+      "img-12860.test/m5/img.png",
+      "api-12860.test/m5/api",
+      "ws-12860.test/m5/socket",
+      "page-12860.test/favicon.ico"
+    ],
+    "navigation": "Some(Nav { ok: false, status: 18 })",
+    "navigation_events": [
+      "starting id=2",
+      "completed id=2 ok=false status=18",
+      "starting id=3",
+      "completed id=3 ok=true status=0"
+    ],
+    "page_script_done": true
+  },
+  "udf_files_while_running": [
+    "EBWebView",
+    "netlog.json"
+  ]
+}

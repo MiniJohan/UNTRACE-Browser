@@ -1,0 +1,3 @@
+html, body { margin: 0; height: 100%; background: #ff00ff; font: 13px "Segoe UI Variable", system-ui, sans-serif; }
+.bar { height: 48px; background: #202020; color: #e0e0e0; display: flex; align-items: center; padding: 0 16px; }
+.hole { padding: 24px; color: #000; }

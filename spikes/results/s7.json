@@ -1,0 +1,452 @@
+{
+  "c0_no_proxy": {
+    "args": "--ip-address-space-overrides=127.0.0.1:63671=public",
+    "cdp_events": [
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "127.0.0.1:63671",
+        "requestId": "ACA2AA20558A6D403E9EA5650F563AF4",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "ACA2AA20558A6D403E9EA5650F563AF4",
+        "resourceIPAddressSpace": "Public",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "127.0.0.1:63669",
+        "requestId": "24584.2",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "24584.2",
+        "resourceIPAddressSpace": "Loopback",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "localhost:63669",
+        "requestId": "24584.3",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "24584.3",
+        "resourceIPAddressSpace": "Loopback",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": "net::ERR_NAME_NOT_RESOLVED",
+        "event": "Network.loadingFailed",
+        "headersHost": null,
+        "requestId": "24584.4",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "127.0.0.1:63671",
+        "requestId": "24584.5",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "24584.5",
+        "resourceIPAddressSpace": "Public",
+        "url": null
+      }
+    ],
+    "device_server_received": [
+      "/s7/ip_literal",
+      "/s7/localhost"
+    ],
+    "fetch_results": {
+      "ip_literal": "ok:opaque",
+      "localhost": "ok:opaque",
+      "public_name_to_local": "error:Failed to fetch"
+    },
+    "navigation": "Some(Nav { ok: true, status: 0 })",
+    "page": "http://127.0.0.1:63671/s7/page.html",
+    "page_script_done": true,
+    "permission_requests": [],
+    "proxy_saw": [],
+    "runtime": "157.0.4341.60"
+  },
+  "c1_s3_design": {
+    "args": "--proxy-server=http://127.0.0.1:63673 --proxy-bypass-list=<-loopback>",
+    "cdp_events": [
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "pub-24104.test",
+        "requestId": "7CDD9C966D2221EC30820B83501F26AB",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "7CDD9C966D2221EC30820B83501F26AB",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Loopback",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "127.0.0.1:63669",
+        "requestId": "13268.2",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "13268.2",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Loopback",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "localhost:63669",
+        "requestId": "13268.3",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "13268.3",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Loopback",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "rebind-24104.test",
+        "requestId": "13268.4",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "13268.4",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Loopback",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "pub-24104.test",
+        "requestId": "13268.5",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "13268.5",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      }
+    ],
+    "device_server_received": [
+      "/s7/ip_literal",
+      "/s7/localhost",
+      "/s7/public_name_to_local"
+    ],
+    "fetch_results": {
+      "ip_literal": "ok:opaque",
+      "localhost": "ok:opaque",
+      "public_name_to_local": "ok:opaque"
+    },
+    "navigation": "Some(Nav { ok: true, status: 0 })",
+    "page": "https://pub-24104.test/s7/page.html",
+    "page_script_done": true,
+    "permission_requests": [],
+    "proxy_saw": [
+      "connect CONNECT pub-24104.test:443",
+      "connect CONNECT pub-24104.test:443",
+      "refused-unmapped CONNECT config.edge.skype.com:443",
+      "refused-unmapped CONNECT nav-edge.smartscreen.microsoft.com:443",
+      "connect CONNECT pub-24104.test:443",
+      "connect CONNECT pub-24104.test:443",
+      "http GET 127.0.0.1:63669/s7/ip_literal",
+      "connect CONNECT rebind-24104.test:443",
+      "http GET localhost:63669/s7/localhost",
+      "connect CONNECT rebind-24104.test:443",
+      "connect CONNECT pub-24104.test:443",
+      "connect CONNECT pub-24104.test:443"
+    ],
+    "runtime": "157.0.4341.60"
+  },
+  "c2_candidate_fix": {
+    "args": "--proxy-server=http://127.0.0.1:63673 --proxy-bypass-list=10.0.0.0/8;172.16.0.0/12;192.168.0.0/16;fc00::/7 --ip-address-space-overrides=127.0.0.1:63673=public",
+    "cdp_events": [
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "pub-24104.test",
+        "requestId": "2BEE84D2A6DD2FF21286095BED38C23F",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "2BEE84D2A6DD2FF21286095BED38C23F",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "127.0.0.1:63669",
+        "requestId": "22652.2",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "22652.2",
+        "resourceIPAddressSpace": "Loopback",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "localhost:63669",
+        "requestId": "22652.3",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "22652.3",
+        "resourceIPAddressSpace": "Loopback",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "rebind-24104.test",
+        "requestId": "22652.4",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "22652.4",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": {
+          "initiatorIPAddressSpace": "Public",
+          "initiatorIsSecureContext": true,
+          "localNetworkAccessRequestPolicy": "Allow"
+        },
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.requestWillBeSentExtraInfo",
+        "headersHost": "pub-24104.test",
+        "requestId": "22652.5",
+        "resourceIPAddressSpace": null,
+        "url": null
+      },
+      {
+        "blockedReason": null,
+        "clientSecurityState": null,
+        "corsErrorStatus": null,
+        "errorText": null,
+        "event": "Network.responseReceivedExtraInfo",
+        "headersHost": null,
+        "requestId": "22652.5",
+        "resourceIPAddressSpace": "Unknown",
+        "url": null
+      }
+    ],
+    "device_server_received": [
+      "/s7/ip_literal",
+      "/s7/localhost",
+      "/s7/public_name_to_local"
+    ],
+    "fetch_results": {
+      "ip_literal": "ok:opaque",
+      "localhost": "ok:opaque",
+      "public_name_to_local": "ok:opaque"
+    },
+    "navigation": "Some(Nav { ok: true, status: 0 })",
+    "page": "https://pub-24104.test/s7/page.html",
+    "page_script_done": true,
+    "permission_requests": [],
+    "proxy_saw": [
+      "connect CONNECT pub-24104.test:443",
+      "refused-unmapped CONNECT config.edge.skype.com:443",
+      "connect CONNECT pub-24104.test:443",
+      "refused-unmapped CONNECT nav-edge.smartscreen.microsoft.com:443",
+      "connect CONNECT pub-24104.test:443",
+      "connect CONNECT pub-24104.test:443",
+      "connect CONNECT rebind-24104.test:443",
+      "connect CONNECT rebind-24104.test:443",
+      "connect CONNECT pub-24104.test:443",
+      "connect CONNECT pub-24104.test:443"
+    ],
+    "runtime": "157.0.4341.60"
+  },
+  "spike": "S7 local network access under the loopback proxy"
+}

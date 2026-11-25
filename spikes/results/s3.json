@@ -1,0 +1,178 @@
+{
+  "browser_args": "--proxy-server=http://127.0.0.1:56035 --proxy-bypass-list=<-loopback> --log-net-log=%USERPROFILE%\\AppData\\Local\\Temp\\claude\\4e39e8858bf503a2\\9d2901b2-b4bb-48ad-a558-cd138dae5c32\\scratchpad\\u\\s3p-20372\\netlog.json",
+  "control_no_proxy_nav": "Some(Nav { ok: false, status: 13 })",
+  "fail_closed": {
+    "direct_loopback_nav_after_proxy_stop": "Some(Nav { ok: false, status: 0 })",
+    "fixture_requests_after_stop": [],
+    "named_nav_after_proxy_stop": "Some(Nav { ok: false, status: 0 })"
+  },
+  "fixture_served": [
+    "a-20372.test/s3/page.html tls=false ",
+    "ws-20372.test/s3/socket tls=false (websocket upgrade)",
+    "127.0.0.1/s3/loopback tls=false ",
+    "b-20372.test/s3/img.png tls=true ",
+    "a-20372.test/favicon.ico tls=false "
+  ],
+  "netlog_control_no_proxy": {
+    "events_total": 1402,
+    "hits": [
+      {
+        "events_mentioning": 34,
+        "name": "ctrl-20372.test",
+        "resolver_event_types": [
+          "DNS_TRANSACTION",
+          "DNS_TRANSACTION_QUERY",
+          "HOST_RESOLVER_MANAGER_JOB",
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      }
+    ],
+    "parsed": true
+  },
+  "netlog_proxied": {
+    "events_total": 1471,
+    "hits": [
+      {
+        "events_mentioning": 76,
+        "name": "a-20372.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 21,
+        "name": "b-20372.test",
+        "resolver_event_types": [
+          "HOST_RESOLVER_MANAGER_REQUEST"
+        ]
+      },
+      {
+        "events_mentioning": 10,
+        "name": "ws-20372.test",
+        "resolver_event_types": []
+      },
+      {
+        "events_mentioning": 0,
+        "name": "leak1-20372.test",
+        "resolver_event_types": []
+      },
+      {
+        "events_mentioning": 9,
+        "name": "leak2-20372.test",
+        "resolver_event_types": []
+      }
+    ],
+    "parsed": true
+  },
+  "os_dns_cache_entries_for_test_names": [],
+  "page_script_done": true,
+  "proxied_nav": "Some(Nav { ok: false, status: 18 })",
+  "proxy_events_by_kind": {
+    "auth-challenge": [
+      "CONNECT config.edge.skype.com:443",
+      "GET a-20372.test:80",
+      "CONNECT config.edge.skype.com:443"
+    ],
+    "connect": [
+      "CONNECT b-20372.test:443",
+      "CONNECT ws-20372.test:80",
+      "CONNECT leak2-20372.test:443",
+      "CONNECT b-20372.test:443"
+    ],
+    "http": [
+      "GET a-20372.test:80/s3/page.html",
+      "GET 127.0.0.1:56033/s3/loopback",
+      "GET a-20372.test:80/favicon.ico"
+    ]
+  },
+  "runtime_background_hosts_refused": [],
+  "smartscreen_in_proxied_env": "disabled via IsReputationCheckingRequired=false (first run had it at default=on)",
+  "spike": "S3 proxy & DNS",
+  "windows_doh_api": [
+    {
+      "a_records": [],
+      "async": false,
+      "ms": 0.0096,
+      "name": "example.com",
+      "options": 72,
+      "port": 443,
+      "query_status": 0,
+      "server_type": "doh",
+      "status": 87,
+      "template": "https://dns.quad9.net/dns-query",
+      "udp_fallback": false
+    },
+    {
+      "a_records": [
+        "104.20.23.154",
+        "172.66.147.243"
+      ],
+      "async": false,
+      "ms": 60.581,
+      "name": "example.com",
+      "options": 0,
+      "port": 0,
+      "query_status": 0,
+      "server_type": "doh",
+      "status": 0,
+      "template": "https://dns.quad9.net/dns-query",
+      "udp_fallback": false
+    },
+    {
+      "a_records": [],
+      "async": true,
+      "ms": 0.001,
+      "name": "example.com",
+      "options": 72,
+      "port": 443,
+      "query_status": 0,
+      "server_type": "doh",
+      "status": 87,
+      "template": "https://dns.quad9.net/dns-query",
+      "udp_fallback": false
+    },
+    {
+      "a_records": [
+        "104.20.23.154",
+        "172.66.147.243"
+      ],
+      "async": true,
+      "ms": 0.285,
+      "name": "example.com",
+      "options": 0,
+      "port": 0,
+      "query_status": 0,
+      "server_type": "doh",
+      "status": 0,
+      "template": "https://dns.quad9.net/dns-query",
+      "udp_fallback": false
+    },
+    {
+      "a_records": [],
+      "async": true,
+      "ms": 0.0005,
+      "name": "example.com",
+      "options": 72,
+      "port": 53,
+      "query_status": 0,
+      "server_type": "udp",
+      "status": 87,
+      "template": "https://dns.quad9.net/dns-query",
+      "udp_fallback": false
+    },
+    {
+      "a_records": [],
+      "async": false,
+      "ms": 32.1053,
+      "name": "example.com",
+      "negative_control": true,
+      "options": 0,
+      "port": 0,
+      "query_status": 9002,
+      "server_type": "doh",
+      "status": 9002,
+      "template": "https://dns.quad9.net/not-a-doh-path",
+      "udp_fallback": false
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-pages-theme-set"
+description = "Enables the pages_theme_set command without any pre-configured scope."
+commands.allow = ["pages_theme_set"]
+
+[[permission]]
+identifier = "deny-pages-theme-set"
+description = "Denies the pages_theme_set command without any pre-configured scope."
+commands.deny = ["pages_theme_set"]

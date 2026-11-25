@@ -1,0 +1,13 @@
+[package]
+name = "untrace-core"
+description = "UNTRACE core: settings, protection registry, address parsing, audit log. Platform-independent, no unsafe code."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+url.workspace = true

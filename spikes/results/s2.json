@@ -1,0 +1,984 @@
+{
+  "adblock_engine": {
+    "build_ms": 95.7955,
+    "deserialize_ms": 1.6609,
+    "deserialize_ok": true,
+    "known_urls": [
+      {
+        "blocked": true,
+        "rewritten": null,
+        "url": "https://www.google-analytics.com/analytics.js"
+      },
+      {
+        "blocked": true,
+        "rewritten": null,
+        "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+      },
+      {
+        "blocked": true,
+        "rewritten": null,
+        "url": "https://connect.facebook.net/en_US/fbevents.js"
+      },
+      {
+        "blocked": false,
+        "rewritten": null,
+        "url": "https://news.example.org/static/app.js"
+      },
+      {
+        "blocked": false,
+        "rewritten": null,
+        "url": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"
+      },
+      {
+        "blocked": false,
+        "rewritten": null,
+        "url": "https://example.org/?utm_source=x&gclid=1&id=7"
+      }
+    ],
+    "list_lines": 136500,
+    "microbench": {
+      "blocked": 12500,
+      "mean_ns_per_match": 4570.95,
+      "requests": 50000
+    },
+    "serialize_ms": 1.5012,
+    "serialized_bytes": 6071805
+  },
+  "bench": {
+    "modes": {
+      "engine": {
+        "load_event_ms_median": 253.79999999701977,
+        "load_event_ms_p95": 259.90000000596046,
+        "resources_per_page": 220,
+        "samples": 12,
+        "wall_ms_median": 257.9008,
+        "wall_ms_p95": 264.029
+      },
+      "none": {
+        "load_event_ms_median": 211.4000000059605,
+        "load_event_ms_p95": 213.79999999701977,
+        "resources_per_page": 220,
+        "samples": 12,
+        "wall_ms_median": 214.56629999999998,
+        "wall_ms_p95": 217.5413
+      },
+      "noop": {
+        "load_event_ms_median": 249.5,
+        "load_event_ms_p95": 253.4000000059605,
+        "resources_per_page": 220,
+        "samples": 12,
+        "wall_ms_median": 255.503,
+        "wall_ms_p95": 260.1026
+      }
+    },
+    "summary": {
+      "engine_extra_ms_per_page": 4.299999997019768,
+      "engine_match_ns_p50": 7000.0,
+      "engine_match_ns_p99": 41600.0,
+      "engine_matches_recorded": 3107,
+      "intercept_overhead_ms_per_page": 38.09999999403951,
+      "intercept_overhead_ms_per_request": 0.1723981900182783,
+      "note": "Loopback fixture: absolute page-load times are tiny, so percentages overstate real-world overhead; per-request cost is the transferable number.",
+      "total_overhead_pct": 20.056764422830557
+    }
+  },
+  "coverage_legacy_filter": {
+    "missed": [
+      "img-crossframe.png",
+      "fetch-crossframe",
+      "fetch-sharedworker",
+      "websocket",
+      "fetch-sw-install",
+      "fetch-sw-message",
+      "fetch-through-sw",
+      "/s2/sw.js"
+    ],
+    "navigation": [
+      "Some(Nav { ok: true, status: 0 })",
+      "Some(Nav { ok: true, status: 0 })"
+    ],
+    "page_scripts_completed": [
+      true,
+      true
+    ],
+    "rows": [
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/img-main.png"
+          }
+        ],
+        "resource": "img-main.png",
+        "server": [
+          "localhost:57362/s2/r/img-main.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "script",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/script-main.js"
+          }
+        ],
+        "resource": "script-main.js",
+        "server": [
+          "localhost:57362/s2/r/script-main.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "stylesheet",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/style.css"
+          }
+        ],
+        "resource": "style.css",
+        "server": [
+          "localhost:57362/s2/r/style.css"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "stylesheet",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/imported.css"
+          }
+        ],
+        "resource": "imported.css",
+        "server": [
+          "localhost:57362/s2/r/imported.css"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "font",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/font.woff2"
+          },
+          {
+            "context": "font",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/font.woff2"
+          }
+        ],
+        "resource": "font.woff2",
+        "server": [
+          "localhost:57362/s2/r/font.woff2"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/bg.png"
+          }
+        ],
+        "resource": "bg.png",
+        "server": [
+          "localhost:57362/s2/r/bg.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "fetch",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/prefetch"
+          }
+        ],
+        "resource": "prefetch",
+        "server": [
+          "localhost:57362/s2/r/prefetch"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/favicon.ico"
+          }
+        ],
+        "resource": "favicon.ico",
+        "server": [
+          "localhost:57362/s2/r/favicon.ico"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/fetch-main"
+          }
+        ],
+        "resource": "fetch-main",
+        "server": [
+          "localhost:57362/s2/r/fetch-main"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/xhr-main"
+          }
+        ],
+        "resource": "xhr-main",
+        "server": [
+          "localhost:57362/s2/r/xhr-main"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "ping",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/beacon-main"
+          }
+        ],
+        "resource": "beacon-main",
+        "server": [
+          "localhost:57362/s2/r/beacon-main"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/img-sameframe.png"
+          }
+        ],
+        "resource": "img-sameframe.png",
+        "server": [
+          "localhost:57362/s2/r/img-sameframe.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [],
+        "resource": "img-crossframe.png",
+        "server": [
+          "127.0.0.1:57362/s2/r/img-crossframe.png"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [],
+        "resource": "fetch-crossframe",
+        "server": [
+          "127.0.0.1:57362/s2/r/fetch-crossframe"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/fetch-dworker"
+          }
+        ],
+        "resource": "fetch-dworker",
+        "server": [
+          "localhost:57362/s2/r/fetch-dworker"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "script",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/import-dworker.js"
+          }
+        ],
+        "resource": "import-dworker.js",
+        "server": [
+          "localhost:57362/s2/r/import-dworker.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [],
+        "resource": "fetch-sharedworker",
+        "server": [
+          "localhost:57362/s2/r/fetch-sharedworker"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [],
+        "resource": "websocket",
+        "server": [
+          "localhost:57362/s2/r/websocket"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/eventsource"
+          }
+        ],
+        "resource": "eventsource",
+        "server": [
+          "localhost:57362/s2/r/eventsource"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [],
+        "resource": "fetch-sw-install",
+        "server": [
+          "localhost:57362/s2/r/fetch-sw-install"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [],
+        "resource": "fetch-sw-message",
+        "server": [
+          "localhost:57362/s2/r/fetch-sw-message"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [],
+        "resource": "fetch-through-sw",
+        "server": [
+          "localhost:57362/s2/r/fetch-through-sw?via=sw"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/main.html"
+          }
+        ],
+        "resource": "/s2/main.html",
+        "server": [
+          "localhost:57362/s2/main.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "script",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/main.js"
+          }
+        ],
+        "resource": "/s2/main.js",
+        "server": [
+          "localhost:57362/s2/main.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/frame-same.html"
+          }
+        ],
+        "resource": "/s2/frame-same.html",
+        "server": [
+          "localhost:57362/s2/frame-same.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://127.0.0.1:57362/s2/frame-cross.html"
+          }
+        ],
+        "resource": "/s2/frame-cross.html",
+        "server": [
+          "127.0.0.1:57362/s2/frame-cross.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/worker.js"
+          }
+        ],
+        "resource": "/s2/worker.js",
+        "server": [
+          "localhost:57362/s2/worker.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/shared.js"
+          }
+        ],
+        "resource": "/s2/shared.js",
+        "server": [
+          "localhost:57362/s2/shared.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [],
+        "resource": "/s2/sw.js",
+        "server": [
+          "localhost:57362/s2/sw.js"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/controlled.html"
+          }
+        ],
+        "resource": "/s2/controlled.html",
+        "server": [
+          "localhost:57362/s2/controlled.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      }
+    ],
+    "service_worker_error": "\"\"",
+    "variant": "legacy-filter"
+  },
+  "coverage_source_kinds": {
+    "missed": [
+      "websocket"
+    ],
+    "navigation": [
+      "Some(Nav { ok: true, status: 0 })",
+      "Some(Nav { ok: true, status: 0 })"
+    ],
+    "page_scripts_completed": [
+      true,
+      true
+    ],
+    "rows": [
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/img-main.png"
+          }
+        ],
+        "resource": "img-main.png",
+        "server": [
+          "localhost:57362/s2/r/img-main.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "script",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/script-main.js"
+          }
+        ],
+        "resource": "script-main.js",
+        "server": [
+          "localhost:57362/s2/r/script-main.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "stylesheet",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/style.css"
+          }
+        ],
+        "resource": "style.css",
+        "server": [
+          "localhost:57362/s2/r/style.css"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "stylesheet",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/imported.css"
+          }
+        ],
+        "resource": "imported.css",
+        "server": [
+          "localhost:57362/s2/r/imported.css"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "font",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/font.woff2"
+          },
+          {
+            "context": "font",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/font.woff2"
+          }
+        ],
+        "resource": "font.woff2",
+        "server": [
+          "localhost:57362/s2/r/font.woff2"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/bg.png"
+          }
+        ],
+        "resource": "bg.png",
+        "server": [
+          "localhost:57362/s2/r/bg.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "fetch",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/prefetch"
+          }
+        ],
+        "resource": "prefetch",
+        "server": [
+          "localhost:57362/s2/r/prefetch"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/favicon.ico"
+          }
+        ],
+        "resource": "favicon.ico",
+        "server": [
+          "localhost:57362/s2/r/favicon.ico"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/fetch-main"
+          }
+        ],
+        "resource": "fetch-main",
+        "server": [
+          "localhost:57362/s2/r/fetch-main"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/xhr-main"
+          }
+        ],
+        "resource": "xhr-main",
+        "server": [
+          "localhost:57362/s2/r/xhr-main"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "ping",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/beacon-main"
+          }
+        ],
+        "resource": "beacon-main",
+        "server": [
+          "localhost:57362/s2/r/beacon-main"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/img-sameframe.png"
+          }
+        ],
+        "resource": "img-sameframe.png",
+        "server": [
+          "localhost:57362/s2/r/img-sameframe.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "image",
+            "source_kind": "document",
+            "uri": "http://127.0.0.1:57362/s2/r/img-crossframe.png"
+          }
+        ],
+        "resource": "img-crossframe.png",
+        "server": [
+          "127.0.0.1:57362/s2/r/img-crossframe.png"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://127.0.0.1:57362/s2/r/fetch-crossframe"
+          }
+        ],
+        "resource": "fetch-crossframe",
+        "server": [
+          "127.0.0.1:57362/s2/r/fetch-crossframe"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/fetch-dworker"
+          }
+        ],
+        "resource": "fetch-dworker",
+        "server": [
+          "localhost:57362/s2/r/fetch-dworker"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "script",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/import-dworker.js"
+          }
+        ],
+        "resource": "import-dworker.js",
+        "server": [
+          "localhost:57362/s2/r/import-dworker.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "shared_worker",
+            "uri": "http://localhost:57362/s2/r/fetch-sharedworker"
+          }
+        ],
+        "resource": "fetch-sharedworker",
+        "server": [
+          "localhost:57362/s2/r/fetch-sharedworker"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [],
+        "resource": "websocket",
+        "server": [
+          "localhost:57362/s2/r/websocket"
+        ],
+        "server_count": 1,
+        "verdict": "MISSED"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/r/eventsource"
+          }
+        ],
+        "resource": "eventsource",
+        "server": [
+          "localhost:57362/s2/r/eventsource"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "service_worker",
+            "uri": "http://localhost:57362/s2/r/fetch-sw-install"
+          }
+        ],
+        "resource": "fetch-sw-install",
+        "server": [
+          "localhost:57362/s2/r/fetch-sw-install"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "service_worker",
+            "uri": "http://localhost:57362/s2/r/fetch-sw-message"
+          }
+        ],
+        "resource": "fetch-sw-message",
+        "server": [
+          "localhost:57362/s2/r/fetch-sw-message"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "xhr",
+            "source_kind": "service_worker",
+            "uri": "http://localhost:57362/s2/r/fetch-through-sw?via=sw"
+          }
+        ],
+        "resource": "fetch-through-sw",
+        "server": [
+          "localhost:57362/s2/r/fetch-through-sw?via=sw"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/main.html"
+          }
+        ],
+        "resource": "/s2/main.html",
+        "server": [
+          "localhost:57362/s2/main.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "script",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/main.js"
+          }
+        ],
+        "resource": "/s2/main.js",
+        "server": [
+          "localhost:57362/s2/main.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/frame-same.html"
+          }
+        ],
+        "resource": "/s2/frame-same.html",
+        "server": [
+          "localhost:57362/s2/frame-same.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://127.0.0.1:57362/s2/frame-cross.html"
+          }
+        ],
+        "resource": "/s2/frame-cross.html",
+        "server": [
+          "127.0.0.1:57362/s2/frame-cross.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/worker.js"
+          }
+        ],
+        "resource": "/s2/worker.js",
+        "server": [
+          "localhost:57362/s2/worker.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/shared.js"
+          }
+        ],
+        "resource": "/s2/shared.js",
+        "server": [
+          "localhost:57362/s2/shared.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "other",
+            "source_kind": "service_worker",
+            "uri": "http://localhost:57362/s2/sw.js"
+          }
+        ],
+        "resource": "/s2/sw.js",
+        "server": [
+          "localhost:57362/s2/sw.js"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      },
+      {
+        "events": [
+          {
+            "context": "document",
+            "source_kind": "document",
+            "uri": "http://localhost:57362/s2/controlled.html"
+          }
+        ],
+        "resource": "/s2/controlled.html",
+        "server": [
+          "localhost:57362/s2/controlled.html"
+        ],
+        "server_count": 1,
+        "verdict": "SEEN"
+      }
+    ],
+    "service_worker_error": "\"\"",
+    "variant": "source-kinds"
+  },
+  "runtime_version": "157.0.4341.60",
+  "spike": "S2 interception"
+}

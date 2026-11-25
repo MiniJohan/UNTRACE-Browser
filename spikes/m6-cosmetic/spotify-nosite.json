@@ -1,0 +1,879 @@
+{
+  "mode": "paired-hide",
+  "pairs": [
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 1508,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 1502,
+          "readyState": "complete",
+          "resources": 109,
+          "scripts": 16,
+          "textLength": 2828
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 5694,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2045,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 1
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 5863,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 4694,
+          "readyState": "complete",
+          "resources": 111,
+          "scripts": 16,
+          "textLength": 2407
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 3305,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 3284,
+          "readyState": "complete",
+          "resources": 140,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 2
+    },
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2766,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2751,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 7019,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2550,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 3
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 6781,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 6342,
+          "readyState": "complete",
+          "resources": 142,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 2834,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 2828,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 4
+    },
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 3625,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 54,
+          "loadEventMs": 3619,
+          "readyState": "complete",
+          "resources": 140,
+          "scripts": 16,
+          "textLength": 2601
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 7960,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 3398,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 5
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 6855,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 3623,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 4131,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 54,
+          "loadEventMs": 4124,
+          "readyState": "complete",
+          "resources": 142,
+          "scripts": 16,
+          "textLength": 2601
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 6
+    },
+    {
+      "first": "on",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 1253,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 1247,
+          "readyState": "complete",
+          "resources": 138,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 6951,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 3443,
+          "readyState": "complete",
+          "resources": 139,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 7
+    },
+    {
+      "first": "off",
+      "input": "https://open.spotify.com/",
+      "off": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 5129,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 4068,
+          "readyState": "complete",
+          "resources": 137,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "on": {
+        "blocked": {
+          "certificateErrors": 0,
+          "externalApps": 0,
+          "hosts": [
+            {
+              "count": 1,
+              "host": "open.spotifycdn.com",
+              "local": false,
+              "threat": null
+            },
+            {
+              "count": 1,
+              "host": "o22381.ingest.sentry.io",
+              "local": false,
+              "threat": null
+            }
+          ],
+          "localNetwork": 0,
+          "navigations": 0,
+          "paramNames": [],
+          "params": 0,
+          "permissions": 0,
+          "popups": 0,
+          "requests": 2,
+          "threats": 0
+        },
+        "crashed": false,
+        "detail": null,
+        "error": null,
+        "final_url": "https://open.spotify.com/",
+        "finished": true,
+        "http_status": 200,
+        "input": "https://open.spotify.com/",
+        "interstitial": null,
+        "load_ms": 4923,
+        "probe": {
+          "frames": 2,
+          "href": "https://open.spotify.com/",
+          "images": 40,
+          "loadEventMs": 4915,
+          "readyState": "complete",
+          "resources": 141,
+          "scripts": 16,
+          "textLength": 2531
+        },
+        "started": true,
+        "title": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online"
+      },
+      "round": 8
+    }
+  ],
+  "summary": {
+    "blocked_requests_per_page": {
+      "max": 2.0,
+      "median": 2.0,
+      "total": 16.0
+    },
+    "failed": [],
+    "load_event_ms": {
+      "median_change_pct": -9.3,
+      "off": {
+        "median": 3619.0,
+        "p95": 4694.0
+      },
+      "on": {
+        "median": 3284.0,
+        "p95": 4124.0
+      },
+      "on_faster_in": 4,
+      "p95_change_pct": -12.1,
+      "paired_ratio_on_over_off": {
+        "median": 0.939,
+        "p95": 1.362
+      },
+      "pairs": 8
+    },
+    "load_ms": {
+      "median_change_pct": 35.8,
+      "off": {
+        "median": 3625.0,
+        "p95": 6781.0
+      },
+      "on": {
+        "median": 4923.0,
+        "p95": 7019.0
+      },
+      "on_faster_in": 4,
+      "p95_change_pct": 3.5,
+      "paired_ratio_on_over_off": {
+        "median": 0.96,
+        "p95": 3.776
+      },
+      "pairs": 8
+    },
+    "pairs_loaded_both": 8,
+    "pairs_total": 8,
+    "resources_per_page": {
+      "off_median": 138.0,
+      "on_median": 139.0
+    }
+  }
+}

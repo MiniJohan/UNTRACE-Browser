@@ -1,0 +1,36 @@
+[workspace]
+resolver = "3"
+members = ["crates/untrace-core", "crates/untrace-filter", "crates/untrace-net", "crates/untrace-webview", "app/src-tauri"]
+# Milestone 0 spikes are standalone throwaway crates.
+exclude = ["spikes/harness", "spikes/s1-tauri"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+publish = false
+# UNTRACE's own code (D-017). Bundled lists and dependencies keep their own licences.
+license = "MPL-2.0"
+
+[workspace.dependencies]
+# D-004: Brave's filter engine, MPL-2.0, pinned to 0.13.x (untrace-filter checks the exact version).
+adblock = "0.13.6"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.154"
+url = "2.5.7"
+webview2-com = "0.39.1"
+windows = "0.62.2"
+tauri = "2.12.7"
+tauri-build = "2.6"
+tauri-plugin-single-instance = "2.3"
+# M9 (D-016): signed app updates. Windows TLS (schannel), no archive formats.
+tauri-plugin-updater = { version = "2", default-features = false, features = ["native-tls", "system-proxy"] }
+untrace-core = { path = "crates/untrace-core" }
+untrace-filter = { path = "crates/untrace-filter" }
+untrace-net = { path = "crates/untrace-net" }
+untrace-webview = { path = "crates/untrace-webview" }
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+strip = "symbols"

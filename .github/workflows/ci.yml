@@ -1,0 +1,29 @@
+# UNTRACE CI — runs scripts/check.ps1 on Windows (WebView2 is preinstalled on the runner).
+# Before enabling: pin each action to a full commit SHA (supply-chain policy, SECURITY.md §5).
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Rust toolchain
+        run: rustup update stable && rustup component add rustfmt clippy
+      - name: Install cargo-deny and cargo-audit
+        run: cargo install cargo-deny cargo-audit --locked
+      - name: Check
+        shell: pwsh
+        run: ./scripts/check.ps1
