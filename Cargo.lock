@@ -4760,7 +4760,7 @@ checksum = "c6f5d3c3b1bf09027a88a6bc961fc00497d651009560b5463668dc81b0fa87a8"
 
 [[package]]
 name = "untrace"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -4779,7 +4779,7 @@ dependencies = [
 
 [[package]]
 name = "untrace-core"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -4788,7 +4788,7 @@ dependencies = [
 
 [[package]]
 name = "untrace-filter"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "adblock",
  "serde",
@@ -4798,7 +4798,7 @@ dependencies = [
 
 [[package]]
 name = "untrace-net"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "serde",
  "untrace-filter",
@@ -4807,7 +4807,7 @@ dependencies = [
 
 [[package]]
 name = "untrace-webview"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "rcgen",
  "rustls",

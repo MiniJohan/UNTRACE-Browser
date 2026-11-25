@@ -317,7 +317,7 @@ The product owner asked for a darker look and other colours.
 - The interface's look is not visible to websites.
 - **Found along the way:** WebView2 Runtime 158 arrived as an Evergreen update during this work and broke the self-check's test pages (virtual-host mapping behind an authenticated proxy). They are now answered by UNTRACE's own request handler (TESTING §9). The full check passes on 158: 56 of 56.
 
-## M9 — Packaging, updates, release · **complete 2026-11-25** (gate approved by the product owner; v1.0 waits for its release build)
+## M9 — Packaging, updates, release · **complete 2026-11-25** (gate approved by the product owner; release 1.0.0 built the same day)
 
 Decisions (product owner, 2026-11-25):
 - **D-016:** GitHub Releases; unsigned until a certificate is bought.
@@ -354,13 +354,17 @@ Release setup (product owner):
 - [x] Update key generated and kept outside the repository; its public key and the release address are in `tauri.conf.json` (2026-11-25).
 - [x] Gate approved by the product owner (2026-11-25).
 
-Before a public v1.0 (product owner):
-- Build and publish the first release with `scripts/release.ps1` (RELEASING.md › Each release). Until then the update check finds no `latest.json` and reports a failed check.
+Release 1.0.0 (2026-11-25):
+- [x] Built with `scripts/release.ps1` and signed with the release key. The signature was checked against the public key in `tauri.conf.json`: valid for the installer and for version 1.0.0; a changed installer is rejected.
+- [x] Tagged `v1.0.0`, for the GitHub release of the same name with the installer, its signature, `latest.json` and `SHA256SUMS.txt`.
+- [ ] The release checklist (RELEASING.md) on the published installer.
+
+Still open (product owner):
 - Optional: an Authenticode certificate (D-016).
 - Review the OpenPhish/PhishTank terms for the phishing list (D-032).
 - Legal review of the licence and notices (D-017).
 
-**Exit:** release checklist (TESTING §8) passes on a clean Windows 11 GA VM → v1.0. *Status: replaced by D-054 (this PC). Everything passes except the two open items above. The one-time setup is done; v1.0 waits for the first release build and the open items in the list above.*
+**Exit:** release checklist (TESTING §8) passes on a clean Windows 11 GA VM → v1.0. *Status: replaced by D-054 (this PC). Everything passes except the two open items above. Release 1.0.0 is built and tagged; the items under "Still open" remain.*
 
 ---
 
