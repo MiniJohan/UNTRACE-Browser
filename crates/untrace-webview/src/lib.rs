@@ -19,7 +19,7 @@ pub use engine_files::{ScrubReport, WEBRTC_PROXY_ONLY, scrub_engine_files};
 pub use host::{
     Blocked, BlockedHost, CertInfo, ClearKinds, ConnectionInfo, ContentHost, CookieSite, DEVTOOLS_ID, DownloadInfo,
     EngineInfo, HIDE_ELEMENTS_ID, HTTPS_ONLY_ID, HostConfig, HostEvent, Interstitial, LOCAL_NETWORK_ID,
-    MIN_RUNTIME_MAJOR, NetworkCheck, Notify, PageColorScheme, PageNetwork, PromptDetail, PromptInfo, STRIP_PARAMS_ID,
-    Snapshot, StoredPermission, TEMP_PROFILE_PREFIX, TRACKING_LEVELS, TRACKING_PREVENTION_ID, TabInfo, WEBRTC_ID,
-    remove_leftover_temp_profiles,
+    MIN_RUNTIME_MAJOR, NetworkCheck, Notify, PageColorScheme, PageNetwork, PromptDetail, PromptInfo, SLEEP_CHOICES,
+    SLEEP_TABS_ID, STRIP_PARAMS_ID, Snapshot, StoredPermission, TEMP_PROFILE_PREFIX, TRACKING_LEVELS,
+    TRACKING_PREVENTION_ID, TabInfo, WEBRTC_ID, remove_leftover_temp_profiles,
 };

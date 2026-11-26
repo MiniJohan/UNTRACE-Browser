@@ -16,6 +16,9 @@ pub mod cosmetic;
 pub mod engine;
 pub mod lists;
 pub mod params;
+pub mod popup;
+pub mod preprocess;
+pub mod scriptlets;
 pub mod store;
 
 pub use catalog::{Format, Kind, ListId, ListInfo, catalog, info};

@@ -2,10 +2,10 @@
 //! can enforce it and report its state.
 
 use untrace_core::registry::{Kind, ProtectionDef, Scope};
-use untrace_filter::catalog::{BLOCK_ADS_ID, BLOCK_TRACKERS_ID, WARN_MALWARE_ID, WARN_PHISHING_ID};
+use untrace_filter::catalog::{BLOCK_ADS_ID, BLOCK_TRACKERS_ID, UBLOCK_ID, WARN_MALWARE_ID, WARN_PHISHING_ID};
 use untrace_webview::{
-    DEVTOOLS_ID, HIDE_ELEMENTS_ID, HTTPS_ONLY_ID, LOCAL_NETWORK_ID, STRIP_PARAMS_ID, TRACKING_LEVELS,
-    TRACKING_PREVENTION_ID, WEBRTC_ID,
+    DEVTOOLS_ID, HIDE_ELEMENTS_ID, HTTPS_ONLY_ID, LOCAL_NETWORK_ID, SLEEP_CHOICES, SLEEP_TABS_ID, STRIP_PARAMS_ID,
+    TRACKING_LEVELS, TRACKING_PREVENTION_ID, WEBRTC_ID,
 };
 
 use crate::{
@@ -33,6 +33,30 @@ pub fn defs() -> Vec<ProtectionDef> {
             kind: Kind::Toggle { default: true },
         },
         ProtectionDef {
+            id: UBLOCK_ID,
+            group: "Blocking",
+            title: "uBlock Origin filters",
+            explanation: "Adds the lists of the uBlock Origin project to EasyList and EasyPrivacy: ads and \
+                          pop-ups on the sites EasyList misses (streaming and download sites among them), \
+                          scam and fake-download pages, more trackers, and fixes for sites the lists would \
+                          otherwise break. Its quick fixes are checked every 12 hours, as uBlock Origin does. \
+                          It also runs the lists' scriptlets: uBlock Origin's small page scripts that remove what \
+                          blocking requests cannot, such as YouTube's video ads, pop-up openers and anti-adblock \
+                          walls. They run before the page's own scripts.",
+            limitations: "The lists are written for the uBlock Origin extension. UNTRACE applies what its \
+                          blocking engine supports: rules that rewrite addresses or responses (urlskip, \
+                          replace, redirect-rule and others, about 5 % of the rules) are not applied. The lists \
+                          and uBlock Origin's scriptlets (bundled with UNTRACE, updated with UNTRACE) are \
+                          licensed under GPL-3.0 by their authors. Scriptlets run inside pages, as page scripts \
+                          do; only uBlock Origin's own lists may use its \"trusted\" scriptlets. YouTube changes \
+                          often: uBlock Origin's quick fixes usually follow within hours, but ads can return for \
+                          a while. The same request-level limits as ad \
+                          blocking apply, and \"Block ads and trackers\" in a site's panel turns them off \
+                          for that site.",
+            scope: Scope::View,
+            kind: Kind::Toggle { default: true },
+        },
+        ProtectionDef {
             id: BLOCK_TRACKERS_ID,
             group: "Blocking",
             title: "Block trackers",
@@ -56,8 +80,8 @@ pub fn defs() -> Vec<ProtectionDef> {
                           page shows, only for the class names and ids that actually occur on it.",
             limitations: "Takes effect on pages you open or reload after a change. Rules that need custom code \
                           are not applied: about 300 extended rules (such as \"hide this box if it says \
-                          Sponsored\") and scriptlets, which wait for the licence decision (D-017). Pages can \
-                          tell that elements were hidden. Turning blocking off for a site in its site panel \
+                          Sponsored\"). The lists' scriptlets run with their lists, whatever this switch says \
+                          (see \"uBlock Origin filters\"). Pages can tell that elements were hidden. Turning blocking off for a site in its site panel \
                           turns hiding off there too.",
             scope: Scope::View,
             kind: Kind::Toggle { default: true },
@@ -261,6 +285,23 @@ pub fn defs() -> Vec<ProtectionDef> {
                           Microsoft through Windows either way.",
             scope: Scope::App,
             kind: Kind::Toggle { default: true },
+        },
+        ProtectionDef {
+            id: SLEEP_TABS_ID,
+            group: "Performance",
+            title: "Sleeping tabs",
+            explanation: "Tabs you have not looked at for this long go to sleep: the browser engine stops their \
+                          scripts and frees the memory it can, the way Microsoft Edge's sleeping tabs work. A \
+                          sleeping tab looks dimmed and wakes as soon as you open it.",
+            limitations: "A sleeping page does nothing until you open it: no new messages, notifications or \
+                          updates in the background, and some pages reload or reconnect when they wake. Tabs \
+                          playing sound, tabs whose site may use the camera or microphone, and tabs waiting for an \
+                          answer never sleep. How much memory sleeping frees depends on the page.",
+            scope: Scope::App,
+            kind: Kind::Choice {
+                options: &SLEEP_CHOICES,
+                default: "30 minutes",
+            },
         },
         ProtectionDef {
             id: DEVTOOLS_ID,

@@ -18,6 +18,13 @@
 //! - `paired-net` (M5): the same design, filtering on in both; "off" without and "on" with the
 //!   network layer (loopback proxy, Automatic encrypted DNS, as in a fresh UNTRACE).
 //! - `net`: one engine with filtering and the network layer on.
+//!
+//! `compat adcheck <out-dir> <data-dir> <url>...` (2026-11-26): ads and pop-ups on real sites.
+//! Each address loads in a host set up as UNTRACE ships (all lists, element hiding, network
+//! layer). The page is then clicked three times the way a person clicks (DevTools input, which
+//! the engine treats as a real user gesture). Recorded: pop-up tabs each click opened, what the
+//! page shows of ads (third-party hosts, frames, YouTube's own ad data), what UNTRACE blocked,
+//! and a screenshot before and after the clicks.
 
 use std::{
     rc::Rc,
@@ -385,6 +392,19 @@ fn main() {
         visit_one(&args[2], std::path::PathBuf::from(&args[3]));
         return;
     }
+    if args.get(1).map(String::as_str) == Some("adcheck") {
+        // SAFETY: COM/DPI initialisation for this UI thread.
+        unsafe {
+            CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok().expect("COM");
+            let _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
+        }
+        adcheck(
+            std::path::Path::new(&args[2]),
+            std::path::PathBuf::from(&args[3]),
+            &args[4..],
+        );
+        return;
+    }
     let (sites, out, data) = (&args[1], &args[2], std::path::PathBuf::from(&args[3]));
     let mode = args.get(4).map(String::as_str).unwrap_or("on");
     // SAFETY: COM/DPI initialisation for this UI thread.
@@ -485,4 +505,193 @@ fn main() {
     std::fs::write(out, serde_json::to_string_pretty(&results).expect("json")).expect("write results");
     host.shutdown();
     pump_for(Duration::from_secs(2));
+}
+
+// ------------------------------------------------------------------------------- adcheck
+
+/// What a page shows of ads: third-party hosts it loaded from, its frames, and on YouTube the
+/// player's own ad data.
+const AD_PROBE: &str = r#"(() => {
+  const site = h => h.split('.').slice(-2).join('.');
+  const own = site(location.hostname);
+  const r = performance.getEntriesByType('resource');
+  const hosts = {};
+  for (const e of r) {
+    let h = '';
+    try { h = new URL(e.name).hostname; } catch (_) {}
+    if (h && site(h) !== own) hosts[h] = (hosts[h] || 0) + 1;
+  }
+  const frames = [...document.querySelectorAll('iframe')].map(f => {
+    let inner = null;
+    try { const d = f.contentDocument; inner = d && { title: d.title, text: (d.body && d.body.innerText || '').slice(0, 160),
+      scripts: [...d.scripts].map(s => s.src ? s.src.slice(0, 160) : 'inline:' + s.text.slice(0, 100)) }; } catch (_) {}
+    return { src: (f.src || '(no src)').slice(0, 140), w: f.offsetWidth, h: f.offsetHeight,
+      style: (f.getAttribute('style') || '').slice(0, 160), inner };
+  });
+  const scripts = [...document.scripts].map(s => s.src ? { src: s.src.slice(0, 200) } : { inline: s.text.length, head: s.text.slice(0, 160) });
+  const pr = window.ytInitialPlayerResponse;
+  const player = document.querySelector('#movie_player');
+  const links = [...document.querySelectorAll('a[href]')].map(a => a.href).filter(h => h.includes('/watch')).slice(0, 5);
+  return {
+    url: location.href, title: document.title, visibility: document.visibilityState,
+    third_party_hosts: Object.entries(hosts).sort((a, b) => b[1] - a[1]).slice(0, 50),
+    third_party_requests: r.filter(e => { try { return site(new URL(e.name).hostname) !== own; } catch (_) { return false; } })
+      .slice(0, 80).map(e => ({ u: e.name.slice(0, 300), t: e.initiatorType, s: e.responseStatus })),
+    resources: r.length, blocked_403: r.filter(e => e.responseStatus === 403).length,
+    frames, scripts, watch_links: links,
+    youtube: pr === undefined ? null : {
+      adPlacements: (pr.adPlacements || []).length, playerAds: (pr.playerAds || []).length,
+      adSlots: (pr.adSlots || []).length,
+      adShowing: !!(player && player.classList.contains('ad-showing')) },
+  };
+})()"#;
+
+/// The privacy-preserving answer to a cookie banner, where a page shows one: "Reject all".
+const REJECT_CONSENT: &str = r#"(() => {
+  const b = [...document.querySelectorAll('button, input[type=submit]')]
+    .find(x => /^(reject all|avvisa alla)$/i.test((x.innerText || x.value || '').trim()));
+  if (b) { b.click(); return 'rejected'; }
+  return 'none';
+})()"#;
+
+fn eval(host: &ContentHost, id: u32, js: &str) -> Value {
+    let (tx, rx) = mpsc::channel();
+    host.execute(id, js, move |j| {
+        let _ = tx.send(j);
+    });
+    let mut out = Value::Null;
+    until(Duration::from_secs(10), || match rx.try_recv() {
+        Ok(j) => {
+            out = serde_json::from_str(&j).unwrap_or(Value::String(j));
+            true
+        }
+        Err(_) => false,
+    });
+    out
+}
+
+fn devtools(host: &ContentHost, id: u32, method: &str, params: &str) -> std::result::Result<String, String> {
+    let (tx, rx) = mpsc::channel();
+    host.devtools_call(id, method, params, move |r| {
+        let _ = tx.send(r);
+    });
+    let mut out = Err("no answer".to_string());
+    until(Duration::from_secs(15), || match rx.try_recv() {
+        Ok(r) => {
+            out = r;
+            true
+        }
+        Err(_) => false,
+    });
+    out
+}
+
+fn base64_decode(s: &str) -> Vec<u8> {
+    let val = |c: u8| match c {
+        b'A'..=b'Z' => Some(c - b'A'),
+        b'a'..=b'z' => Some(c - b'a' + 26),
+        b'0'..=b'9' => Some(c - b'0' + 52),
+        b'+' => Some(62),
+        b'/' => Some(63),
+        _ => None,
+    };
+    let (mut out, mut acc, mut bits) = (Vec::new(), 0u32, 0u32);
+    for v in s.bytes().filter_map(val) {
+        acc = (acc << 6) | v as u32;
+        bits += 6;
+        if bits >= 8 {
+            bits -= 8;
+            out.push((acc >> bits) as u8);
+            acc &= (1 << bits) - 1;
+        }
+    }
+    out
+}
+
+fn screenshot(host: &ContentHost, id: u32, path: &std::path::Path) -> bool {
+    let Ok(j) = devtools(host, id, "Page.captureScreenshot", r#"{"format":"png"}"#) else {
+        return false;
+    };
+    let v: Value = serde_json::from_str(&j).unwrap_or(Value::Null);
+    let png = base64_decode(v["data"].as_str().unwrap_or(""));
+    !png.is_empty() && std::fs::write(path, png).is_ok()
+}
+
+/// A left click at (x, y) CSS pixels, as a person's: the engine treats it as a user gesture.
+fn click(host: &ContentHost, id: u32, x: f64, y: f64) -> bool {
+    let ev = |kind: &str| format!(r#"{{"type":"{kind}","x":{x},"y":{y},"button":"left","buttons":1,"clickCount":1}}"#);
+    devtools(host, id, "Input.dispatchMouseEvent", &ev("mousePressed")).is_ok()
+        && devtools(host, id, "Input.dispatchMouseEvent", &ev("mouseReleased")).is_ok()
+}
+
+fn adcheck(out: &std::path::Path, data: std::path::PathBuf, urls: &[String]) {
+    std::fs::create_dir_all(out).expect("output folder");
+    let hwnd = window();
+    let (host, id) = open_host(hwnd, data, true, true, true);
+    let mut report = Vec::new();
+    for (n, url) in urls.iter().enumerate() {
+        host.activate(id);
+        let visit = visit(&host, id, url);
+        pump_for(Duration::from_secs(4));
+        // A cookie banner (YouTube in the EU): reject, then load the address again.
+        let consent = eval(&host, id, REJECT_CONSENT);
+        if consent == "rejected" {
+            pump_for(Duration::from_secs(4));
+            let _ = self::visit(&host, id, url);
+        }
+        pump_for(Duration::from_secs(8)); // late ads
+        let before = eval(&host, id, AD_PROBE);
+        let shot_before = screenshot(&host, id, &out.join(format!("{n}-before.png")));
+        let size = eval(&host, id, "[innerWidth, innerHeight]");
+        let (w, h) = (size[0].as_f64().unwrap_or(1200.0), size[1].as_f64().unwrap_or(800.0));
+        let mut clicks = Vec::new();
+        for (fx, fy) in [(0.5, 0.45), (0.3, 0.65), (0.75, 0.3)] {
+            let tabs_before: Vec<u32> = host.snapshot().tabs.iter().map(|t| t.id).collect();
+            let popups_blocked_before = tab(&host, id).blocked.popups;
+            let clicked = click(&host, id, w * fx, h * fy);
+            pump_for(Duration::from_secs(5));
+            let snap = host.snapshot();
+            let new_tabs: Vec<Value> = snap
+                .tabs
+                .iter()
+                .filter(|t| !tabs_before.contains(&t.id))
+                .map(|t| json!({ "url": t.url, "title": t.title }))
+                .collect();
+            let main = tab(&host, id);
+            clicks.push(json!({
+                "at": [(w * fx).round(), (h * fy).round()],
+                "clicked": clicked,
+                "new_tabs": new_tabs,
+                "popups_refused": main.blocked.popups - popups_blocked_before,
+                "page_after": main.url,
+            }));
+            for t in snap.tabs.iter().filter(|t| !tabs_before.contains(&t.id)) {
+                host.close_tab(t.id);
+            }
+            host.activate(id);
+            pump_for(Duration::from_secs(1));
+        }
+        let after = eval(&host, id, AD_PROBE);
+        let shot_after = screenshot(&host, id, &out.join(format!("{n}-after.png")));
+        let t = tab(&host, id);
+        let entry = json!({
+            "n": n, "input": url, "consent": consent, "visit": visit,
+            "before": before, "clicks": clicks, "after": after,
+            "blocked_by_untrace": t.blocked, "screenshots": [shot_before, shot_after],
+        });
+        eprintln!(
+            "{n} {url}: pop-up tabs opened by 3 clicks: {}",
+            entry["clicks"]
+                .as_array()
+                .map(|c| c
+                    .iter()
+                    .map(|x| x["new_tabs"].as_array().map_or(0, Vec::len))
+                    .sum::<usize>())
+                .unwrap_or(0)
+        );
+        report.push(entry);
+    }
+    std::fs::write(out.join("report.json"), serde_json::to_string_pretty(&report).unwrap()).expect("report");
+    host.shutdown();
+    pump_for(Duration::from_millis(500));
 }

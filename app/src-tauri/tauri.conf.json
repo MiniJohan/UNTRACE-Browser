@@ -32,7 +32,10 @@
     "license": "MPL-2.0",
     "licenseFile": "../../LICENSE",
     "resources": {
-      "THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt"
+      "THIRD-PARTY-NOTICES.txt": "THIRD-PARTY-NOTICES.txt",
+      "../../crates/untrace-filter/lists/NOTICE.md": "lists/NOTICE.md",
+      "../../crates/untrace-filter/lists/LICENSE-uAssets.txt": "lists/LICENSE-uAssets.txt",
+      "../../crates/untrace-filter/resources/NOTICE.md": "resources/NOTICE.md"
     },
     "windows": {
       "webviewInstallMode": {

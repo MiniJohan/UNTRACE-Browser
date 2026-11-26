@@ -67,6 +67,25 @@ pub const HIDE_ELEMENTS_ID: &str = "filter.hide_elements";
 /// M8 (D-052): WebRTC only through the network layer. An engine preference set in each
 /// profile before the engine loads it; takes effect at the next start.
 pub const WEBRTC_ID: &str = "network.webrtc_in_network_layer";
+/// D-056: put tabs to sleep after they have been in the background this long.
+pub const SLEEP_TABS_ID: &str = "performance.sleeping_tabs";
+pub const SLEEP_CHOICES: [&str; 4] = ["off", "5 minutes", "30 minutes", "2 hours"];
+/// How often background tabs are checked for sleep.
+const SLEEP_SWEEP_MS: u32 = 30_000;
+/// How long a page's new window is checked against the pop-up rules. Pop-unders often open a
+/// blank window and send it to the ad a moment later.
+const POPUP_WATCH: std::time::Duration = std::time::Duration::from_secs(15);
+
+/// The background time after which a tab sleeps, for a [`SLEEP_CHOICES`] value (`None`: never).
+pub fn sleep_after(choice: &str) -> Option<std::time::Duration> {
+    let minutes = match choice {
+        "5 minutes" => 5,
+        "30 minutes" => 30,
+        "2 hours" => 120,
+        _ => return None,
+    };
+    Some(std::time::Duration::from_secs(minutes * 60))
+}
 /// Pages never wait longer than this for a new tab's hiding script.
 const COSMETIC_WAIT_MS: u32 = 3_000;
 /// How long the first pages wait for the network layer's start-up check (D-026).
@@ -351,6 +370,8 @@ pub struct TabInfo {
     /// Its page view is hidden and the UI draws the area in the theme's background: in dark
     /// mode the engine paints blank pages its own grey.
     pub new_tab_page: bool,
+    /// D-056: the engine suspended this background tab; it wakes when the tab is opened.
+    pub sleeping: bool,
 }
 
 /// The network layer's view of a page's host (read from the proxy's record, not assumed).
@@ -679,6 +700,14 @@ struct Tab {
     /// M6: the small script with the current site's own hiding rules.
     site: Option<SiteRules>,
     site_gen: u64,
+    /// D-056: since when this tab has been in the background (`None` while it is in view).
+    background_since: Option<std::time::Instant>,
+    /// D-056: the page was allowed the camera or microphone in this tab; it never sleeps (a
+    /// call must not freeze).
+    media: bool,
+    /// A window a page opened: the opener tab and when. Its navigations are checked against
+    /// the pop-up rules for [`POPUP_WATCH`].
+    popup_of: Option<(u32, std::time::Instant)>,
 }
 
 /// One site's own hiding rules, registered for the site a tab is on (D-045).
@@ -798,6 +827,12 @@ struct Inner {
     color_scheme: PageColorScheme,
     /// Self-check only: hosts answered from local folders by the request handler.
     served: HashMap<String, PathBuf>,
+    /// D-056: the "Sleeping tabs" choice, and the background time it means.
+    sleep_choice: String,
+    sleep_after: Option<std::time::Duration>,
+    /// The tab whose page view the last layout showed; a change means a tab left the view.
+    shown: Option<u32>,
+    sleep_sweep_started: bool,
     /// Per-site blocking exceptions made in temporary tabs (never saved).
     temp_site_exceptions: HashSet<String>,
     /// Browsing data to remove from the standard profile before the first page loads (the
@@ -851,6 +886,7 @@ fn blank_info(id: u32) -> TabInfo {
         temporary: false,
         network: None,
         new_tab_page: false,
+        sleeping: false,
     }
 }
 
@@ -931,6 +967,10 @@ impl ContentHost {
                 webrtc_temp: None,
                 color_scheme: PageColorScheme::Auto,
                 served: HashMap::new(),
+                sleep_choice: "off".into(),
+                sleep_after: None,
+                shown: None,
+                sleep_sweep_started: false,
                 temp_site_exceptions: HashSet::new(),
                 startup_clear: ClearKinds::default(),
                 startup_clear_done: false,
@@ -1125,8 +1165,8 @@ impl ContentHost {
         }
     }
 
-    /// A top-level navigation to `uri` starts: give the tab that site's own hiding rules, in a
-    /// small script of their own (the script every document gets carries only generic rules,
+    /// A top-level navigation to `uri` starts: give the tab that site's own hiding rules and
+    /// scriptlets (D-057), in a small script of their own (the script every document gets carries only generic rules,
     /// which keeps it about three times smaller, M6). If the registration finishes after the
     /// page's document was created, `on_content_loading` applies the same rules a moment later.
     fn prepare_site_rules(&self, id: u32, uri: &str) {
@@ -1139,19 +1179,35 @@ impl ContentHost {
             return;
         }
         self.drop_site_rules(id);
-        let css = {
+        let (css, scriptlets) = {
             let i = self.inner.borrow();
             let temporary = i.tabs.iter().any(|t| t.info.id == id && t.info.temporary);
             let excepted = registrable_domain(uri)
                 .is_some_and(|s| i.site_exceptions.contains(&s) || (temporary && i.temp_site_exceptions.contains(&s)));
-            if !i.cosmetic_on || excepted || host.is_empty() {
-                None
+            if excepted || host.is_empty() {
+                (None, None)
             } else {
-                i.filters.cosmetic().and_then(|r| r.site_css(&host))
+                // Hiding follows its own switch; scriptlets (D-057) follow the lists' switches,
+                // as the lists' other rules do.
+                let css = i
+                    .cosmetic_on
+                    .then(|| i.filters.cosmetic().and_then(|r| r.site_css(&host)))
+                    .flatten();
+                (css, i.filters.scriptlets().and_then(|s| s.code_for(uri)))
             }
         };
-        let Some(css) = css else { return };
-        let script = Rc::new(untrace_filter::cosmetic::site_script(&host, &css));
+        if css.is_none() && scriptlets.is_none() {
+            return;
+        }
+        let mut script = String::new();
+        if let Some(css) = css {
+            script.push_str(&untrace_filter::cosmetic::site_script(&host, &css));
+            script.push('\n');
+        }
+        if let Some(code) = scriptlets {
+            script.push_str(&untrace_filter::scriptlets::page_script(&host, &code));
+        }
+        let script = Rc::new(script);
         let Some((wv, generation)) = self.with_tab(id, |t| {
             t.site_gen += 1;
             t.site = Some(SiteRules {
@@ -1498,6 +1554,9 @@ impl ContentHost {
                 cosmetic_gen: 0,
                 site: None,
                 site_gen: 0,
+                background_since: None,
+                media: false,
+                popup_of: None,
             });
             i.active = Some(id);
             (id, i.env.is_some())
@@ -2098,6 +2157,14 @@ impl ContentHost {
         let tab = pending.tab;
         match pending.args {
             PendingArgs::Permission(a) => {
+                let mut kind = COREWEBVIEW2_PERMISSION_KIND(0);
+                // SAFETY: getter on live event args.
+                unsafe {
+                    let _ = a.PermissionKind(&mut kind);
+                }
+                if allow && matches!(permission_from(kind.0), Permission::Camera | Permission::Microphone) {
+                    self.with_tab(tab, |t| t.media = true);
+                }
                 // SAFETY: setters on live event args, then completing their deferral.
                 unsafe {
                     let _ = a.SetState(if allow {
@@ -2400,6 +2467,7 @@ impl ContentHost {
     }
 
     fn layout(&self) {
+        self.note_shown();
         let (container, rect, show_page, ctrls) = {
             let i = self.inner.borrow();
             let active_blocked = i
@@ -3020,6 +3088,260 @@ impl ContentHost {
         self.inner.borrow().container
     }
 
+    /// A DevTools protocol call in a tab, for UNTRACE's own test runners (`examples/compat.rs`:
+    /// real clicks and screenshots). Never wired to the interface or to pages. `done` gets the
+    /// JSON result, or `Err`.
+    pub fn devtools_call(
+        &self,
+        tab: u32,
+        method: &str,
+        params: &str,
+        done: impl FnOnce(std::result::Result<String, String>) + 'static,
+    ) {
+        let Some(wv) = self.tab_webview(tab) else {
+            done(Err("tab not ready".into()));
+            return;
+        };
+        let mut done = Some(done);
+        let h = CallDevToolsProtocolMethodCompletedHandler::create(Box::new(move |hr, json| {
+            if let Some(d) = done.take() {
+                d(hr.map(|_| json).map_err(|e| e.message()));
+            }
+            Ok(())
+        }));
+        // SAFETY: COM call with valid strings; the completion arrives on this thread.
+        unsafe {
+            let _ = wv.CallDevToolsProtocolMethod(&HSTRING::from(method), &HSTRING::from(params), &h);
+        }
+    }
+
+    // ------------------------------------------------------------------------- pop-ups
+
+    /// A page in tab `opener` opens `target` in a new window, or sends its new window there:
+    /// should UNTRACE stop it? Malware and phishing addresses always (unless the user chose to
+    /// continue to that host); ads by the lists' pop-up rules, unless the user turned blocking
+    /// off for the opener's site.
+    fn popup_blocked(&self, opener: u32, target: &str) -> bool {
+        if !(target.starts_with("http://") || target.starts_with("https://")) {
+            return false;
+        }
+        let i = self.inner.borrow();
+        let Some(t) = i.tabs.iter().find(|t| t.info.id == opener) else {
+            return false;
+        };
+        let page = t.info.url.as_str();
+        if i.filters.threat(target).is_some() && !i.threat_exceptions.contains(&host_of(target)) {
+            return true;
+        }
+        let excepted = registrable_domain(page).is_some_and(|s| {
+            i.site_exceptions.contains(&s) || (t.info.temporary && i.temp_site_exceptions.contains(&s))
+        });
+        !excepted && i.filters.popups().is_some_and(|p| p.blocks(target, page))
+    }
+
+    fn count_popup(&self, opener: u32, target: &str) {
+        let host = host_of(target);
+        let threat = self.inner.borrow().filters.threat(target);
+        self.update(opener, |t| {
+            t.blocked.popups += 1;
+            t.blocked.add_host(host, threat, false);
+        });
+    }
+
+    // ------------------------------------------------------------ sleeping tabs (D-056)
+
+    /// Record which tab is in view. The tab that left the view starts its background time; a
+    /// sleeping tab that comes into view is woken.
+    fn note_shown(&self) {
+        let (wake, start_sweep) = {
+            let mut i = self.inner.borrow_mut();
+            if i.shown == i.active {
+                return;
+            }
+            let (prev, active) = (i.shown, i.active);
+            let now = std::time::Instant::now();
+            for t in i.tabs.iter_mut() {
+                if Some(t.info.id) == prev {
+                    t.background_since = Some(now);
+                }
+                if Some(t.info.id) == active {
+                    t.background_since = None;
+                }
+            }
+            i.shown = active;
+            let wake = i
+                .tabs
+                .iter_mut()
+                .find(|t| Some(t.info.id) == active && t.info.sleeping)
+                .and_then(|t| {
+                    t.info.sleeping = false;
+                    t.webview.clone()
+                });
+            let start = !i.sleep_sweep_started;
+            i.sleep_sweep_started = true;
+            (wake, start)
+        };
+        if let Some(wv) = wake {
+            // Showing the view resumes it too; this also restores its memory target.
+            // SAFETY: COM calls on a live webview, on the UI thread.
+            unsafe {
+                if let Ok(w19) = wv.cast::<ICoreWebView2_19>() {
+                    let _ = w19.SetMemoryUsageTargetLevel(COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL);
+                }
+                if let Ok(w3) = wv.cast::<ICoreWebView2_3>() {
+                    let _ = w3.Resume();
+                }
+            }
+        }
+        if start_sweep {
+            self.schedule_sleep_sweep();
+        }
+    }
+
+    fn schedule_sleep_sweep(&self) {
+        let w = self.weak();
+        container::defer_after(SLEEP_SWEEP_MS, move || {
+            if let Some(h) = upgrade(&w) {
+                h.sleep_idle_tabs();
+                h.schedule_sleep_sweep();
+            }
+        });
+    }
+
+    /// Put tabs to sleep that have been in the background longer than "Sleeping tabs" says.
+    fn sleep_idle_tabs(&self) {
+        let due: Vec<u32> = {
+            let i = self.inner.borrow();
+            let Some(after) = i.sleep_after else {
+                return;
+            };
+            i.tabs
+                .iter()
+                .filter(|t| !t.info.sleeping && t.background_since.is_some_and(|s| s.elapsed() >= after))
+                .map(|t| t.info.id)
+                .collect()
+        };
+        for id in due {
+            self.sleep_tab(id, |_| {});
+        }
+    }
+
+    /// Why a tab may not sleep now, or `None` if it may.
+    fn sleep_blocker(&self, id: u32) -> Option<&'static str> {
+        let wv = {
+            let i = self.inner.borrow();
+            let Some(t) = i.tabs.iter().find(|t| t.info.id == id) else {
+                return Some("the tab is closed");
+            };
+            let camera = {
+                let origin = origin_of(&t.info.url);
+                i.stored_permissions.iter().any(|p| {
+                    p.origin == origin
+                        && p.state == "allow"
+                        && matches!(p.permission, Permission::Camera | Permission::Microphone)
+                })
+            };
+            if Some(id) == i.active {
+                return Some("the tab is in view");
+            }
+            if t.info.sleeping {
+                return Some("the tab is already asleep");
+            }
+            if !t.info.ready || t.controller.is_none() || t.info.crashed {
+                return Some("the tab has no running page");
+            }
+            if t.info.new_tab_page {
+                return Some("the tab is empty");
+            }
+            if t.info.loading {
+                return Some("the page is loading");
+            }
+            if !t.info.prompts.is_empty() || t.info.interstitial.is_some() {
+                return Some("the tab waits for an answer");
+            }
+            if t.media || camera {
+                return Some("the page may use the camera or microphone");
+            }
+            t.webview.clone()?
+        };
+        let mut audio = BOOL(0);
+        // SAFETY: getter on a live webview.
+        let playing = unsafe {
+            wv.cast::<ICoreWebView2_8>()
+                .and_then(|w8| w8.IsDocumentPlayingAudio(&mut audio))
+                .is_ok()
+                && audio.as_bool()
+        };
+        playing.then_some("the page is playing sound")
+    }
+
+    /// D-056: suspend a background tab. Its scripts and timers stop and the engine frees what
+    /// memory it can until the tab is opened again. `done` gets whether the engine did it.
+    pub fn sleep_tab(&self, id: u32, done: impl FnOnce(std::result::Result<(), String>) + 'static) {
+        if let Some(why) = self.sleep_blocker(id) {
+            done(Err(why.into()));
+            return;
+        }
+        let Some(w3) = self.tab_webview(id).and_then(|wv| wv.cast::<ICoreWebView2_3>().ok()) else {
+            done(Err("this engine version cannot suspend pages".into()));
+            return;
+        };
+        let restore = |wv: &ICoreWebView2_3| {
+            // SAFETY: COM call on a live webview.
+            unsafe {
+                if let Ok(w19) = wv.cast::<ICoreWebView2_19>() {
+                    let _ = w19.SetMemoryUsageTargetLevel(COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL);
+                }
+            }
+        };
+        // The engine's own memory-saving level first, then suspension (as Edge's sleeping tabs).
+        // SAFETY: COM call on a live webview.
+        unsafe {
+            if let Ok(w19) = w3.cast::<ICoreWebView2_19>() {
+                let _ = w19.SetMemoryUsageTargetLevel(COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW);
+            }
+        }
+        let w = self.weak();
+        let wv = w3.clone();
+        let done = Rc::new(RefCell::new(Some(
+            Box::new(done) as Box<dyn FnOnce(std::result::Result<(), String>)>
+        )));
+        let done2 = done.clone();
+        let handler = TrySuspendCompletedHandler::create(Box::new(move |hr, ok| {
+            let result = match hr {
+                Ok(()) if ok => Ok(()),
+                Ok(()) => Err("the engine did not suspend the page".to_string()),
+                Err(e) => Err(e.message()),
+            };
+            match (&result, upgrade(&w)) {
+                // Opened again while the engine was suspending it: it stays awake.
+                (Ok(()), Some(h)) if h.active_id() != Some(id) => h.update(id, |t| t.sleeping = true),
+                (Ok(()), _) => {}
+                (Err(_), _) => restore(&wv),
+            }
+            if let Some(d) = done2.borrow_mut().take() {
+                d(result);
+            }
+            Ok(())
+        }));
+        // SAFETY: COM call on a live webview; the completion arrives on this thread.
+        if let Err(e) = unsafe { w3.TrySuspend(&handler) } {
+            restore(&w3);
+            if let Some(d) = done.borrow_mut().take() {
+                d(Err(e.message()));
+            }
+        }
+    }
+
+    /// Read back from the engine whether a tab's page is suspended (`None`: no such page).
+    pub fn engine_suspended(&self, id: u32) -> Option<bool> {
+        let w3 = self.tab_webview(id)?.cast::<ICoreWebView2_3>().ok()?;
+        let mut b = BOOL(0);
+        // SAFETY: getter on a live webview.
+        unsafe { w3.IsSuspended(&mut b) }.ok()?;
+        Some(b.as_bool())
+    }
+
     /// Close every content view and release every WebView2 object (application exit).
     ///
     /// Must run while the process is intact (window destroyed, event loop still alive). A
@@ -3074,6 +3396,30 @@ impl ContentHost {
             let _ = a.NavigationId(&mut nav_id);
             take_str(|p| a.Uri(p)).unwrap_or_default()
         };
+        // A page's new window sent to an ad (pop-unders open blank, then navigate).
+        let opener = self
+            .tab_ref(id, |t| {
+                t.popup_of.filter(|(_, at)| at.elapsed() < POPUP_WATCH).map(|(o, _)| o)
+            })
+            .flatten();
+        if let Some(opener) = opener
+            && self.popup_blocked(opener, &uri)
+        {
+            // SAFETY: setter on live event args.
+            unsafe {
+                let _ = a.SetCancel(true);
+            }
+            self.with_tab(id, |t| t.note_cancelled(&uri));
+            self.count_popup(opener, &uri);
+            let h = self.clone();
+            defer(move || {
+                h.close_tab(id);
+                if h.tab_ref(opener, |_| ()).is_some() {
+                    h.activate(opener);
+                }
+            });
+            return;
+        }
         let decision = policy::navigation(&uri, &self.inner.borrow().https);
         match decision {
             // Links that hand off to another application (mailto:, zoommtg:, …) are not page
@@ -3906,13 +4252,19 @@ impl ContentHost {
                         h.update(id, |t| t.blocked.popups += 1);
                         return Ok(()); // pop-ups without a user gesture are not opened
                     }
+                    // Ad pop-ups follow a click too: the lists' pop-up rules decide.
+                    let target = take_str(|p| a.Uri(p)).unwrap_or_default();
+                    if h.popup_blocked(id, &target) {
+                        h.count_popup(id, &target);
+                        return Ok(()); // handled without a window: the page gets none
+                    }
                     let deferral = a.GetDeferral()?;
                     let args = a.clone();
                     // A pop-up shares its opener's profile (the engine requires it, and a
                     // temporary tab's pop-up must stay temporary).
                     let temporary = h.tab_ref(id, |t| t.info.temporary).unwrap_or(false);
                     defer(move || {
-                        h.new_tab_inner(
+                        let new = h.new_tab_inner(
                             None,
                             Some(Box::new(move |nwv: &ICoreWebView2| {
                                 let _ = args.SetNewWindow(nwv);
@@ -3920,6 +4272,7 @@ impl ContentHost {
                             })),
                             temporary,
                         );
+                        h.with_tab(new, |t| t.popup_of = Some((id, std::time::Instant::now())));
                     });
                     Ok(())
                 })),
@@ -4256,6 +4609,12 @@ impl Applier for ContentHost {
             }
             // Written into the engine's profiles when it starts (Scope::Environment).
             (WEBRTC_ID, Value::Bool(_)) => Ok(()),
+            (SLEEP_TABS_ID, Value::Choice(c)) if SLEEP_CHOICES.contains(&c.as_str()) => {
+                let mut i = self.inner.borrow_mut();
+                i.sleep_choice = c.clone();
+                i.sleep_after = sleep_after(c);
+                Ok(())
+            }
             (LOCAL_NETWORK_ID, Value::Bool(on)) => {
                 self.inner.borrow_mut().local_protect = *on;
                 if let Some(p) = self.proxy() {
@@ -4298,6 +4657,9 @@ impl Applier for ContentHost {
             // Read back from the engine's profile files UNTRACE wrote before the engine loaded
             // them; the behaviour itself is exercised end to end by the self-check.
             WEBRTC_ID => self.observe_webrtc(),
+            // UNTRACE's own sleep check reads this every 30 seconds; that tabs really sleep and
+            // wake is exercised end to end by the self-check.
+            SLEEP_TABS_ID => Observed::Verified(Value::Choice(self.inner.borrow().sleep_choice.clone())),
             _ => Observed::Unverifiable("not implemented".into()),
         }
     }

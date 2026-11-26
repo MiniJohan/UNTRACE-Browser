@@ -84,6 +84,7 @@ Reference machine: Ryzen 5 3600 / 32 GB / Windows 11 (development machine) plus 
   | `request_match` | request matching against the bundled lists | 844,456 | 7,991 | none |
   | `bookmarks_file` (D-055, 2026-11-25, 3 min) | imported bookmarks files and a tampered `bookmarks.json`: stored invariants, stable validation, export → import round trip | 70,219 to the finding | 2,510 | **Finding:** a title cut at 300 characters could end in a space, so validating it again changed it. Harmless, but not stable. Fixed in `clean_title` (trim after the cut), regression case added |
   | `bookmarks_file`, after the fix (5 min) | the same | 699,118 | 3,194 | none |
+  | `block_list` with D-057 (3 min, 2026-11-26) | adds uBlock Origin's `!#if` preprocessing and the pop-up rule rewriting of downloaded lists | 900,929 | 2,291 | none |
 - UI navigation lock: attempts to navigate the UI view to remote URLs fail.
 - Proxy: unauthenticated connections rejected; malformed requests do not crash; no connection accepted from non-loopback. **M5:** unit tests (`untrace-net`: 407 without or with wrong credentials, malformed heads → 400, 200,000 mutated heads per run without a panic and with the forwarding invariants intact, plain HTTP forwarded without proxy headers, backstop, rebinding guard, paused proxy closes connections) and self-check 39. The listener binds `127.0.0.1` only. Coverage-guided fuzzing is part of the M8 campaign.
 - Update: tampered manifest or bad signature → update refused. **M9:**
@@ -111,6 +112,13 @@ A fixed list of ~50 popular, diverse sites (news, video, banking-like login flow
 - Windows runner (WebView2 present): `cargo fmt --check`, `cargo clippy -D warnings`, `cargo test`, integration suite, UI type-check + tests, `cargo deny`, `cargo audit`, `npm audit`.
 - Nightly: fuzzing, performance corpus.
 - Release: full manual checklist (RELEASING.md), privacy leak checks, signed-build verification. `scripts/release.ps1` runs the full check before it builds anything.
+
+**Ad check on real sites (D-057, 2026-11-26):** `cargo run --release -p untrace-webview --example compat -- adcheck <out> <data> <url>…` loads each address in a host configured as UNTRACE ships, clicks the page three times through DevTools input (a real user gesture), and records pop-up tabs, the page's third-party requests and frames, YouTube's player ad data and screenshots.
+
+| Site | Before (1.1.0) | After (D-057) |
+|---|---|---|
+| `9anime.es` | Fake captcha in an invisible full-page frame; 2 of 3 clicks opened ad tabs (adult site, casino); the ad network's scripts loaded | No captcha, no overlay frame, no pop-up tab; the ad scripts blocked; episode pages play |
+| YouTube (a music video) | `adPlacements` 1, `adSlots` 2–3, `playerAds` 1; a "Sponsrad" ad played before the video | All 0, no ad shown; the video plays |
 
 ## 9. Self-check (implemented in M1)
 
@@ -200,6 +208,9 @@ Milestone 7 (every protection has a self-check), still offline. `selfcheck::COVE
 | 53 | The Strict provider reads back as not in use outside Strict mode | With Encrypted DNS on Automatic, choosing Cloudflare is saved with outcome *unverified* and the reason "Used only when Encrypted DNS is set to Strict"; the same for going back to Quad9 |
 | 54 | WebRTC stays inside the network layer (M8, D-052) | A UDP stand-in on this computer's LAN address plays the STUN server. It must receive a test datagram from the check itself (or a pass would prove nothing). Then a page in a normal tab and one in a temporary tab gather WebRTC candidates against it for 3 s. Both must run and nothing may arrive. Settings reads the switch back as verified. Reported as not run on a computer without a LAN address |
 | 55 | Websites follow UNTRACE's light/dark choice when asked, and Windows otherwise (D-053) | Theme Dark with "Websites follow this theme": the page's `matchMedia('(prefers-color-scheme: dark)')` is true, `light` false, and the engine reads back Dark. Light: the reverse. Black with the switch off: the engine reads back Auto (Windows decides). Back to System afterwards |
+| 58 | Ad pop-ups opened by a click are refused; other new windows open (D-057) | A test page opens one window per click (DevTools input, a real user gesture): to the pop-up canary (a built-in `$popup` rule), a blank window sent to the canary 300 ms later, and an ordinary page. The first two must be refused and counted, the third must open |
+| 59 | The lists' scriptlets run before the page's own scripts (D-057) | A canary rule sets `window.untraceScriptletCanary` on the self-check host with uBlock Origin's `set` scriptlet. The page's first inline script must already see it, and it must still be there after load |
+| 57 | A background tab sleeps, and wakes when opened (D-056) | A page starts a 50 ms timer. Asked to sleep while in view, the tab refuses. A new tab is opened, and the first tab, now in the background, is put to sleep: the engine reports it suspended (`IsSuspended`) and the interface shows it sleeping. Opening it again: the engine reports it awake, the interface no longer shows it sleeping, and the page's timer counts on. |
 | 56 | UNTRACE updates are installed only with a valid signature for their version (M9, D-016) | With the switch off, one round of the update worker makes no check. The updater's own verification (the one that runs before an installer starts) is given a manifest for 99.0.0 and test signatures made with a throw-away key whose public half is in the check. It must accept the correctly signed payload, and refuse the same payload changed by one bit, a signature from a foreign key, and a signature made for 98.0.0 (no downgrade through a tampered manifest). Offline: the manifest is handed over directly, nothing is requested |
 
 **From the app (M7, D-046):** Diagnostics › Run self-check starts this same self-check in a separate test instance and shows the report per protection; Settings shows each protection's last self-test.

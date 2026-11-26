@@ -18,5 +18,12 @@ fuzz_target!(|data: &[u8]| {
         }
         let _ = lists::parse_expires(text);
         let _ = lists::normalise_host(text);
+        // D-057: uBlock Origin's directives and the pop-up rule rewriting read downloaded text.
+        let pre = untrace_filter::preprocess::preprocess(text);
+        assert!(pre.len() <= text.len() + text.lines().count(), "preprocessing only removes lines");
+        let split = untrace_filter::popup::split(&pre);
+        for r in split.popup.iter().chain(&split.rest) {
+            assert!(!r.contains('\n'), "a rewritten rule stays one line");
+        }
     }
 });

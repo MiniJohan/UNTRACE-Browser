@@ -175,11 +175,18 @@ Status: **Milestone 0 complete; Milestone 1 (foundation) implemented (2026-11-21
 - **Fuzzing** (D-050): `fuzz/` (cargo-fuzz, its own workspace) has targets for every parser and validator that takes outside input. The campaign found one bug: the proxy forwarded a lone CR or LF inside a header line. `http::parse` now refuses it.
 - **Dependency checks** (D-051): cargo-deny and cargo-audit run in every full check. `deny.toml` allows the workspace's own path dependencies (`allow-wildcard-paths`).
 
+### 2.0j Ad blocking on hard sites *(after 1.1.0, D-057)*
+
+- **Pop-up rules** (`untrace-filter/src/popup.rs`): the lists' `$popup` rules, which the matching library drops, in an engine of their own. `NewWindowRequested` refuses a window whose address matches (or is a malware or phishing address); a page's new window is also checked when it navigates within 15 seconds (pop-unders open blank first). Self-check: ad pop-up refused, blank-then-ad refused, ordinary window opens.
+- **uBlock Origin's lists** (five files, switch `filter.ublock`): bundled and updated like EasyList. `preprocess.rs` evaluates their `!#if` directives as uBlock Origin on Chromium, plus the regular-expression network rules of Safari branches (lookahead-free versions the engine can evaluate).
+- **Scriptlets** (`scriptlets.rs`): uBlock Origin's own scriptlets (`resources/ubo-scriptlets.json`, built by `scripts/ubo-scriptlets`), loaded into a cosmetic-only engine holding the lists' `##+js` rules. A site's scriptlet code is part of the per-site script registered when a top-level navigation starts (`prepare_site_rules`), wrapped to run once per document, on that host only. Trusted scriptlets only from uBlock Origin's lists. Self-check: a canary scriptlet has run when the page's first script runs.
+
 ### 2.0i What Milestone 9 adds *(M9)*
 
 - **Installer** (`tauri.conf.json` › `bundle`): per-user NSIS, no administrator rights. It carries Microsoft's WebView2 bootstrapper for machines without the engine, plus the licence and the third-party notices. The uninstaller's "Delete the application data" option also removes `%LOCALAPPDATA%\UNTRACE` (`installer-hooks.nsh`).
 - **Updates** (`appupdate.rs`, D-016): §9. Self-check 56 exercises the updater's own signature check offline: a correct update, one changed by a single bit, a foreign key, and a signature made for another version.
 - **Release process** (`scripts/release.ps1`, `RELEASING.md`): the full check, the installer with its update signature, `latest.json` and checksums. A release cannot be built without the update key and the release address.
+- **Sleeping tabs** (`host.rs`, D-056, after 1.1.0): a sleep check every 30 seconds suspends tabs that have been in the background longer than the setting (`TrySuspend` after a low memory target); opening a tab resumes it. Tabs playing sound, with camera or microphone access, waiting for an answer, loading or empty never sleep. Self-check 57.
 - **First start and About:** one welcome screen; Settings › About shows the version, the MPL-2.0 licence, the privacy notice (`PRIVACY.md`, compiled in) and the third-party notices (`scripts/notices`, kept in step by the full check).
 
 ### 2.1 Why two layers of webview

@@ -190,7 +190,10 @@ pub fn validate(info: &ListInfo, bytes: Vec<u8>, previous_rules: Option<usize>) 
     let (rules, invalid, max_invalid_pct) = match info.format {
         Format::Adblock => {
             let (r, i) = adblock_rules(&text);
-            (r, i, 10)
+            // uBlock Origin's lists use options the matching library does not implement
+            // (`urlskip`, `denyallow`, `replace`, `redirect-rule` …): up to 16 % of a list at
+            // 2026-11-26. They are not damage, so the limit for its lists is higher.
+            (r, i, if info.id.is_ublock() { 25 } else { 10 })
         }
         Format::Hosts => {
             let (set, i) = hosts(&text);

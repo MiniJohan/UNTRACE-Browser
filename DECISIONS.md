@@ -50,7 +50,7 @@ Superseded entries are kept and marked, never deleted. Milestone 0 evidence: `sp
 | D-040 | Local-network protection, with a DNS-rebinding guard | **Accepted** (2026-11-22) |
 | D-041 | Encrypted-DNS providers for "Strict": Quad9, Cloudflare, Mullvad, or your own | **Accepted** (2026-11-22) |
 | D-042 | Network backstop: malware and phishing hosts only | **Accepted** (2026-11-22) |
-| D-043 | Scriptlets deferred until the licence decision (D-017) | **Accepted** (2026-11-23) |
+| D-043 | Scriptlets deferred until the licence decision (D-017) | Superseded by D-057 (2026-11-26) |
 | D-044 | Extended (procedural) hiding rules not applied in M6 | **Accepted** (2026-11-23) |
 | D-045 | "Hide the space blocked ads leave": own switch, on; generic rules by observation | **Accepted** (2026-11-23) |
 | D-046 | Self-check from Diagnostics, in a separate test instance | **Accepted** (2026-11-23) |
@@ -63,6 +63,8 @@ Superseded entries are kept and marked, never deleted. Milestone 0 evidence: `sp
 | D-053 | Appearance: Black theme, accent colour presets, websites follow the theme | **Accepted** (2026-11-24) |
 | D-054 | M9 release checklist run on the development PC, not a clean VM | **Accepted** (2026-11-25) |
 | D-055 | Bookmarks: local only, a side panel, one-level folders, HTML import and export | **Accepted** (2026-11-25) |
+| D-056 | Sleeping tabs: background tabs suspended after 30 minutes by default | **Accepted** (2026-11-25) |
+| D-057 | Ad blocking on hard sites: pop-up rules, uBlock Origin's lists and scriptlets | **Accepted** (2026-11-26) |
 
 ---
 
@@ -426,7 +428,7 @@ Superseded entries are kept and marked, never deleted. Milestone 0 evidence: `sp
 ### D-043 — Scriptlets deferred until the licence decision — **Accepted**
 - **Context:** scriptlet rules (`##+js(…)`: 34 in EasyPrivacy, none in EasyList) run small scripts in pages. Those scripts come from uBlock Origin's resource set (GPL-3.0); UNTRACE's licence is open (D-017).
 - **Decision:** M6 ships CSS hiding only. Scriptlet rules are counted and shown in Diagnostics as not applied; nothing GPL is bundled. Revisit once D-017 is decided, behind their own setting (ROADMAP M6).
-- **Status:** Accepted by the product owner, 2026-11-23.
+- **Status:** Accepted by the product owner, 2026-11-23. **Superseded by D-057** (2026-11-26): scriptlets run, with uBlock Origin's lists and their switch.
 
 ### D-044 — Extended (procedural) hiding rules not applied in M6 — **Accepted**
 - **Context:** 294 EasyList rules need code rather than CSS (`:-abp-contains`, `:has-text`, `:upward` …), and 44 carry actions (`:remove()`, `:style()`). `:-abp-has(…)` is standard `:has(…)` and is applied.
@@ -542,3 +544,35 @@ Superseded entries are kept and marked, never deleted. Milestone 0 evidence: `sp
 - **Activity log:** imports, exports and "delete all" are recorded as counts. Addresses and titles never are.
 - **Not included:** sync (out of scope), a bookmarks bar, bookmarks on the new-tab page (not chosen), drag and drop (Up and Down buttons instead).
 - **Status:** Accepted, 2026-11-25.
+
+### D-056 — Sleeping tabs — **Accepted**
+- **Context:** the product owner asked how UNTRACE's memory use compares with Chrome, Brave and Edge. Measured on their running UNTRACE (2026-11-25): about 505 MB in 15 processes; 395 MB for pages (the same Chromium engine as those browsers), 91 MB for UNTRACE's interface (its own WebView2, separated from pages by design) and 19 MB for `untrace.exe` with every block list. Chrome's Memory Saver and Edge's sleeping tabs free background tabs; UNTRACE had nothing similar, so with many tabs it would use more.
+- **Decision (product owner, 2026-11-25):** add sleeping tabs.
+  - **Setting:** Settings › Performance › "Sleeping tabs": Off, 5 minutes, 30 minutes (default) or 2 hours in the background. Read back from the host's own sleep check, which runs every 30 seconds.
+  - **How:** the engine's supported mechanism, as in Edge: the page's memory target is set to low (`ICoreWebView2_19::MemoryUsageTargetLevel`), then the page is suspended (`ICoreWebView2_3::TrySuspend`). Opening the tab resumes it and restores the normal memory target. A sleeping tab is dimmed in the tab bar.
+  - **Never asleep:** the tab in view, tabs playing sound, tabs whose site may use the camera or microphone (allowed in that tab, or a saved permission), tabs waiting for an answer or showing a warning, loading or empty tabs.
+- **Trade-off (in Settings):** a sleeping page does nothing until opened: no messages, notifications or updates; some pages reload or reconnect when they wake.
+- **Not chosen:** sharing one engine between the interface and pages (about 60–80 MB less, but the interface would no longer be separated from web pages); turning off graphics acceleration (slower).
+- **Status:** Accepted, 2026-11-25.
+
+### D-057 — Ad blocking on hard sites: pop-up rules, uBlock Origin's lists and scriptlets — **Accepted**
+- **Report (product owner, 2026-11-26):** on 9anime (`9anime.es`) ads, a "captcha" and tabs opening on every click kept appearing; YouTube showed video ads. Checked on the real sites with UNTRACE's own engine host (`examples/compat.rs adcheck`: real clicks through the engine's DevTools input, screenshots, the page's third-party requests).
+- **Findings:**
+  - A page's new window after a click was always opened: nothing checked its address.
+  - The matching library (adblock-rust) does not know the `popup` option and drops every rule that names it: 2,977 rules in EasyList, the ones that stop ad pop-ups and pop-unders, with what such rules say about other types.
+  - 9anime.es loads an ad network (Galaksion) whose script draws a fake captcha ("Bekräfta att du är människa", a cartoon face) in an invisible full-page frame that catches every click. EasyList does not list it. Two of three clicks opened an adult and a casino page.
+  - uBlock Origin's lists do list it, but on Chromium with regular expressions that use lookahead, which the library cannot evaluate. The lists carry lookahead-free versions for Safari.
+  - YouTube serves its video ads inside the player's data (`adPlacements`, `adSlots`, `playerAds`); blocking requests cannot remove them. uBlock Origin uses 40 scriptlet rules (12 scriptlets), and its quick fixes change every few hours.
+- **Decision (product owner, 2026-11-26):** use uBlock Origin's rules, its scriptlet code included, as Brave does.
+  - **Pop-up rules (UNTRACE):** rules naming `popup` are read by UNTRACE (`untrace-filter/src/popup.rs`) into a small engine of their own. A page's new window is refused if its address matches; so is a window that opens blank and is sent to a matching address within 15 seconds (pop-unders). Malware and phishing addresses are refused too. The site's "Block ads and trackers" switch turns ad pop-up blocking off there.
+  - **uBlock Origin's lists:** filters, badware risks, privacy, quick fixes and unbreak (`ublockorigin.github.io/uAssets`), one Settings switch "uBlock Origin filters", on. Bundled for the first start, then updated like EasyList (quick fixes every 12 hours).
+  - **Their `!#if` directives** are evaluated as uBlock Origin does on Chromium without HTML filtering (`preprocess.rs`). From Safari branches UNTRACE also takes the regular-expression network rules, and nothing else: they are the lookahead-free versions its engine can evaluate.
+  - **Scriptlets:** uBlock Origin's own scriptlets, built from release 1.77.2 by `scripts/ubo-scriptlets` into `resources/ubo-scriptlets.json` (153 functions, 34 trusted) and bundled. A site's scriptlets go into the per-site script registered when a top-level navigation starts, so they run before the page's own scripts; they run once per document and only on that host. Only uBlock Origin's lists may use trusted scriptlets.
+- **Measured after the change (same runner, same sites):**
+  - 9anime.es: no fake captcha, no click-catching frame, no pop-up tab in three clicks (before: two); the ad network's scripts are blocked.
+  - YouTube: no ad data in the player (`adPlacements` 0, `adSlots` 0, `playerAds` 0, before 1, 2–3, 1) and no ad shown; the video plays.
+- **Not applied (counted, disclosed):** uBlock Origin options the library does not implement (`urlskip`, `denyallow`, `replace`, `uritransform`, `redirect-rule`, `cname`, `ipaddress`; about 5 % of uBlock Origin's rules, 16 % of its privacy list) and uBlock-only cosmetic syntax. Scriptlets run in the top-level document only, not in frames of other sites. `$document` rules of the badware list do not yet stop navigations with a warning page as uBlock Origin's strict blocking does.
+- **Licence:** uBlock Origin's lists and scriptlets are GPL-3.0. They ship as separate data files with their licence text (`lists/LICENSE-uAssets.txt`, also installed beside the program). The legal review (D-017) must cover them.
+- **Maintenance:** the scriptlets update only with UNTRACE. When uBlock Origin releases new scriptlets that its lists start to use, rebuild `ubo-scriptlets.json` (`node scripts/ubo-scriptlets/build.mjs <uBlock source> <tag>`) and release.
+- **Supersedes:** D-043 (scriptlets deferred until the licence decision).
+- **Status:** Accepted, 2026-11-26.

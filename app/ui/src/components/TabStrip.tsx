@@ -10,14 +10,15 @@ export function TabStrip({ snap, onNewTab, onNewTemporary }: Props) {
       {snap.tabs.map((t) => {
         const active = t.id === snap.active;
         const title = tabTitle(t);
-        const label = t.temporary ? `${title} (temporary)` : title;
+        const label =
+          (t.temporary ? `${title} (temporary)` : title) + (t.sleeping ? " (sleeping: wakes when you open it)" : "");
         return (
           <div
             key={t.id}
             role="tab"
             aria-selected={active}
             tabIndex={active ? 0 : -1}
-            className={`tab${active ? " active" : ""}${t.crashed ? " crashed" : ""}${t.temporary ? " temporary" : ""}`}
+            className={`tab${active ? " active" : ""}${t.crashed ? " crashed" : ""}${t.temporary ? " temporary" : ""}${t.sleeping ? " sleeping" : ""}`}
             title={label}
             onMouseDown={(e) => {
               if (e.button === 1) {

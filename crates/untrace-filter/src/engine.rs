@@ -35,6 +35,11 @@ pub fn canary_host(id: ListId) -> &'static str {
         ListId::EasyPrivacy => "tracker.canary.untrace.invalid",
         ListId::Malware => "malware.canary.untrace.invalid",
         ListId::Phishing => "phishing.canary.untrace.invalid",
+        ListId::UboFilters => "ublock.canary.untrace.invalid",
+        ListId::UboBadware => "ublock-badware.canary.untrace.invalid",
+        ListId::UboPrivacy => "ublock-privacy.canary.untrace.invalid",
+        ListId::UboQuickFixes => "ublock-quick-fixes.canary.untrace.invalid",
+        ListId::UboUnbreak => "ublock-unbreak.canary.untrace.invalid",
     }
 }
 
@@ -107,7 +112,11 @@ impl ContentEngine {
         let mut set = FilterSet::new(false);
         let mut lists = vec![];
         for s in sources.iter().filter(|s| info(s.id).format == Format::Adblock) {
-            set.add_filter_list(s.text.to_string(), opts);
+            let text = crate::preprocess::list_text(s);
+            // Rules that name `popup` beside other types: the library drops them whole, so
+            // their other types are added back without `popup` (crate::popup).
+            set.add_filter_list(crate::popup::split(&text).rest.join("\n"), opts);
+            set.add_filter_list(text.into_owned(), opts);
             set.add_filter_list(format!("||{}^\n", canary_host(s.id)), opts);
             lists.push(s.id);
         }
@@ -218,6 +227,10 @@ pub struct Filters {
     threats: Arc<Threats>,
     /// Element-hiding rules of the Adblock lists (M6).
     cosmetic: Option<Arc<crate::cosmetic::CosmeticRules>>,
+    /// Pop-up rules of the Adblock lists (crate::popup).
+    popups: Option<crate::popup::PopupRules>,
+    /// Scriptlet rules of the Adblock lists, with uBlock Origin's scriptlets (D-057).
+    scriptlets: Option<crate::scriptlets::Scriptlets>,
 }
 
 impl Filters {
@@ -226,7 +239,38 @@ impl Filters {
             content,
             threats: Arc::new(threats),
             cosmetic: None,
+            popups: None,
+            scriptlets: None,
         }
+    }
+
+    /// Attach the scriptlet rules built from the same lists.
+    pub fn with_scriptlets(mut self, s: crate::scriptlets::Scriptlets) -> Self {
+        self.scriptlets = Some(s);
+        self
+    }
+
+    pub fn scriptlets(&self) -> Option<&crate::scriptlets::Scriptlets> {
+        self.scriptlets.as_ref()
+    }
+
+    /// Attach the pop-up rules built from the same lists.
+    pub fn with_popups(mut self, rules: crate::popup::PopupRules) -> Self {
+        self.popups = Some(rules);
+        self
+    }
+
+    pub fn popups(&self) -> Option<&crate::popup::PopupRules> {
+        self.popups.as_ref()
+    }
+
+    /// Should a page at `opener` be stopped from opening `target` in a new window? Pop-up
+    /// rules, and any address on a malware or phishing list.
+    pub fn blocks_popup(&self, target: &str, opener: &str) -> bool {
+        if !(target.starts_with("http://") || target.starts_with("https://")) {
+            return false;
+        }
+        self.threat(target).is_some() || self.popups.as_ref().is_some_and(|p| p.blocks(target, opener))
     }
 
     /// Attach the element-hiding rules built from the same lists.
@@ -248,6 +292,8 @@ impl Filters {
     pub fn build(sources: &[Source<'_>]) -> Self {
         Self::new(ContentEngine::build(sources), Threats::build(sources))
             .with_cosmetic(crate::cosmetic::CosmeticRules::build(sources))
+            .with_popups(crate::popup::PopupRules::build(sources))
+            .with_scriptlets(crate::scriptlets::Scriptlets::build(sources))
     }
 
     pub fn content(&self) -> Option<&ContentEngine> {
@@ -307,6 +353,8 @@ pub fn cache_key(sources: &[Source<'_>]) -> u64 {
     };
     eat(ADBLOCK_VERSION.as_bytes());
     eat(env!("CARGO_PKG_VERSION").as_bytes());
+    // What UNTRACE adds to the library's rules (crate::popup): bumped when that changes.
+    eat(b"popup-rest-1;ublock-preprocess-2");
     for s in sources.iter().filter(|s| info(s.id).format == Format::Adblock) {
         eat(s.id.stem().as_bytes());
         eat(&[0]);

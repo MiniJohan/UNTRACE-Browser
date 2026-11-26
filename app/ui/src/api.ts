@@ -79,6 +79,8 @@ export type TabInfo = {
   network: PageNetwork | null;
   /** An empty tab the user opened: its page view is hidden, the UI's background shows. */
   newTabPage: boolean;
+  /** D-056: the engine suspended this background tab; opening it wakes it. */
+  sleeping: boolean;
 };
 
 /** The engine's own security verdict for a page (read back, not assumed). */

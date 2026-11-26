@@ -1037,3 +1037,10 @@ select {
 .bm-delete-all {
   color: var(--text-2);
 }
+
+/* ------------------------------------------------------------ sleeping tabs (D-056) */
+
+.tab.sleeping .tab-icon,
+.tab.sleeping .tab-title {
+  opacity: 0.5;
+}

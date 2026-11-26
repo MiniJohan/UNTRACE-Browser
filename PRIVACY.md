@@ -25,6 +25,7 @@ Settings › Your data lists what is stored and deletes it, per category or per 
 - **Name lookups (DNS):** with Encrypted DNS on Automatic, your usual DNS provider sees the names you look up, encrypted when Windows knows how. In Strict mode, only the provider you chose sees them: Quad9, Cloudflare, Mullvad or your own server.
 - **Block-list updates:** while "Update block lists automatically" is on, UNTRACE downloads the lists from their maintainers:
   - `easylist.to` for EasyList and EasyPrivacy;
+  - `ublockorigin.github.io` (GitHub) for uBlock Origin's lists;
   - `malware-filter.gitlab.io` for the malware and phishing lists.
   These requests carry nothing about you beyond what any download does: your IP address and a standard request.
 - **Update checks:** while "Check for UNTRACE updates" is on, UNTRACE asks GitHub once a day whether a new version exists, and downloads it from GitHub only when you choose to install it.

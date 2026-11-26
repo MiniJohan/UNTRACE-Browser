@@ -237,6 +237,10 @@ impl FilterService {
         let threats = Threats::build(&sources);
         // M6: element-hiding rules from the same lists (about 50 ms for EasyList).
         let cosmetic = untrace_filter::cosmetic::CosmeticRules::build(&sources);
+        // Pop-up rules, which the matching library drops (untrace_filter::popup).
+        let popups = untrace_filter::popup::PopupRules::build(&sources);
+        // D-057: scriptlet rules, run with uBlock Origin's bundled scriptlets.
+        let scriptlets = untrace_filter::scriptlets::Scriptlets::build(&sources);
         drop(store);
         *self.loaded.lock().unwrap() = loaded
             .iter()
@@ -248,7 +252,10 @@ impl FilterService {
             })
             .collect();
         *self.last_build.lock().unwrap() = Some((started.elapsed().as_millis(), cached));
-        Filters::new(content, threats).with_cosmetic(cosmetic)
+        Filters::new(content, threats)
+            .with_cosmetic(cosmetic)
+            .with_popups(popups)
+            .with_scriptlets(scriptlets)
     }
 
     pub fn last_build(&self) -> Option<(u128, bool)> {
@@ -359,18 +366,19 @@ impl Applier for Applied<'_> {
         let Some(host) = self.host.as_mut() else {
             return Err("the browser engine is not running".into());
         };
-        match catalog::by_protection(id) {
-            Some(list) => {
-                let Value::Bool(on) = value else {
-                    return Err("expected on or off".into());
-                };
-                if self.filters.set_enabled(list.id, *on) {
-                    host.set_filters(self.filters.build());
-                }
-                Ok(())
-            }
-            None => host.apply(id, value),
+        let lists: Vec<ListId> = catalog::lists_for(id).map(|l| l.id).collect();
+        if lists.is_empty() {
+            return host.apply(id, value);
         }
+        let Value::Bool(on) = value else {
+            return Err("expected on or off".into());
+        };
+        // `|` not `||`: every list of the switch is set.
+        let changed = lists.iter().fold(false, |c, l| self.filters.set_enabled(*l, *on) | c);
+        if changed {
+            host.set_filters(self.filters.build());
+        }
+        Ok(())
     }
 
     fn observe(&self, id: &str) -> Observed {
@@ -395,9 +403,22 @@ impl Applier for Applied<'_> {
         let Some(host) = &self.host else {
             return Observed::Unverifiable("The browser engine is not running.".into());
         };
-        match catalog::by_protection(id) {
-            Some(list) => host.filter_state(list.id),
-            None => host.observe(id),
+        let lists: Vec<ListId> = catalog::lists_for(id).map(|l| l.id).collect();
+        if lists.is_empty() {
+            return host.observe(id);
+        }
+        // A switch over several lists is verified only if every list reports the same state.
+        let states: Vec<Observed> = lists.iter().map(|l| host.filter_state(*l)).collect();
+        if let Some(u) = states.iter().find(|o| matches!(o, Observed::Unverifiable(_))) {
+            return u.clone();
+        }
+        if states.windows(2).all(|w| w[0] == w[1]) {
+            states
+                .into_iter()
+                .next()
+                .unwrap_or(Observed::Unverifiable("no list".into()))
+        } else {
+            Observed::Unverifiable("its lists report different states".into())
         }
     }
 }

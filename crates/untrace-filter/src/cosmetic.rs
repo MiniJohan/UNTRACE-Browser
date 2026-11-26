@@ -179,7 +179,7 @@ impl CosmeticRules {
     pub fn build(sources: &[crate::engine::Source<'_>]) -> Self {
         let mut r = Self::default();
         for s in sources.iter().filter(|s| info(s.id).format == Format::Adblock) {
-            for line in s.text.lines() {
+            for line in crate::preprocess::list_text(s).lines() {
                 r.add_line(line.trim());
             }
             // Canaries (like the network canaries, M3): a generic rule and a site-specific rule

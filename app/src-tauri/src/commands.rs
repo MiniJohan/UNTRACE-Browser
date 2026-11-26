@@ -939,7 +939,7 @@ pub fn checks(engine: Option<&EngineInfo>, config: &LoadOutcome, scrub: Option<&
                 detail: match (&e.cosmetic_rules, e.hide_elements) {
                     (_, false) => "Hiding is switched off in Settings.".into(),
                     (Some(r), true) => format!(
-                        "{} of {} tab(s) carry the hiding script ({} KB): {} generic rules ({} by class or id), {} rules for {} sites, {} exceptions. Not applied: {} extended rules, {} with actions, {} scriptlets.",
+                        "{} of {} tab(s) carry the hiding script ({} KB): {} generic rules ({} by class or id), {} rules for {} sites, {} exceptions. Not applied: {} extended rules, {} with actions. {} scriptlet rules run with uBlock Origin {}'s scriptlets, with their lists (D-057).",
                         e.hide_elements_tabs,
                         e.open_tabs,
                         e.hide_elements_script_bytes / 1024,
@@ -950,7 +950,8 @@ pub fn checks(engine: Option<&EngineInfo>, config: &LoadOutcome, scrub: Option<&
                         r.exceptions,
                         r.procedural,
                         r.actions,
-                        r.scriptlets
+                        r.scriptlets,
+                        untrace_filter::scriptlets::resources_version()
                     ),
                     (None, true) => "The block lists are not loaded.".into(),
                 },

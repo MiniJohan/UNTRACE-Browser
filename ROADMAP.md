@@ -383,6 +383,21 @@ The product owner asked for bookmarks and reported grey areas in the Black theme
   - Tried by hand in a scratch data folder: Ctrl+D inside a page, rename, new folder, move into it, import of a Chrome-format file (2 entries skipped: a `javascript:` bookmarklet and a local file), search, export, re-import, the star on a page with its own icon.
 - **Theme fixes (D-053):** the Windows title bar takes the theme's colour; an empty tab shows the interface's background instead of the engine's grey blank page. Checked by sampling the screen in the Black theme: title bar `#060607` like the tab strip, empty tab `#000000`.
 
+## After 1.1.0 · sleeping tabs · **built 2026-11-25** (D-056)
+
+The product owner asked how UNTRACE's memory compares with Chrome, Brave and Edge.
+- **Measured** (their running UNTRACE): about 505 MB: pages 395 MB (the same engine as those browsers), the interface 91 MB, `untrace.exe` 19 MB.
+- **Sleeping tabs:** background tabs sleep after 30 minutes by default (Settings › Performance), with the engine's own suspend mechanism; tabs with sound, camera or microphone, or open questions never sleep. Self-check 57.
+
+## After 1.1.0 · ad blocking on hard sites · **built 2026-11-26** (D-057)
+
+The product owner reported ads, a fake captcha and pop-up tabs on 9anime, and video ads on YouTube.
+- **Checked** on the real sites with a new mode of the real-site runner (`compat adcheck`): real clicks, screenshots, requests, YouTube's player ad data.
+- **Pop-ups:** the lists' pop-up rules, which the matching library drops (2,977 in EasyList), applied by UNTRACE, also to blank windows sent to an ad (pop-unders). Self-check 58.
+- **uBlock Origin's lists** with their `!#if` directives evaluated, and their Safari regex rules (the 9anime ad network is only blocked by those).
+- **Scriptlets:** uBlock Origin 1.77.2's scriptlets, bundled; YouTube's ad data removed. Self-check 59.
+- **Result:** 9anime.es without captcha, overlay or pop-ups; YouTube without the ad. Open: scriptlets in frames, badware strict blocking, uBlock-only options the engine lacks.
+
 ## Candidate post-v1 items (need approval)
 
 Optional session restore, default-browser registration (explicit, reversible), ARM64 build, per-site containers beyond temporary sessions.

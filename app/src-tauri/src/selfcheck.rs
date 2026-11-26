@@ -280,6 +280,8 @@ fn run(app: AppHandle, out: PathBuf) {
 
     m2_checks(&app, &results);
     m3_checks(&app, &results);
+    popup_checks(&app, &results);
+    scriptlet_checks(&app, &results);
     m4_checks(&app, &results);
     m5_checks(&app, &results);
     m6_checks(&app, &results);
@@ -287,6 +289,7 @@ fn run(app: AppHandle, out: PathBuf) {
     m8_checks(&app, &results);
     appearance_checks(&app, &results);
     update_checks(&app, &results);
+    sleep_checks(&app, &results);
     finish(&app, &out, &results);
 }
 
@@ -294,8 +297,21 @@ fn run(app: AppHandle, out: PathBuf) {
 /// least one; a unit test keeps this in step with Settings. Read-backs alone do not count.
 pub const COVERAGE: &[(&str, &[&str])] = &[
     (
+        "filter.ublock",
+        &[
+            "every block list is loaded and verified",
+            "ad pop-ups opened by a click are refused; other new windows open",
+            "the lists' scriptlets run before the page's own scripts",
+        ],
+    ),
+    (
+        "performance.sleeping_tabs",
+        &["a background tab sleeps, and wakes when opened"],
+    ),
+    (
         "filter.block_ads",
         &[
+            "ad pop-ups opened by a click are refused; other new windows open",
             "every block list is loaded and verified",
             "requests to listed hosts are blocked and counted, others untouched",
             "switching a list off stops it, verified; switching it on restores it",
@@ -568,6 +584,88 @@ fn appearance_checks(app: &AppHandle, results: &Results) {
             && light["read_back"] == "Some(Ok(Light))"
             && off["read_back"] == "Some(Ok(Auto))",
         json!({ "cases": [dark, light, off], "errors": [e1, e2, e3, e4] }),
+    );
+}
+
+/// Ask the engine to put a tab to sleep now and wait for its answer.
+fn sleep_result(app: &AppHandle, id: Option<u32>) -> Result<(), String> {
+    let rx = on_main_get(app, move || {
+        let (tx, rx) = std::sync::mpsc::channel::<Result<(), String>>();
+        match (host(), id) {
+            (Some(h), Some(id)) => h.sleep_tab(id, move |r| {
+                let _ = tx.send(r);
+            }),
+            _ => {
+                let _ = tx.send(Err("no tab".into()));
+            }
+        }
+        rx
+    });
+    rx.and_then(|rx| rx.recv_timeout(Duration::from_secs(10)).ok())
+        .unwrap_or_else(|| Err("timed out".into()))
+}
+
+/// D-056: a tab in view is never put to sleep; a background tab sleeps (the engine reports it
+/// suspended and the interface shows it), and opening it wakes it with its scripts running again.
+fn sleep_checks(app: &AppHandle, results: &Results) {
+    navigate(app, format!("https://{PROBE_HOST}/probe.html"));
+    let started = page_eval(
+        app,
+        "(window.__ticks = 0, setInterval(() => window.__ticks++, 50), 'ok')",
+    );
+    let a = on_main_get(app, || host().and_then(|h| h.active_id())).flatten();
+    let in_view = sleep_result(app, a);
+    let b = on_main_get(app, || host().map(|h| h.new_tab(None))).flatten();
+    sleep(1500);
+    let slept = sleep_result(app, a);
+    let state = |app: &AppHandle| -> (Option<bool>, Option<bool>) {
+        on_main_get(app, move || {
+            let h = host()?;
+            let id = a?;
+            let shown = h.snapshot().tabs.iter().find(|t| t.id == id).map(|t| t.sleeping);
+            Some((h.engine_suspended(id), shown))
+        })
+        .flatten()
+        .unwrap_or((None, None))
+    };
+    let (engine_asleep, shown_asleep) = state(app);
+    on_main(app, move || {
+        if let (Some(h), Some(id)) = (host(), a) {
+            h.activate(id);
+        }
+    });
+    sleep(800);
+    let (engine_awake, shown_awake) = state(app);
+    let t1 = page_eval(app, "window.__ticks");
+    sleep(600);
+    let t2 = page_eval(app, "window.__ticks");
+    let ticking = matches!((t1.parse::<u64>(), t2.parse::<u64>()), (Ok(x), Ok(y)) if y > x);
+    on_main(app, move || {
+        if let (Some(h), Some(id)) = (host(), b) {
+            h.close_tab(id);
+        }
+    });
+    sleep(500);
+    push(
+        results,
+        "a background tab sleeps, and wakes when opened",
+        started == "\"ok\""
+            && in_view.is_err()
+            && slept.is_ok()
+            && engine_asleep == Some(true)
+            && shown_asleep == Some(true)
+            && engine_awake == Some(false)
+            && shown_awake == Some(false)
+            && ticking,
+        json!({
+            "in_view_refused": in_view.err(),
+            "background_sleep": slept.err().unwrap_or_else(|| "ok".into()),
+            "engine_suspended_asleep": engine_asleep,
+            "shown_sleeping": shown_asleep,
+            "engine_suspended_after_opening": engine_awake,
+            "shown_sleeping_after_opening": shown_awake,
+            "timer_ticks_after_waking": [t1, t2],
+        }),
     );
 }
 
@@ -1499,6 +1597,118 @@ fn m4_checks(app: &AppHandle, results: &Results) {
 }
 
 /// Milestone 3: network filtering, end to end, without network access.
+/// A left click in the active tab, as a person's: the engine treats it as a user gesture.
+fn click_active(app: &AppHandle, x: f64, y: f64) -> bool {
+    let send = move |kind: &'static str| {
+        let rx = on_main_get(app, move || {
+            let (tx, rx) = std::sync::mpsc::channel::<bool>();
+            match host().and_then(|h| h.active_id().map(|id| (h, id))) {
+                Some((h, id)) => h.devtools_call(
+                    id,
+                    "Input.dispatchMouseEvent",
+                    &format!(r#"{{"type":"{kind}","x":{x},"y":{y},"button":"left","buttons":1,"clickCount":1}}"#),
+                    move |r| {
+                        let _ = tx.send(r.is_ok());
+                    },
+                ),
+                None => {
+                    let _ = tx.send(false);
+                }
+            }
+            rx
+        });
+        rx.and_then(|rx| rx.recv_timeout(Duration::from_secs(5)).ok())
+            .unwrap_or(false)
+    };
+    send("mousePressed") && send("mouseReleased")
+}
+
+/// D-057: the scriptlet canary (`set` on the self-check host) has run when the page's first
+/// script runs, and the value is still there after the page has loaded.
+fn scriptlet_checks(app: &AppHandle, results: &Results) {
+    assert_eq!(PROBE_HOST, untrace_filter::scriptlets::SCRIPTLET_CANARY_HOST);
+    let page = "<!doctype html><meta charset=utf-8><title>scriptlets</title>\
+                <script>window.__early = window.untraceScriptletCanary === true;</script><body>scriptlets</body>";
+    let folder = app.state::<AppState>().layout.root.join("self-check-pages");
+    let _ = std::fs::write(folder.join("scriptlets.html"), page);
+    navigate(app, format!("https://{PROBE_HOST}/scriptlets.html"));
+    let seen = page_eval(
+        app,
+        "JSON.stringify({ early: window.__early === true, after: window.untraceScriptletCanary === true })",
+    );
+    // The engine returns the script's string result as a JSON string literal.
+    let v: Json = serde_json::from_str::<String>(&seen)
+        .ok()
+        .and_then(|s| serde_json::from_str(&s).ok())
+        .unwrap_or(Json::Null);
+    push(
+        results,
+        "the lists' scriptlets run before the page's own scripts",
+        v["early"] == true && v["after"] == true,
+        json!({ "page_saw": v, "raw": seen, "scriptlets_from": untrace_filter::scriptlets::resources_version() }),
+    );
+}
+
+/// 2026-11-26: the lists' pop-up rules (which the matching library drops) are applied by
+/// UNTRACE. Each click on the test page opens one window: an ad pop-up (the pop-up canary),
+/// a blank window sent to the canary a moment later (as pop-unders do), and an ordinary page.
+fn popup_checks(app: &AppHandle, results: &Results) {
+    let canary = untrace_filter::popup::POPUP_CANARY_HOST;
+    let page = format!(
+        "<!doctype html><meta charset=utf-8><title>pop-ups</title><body style='margin:0;height:100vh'>\
+         <script>let n=0;addEventListener('click',()=>{{n++;\
+         if(n===1)open('https://{canary}/ad','_blank');\
+         if(n===2){{const w=open('about:blank','_blank');if(w)setTimeout(()=>{{try{{w.location.href='https://{canary}/under'}}catch(e){{}}}},300)}}\
+         if(n===3)open('https://{PROBE_HOST}/probe.html?opened','_blank')}})</script>"
+    );
+    let folder = app.state::<AppState>().layout.root.join("self-check-pages");
+    let _ = std::fs::write(folder.join("popups.html"), page);
+    navigate(app, format!("https://{PROBE_HOST}/popups.html"));
+    let main = on_main_get(app, || host().and_then(|h| h.active_id())).flatten();
+    let popups = move || -> (Vec<u32>, u32) {
+        on_main_get(app, move || {
+            let snap = host()?.snapshot();
+            let refused = snap
+                .tabs
+                .iter()
+                .find(|t| Some(t.id) == main)
+                .map(|t| t.blocked.popups)?;
+            Some((snap.tabs.iter().map(|t| t.id).collect(), refused))
+        })
+        .flatten()
+        .unwrap_or_default()
+    };
+    let mut steps = Vec::new();
+    for _ in 0..3 {
+        let (before, refused_before) = popups();
+        let clicked = click_active(app, 200.0, 200.0);
+        sleep(2500);
+        let (after, refused_after) = popups();
+        let opened: Vec<u32> = after.into_iter().filter(|id| !before.contains(id)).collect();
+        steps.push(json!({ "clicked": clicked, "opened": opened.len(), "refused": refused_after.saturating_sub(refused_before) }));
+        on_main(app, move || {
+            if let Some(h) = host() {
+                for id in opened {
+                    h.close_tab(id);
+                }
+                if let Some(id) = main {
+                    h.activate(id);
+                }
+            }
+        });
+        sleep(600);
+    }
+    let step = |i: usize, opened: u64, refused: u64| {
+        steps[i]["clicked"] == true && steps[i]["opened"] == opened && steps[i]["refused"] == refused
+    };
+    push(
+        results,
+        "ad pop-ups opened by a click are refused; other new windows open",
+        step(0, 0, 1) && step(1, 0, 1) && step(2, 1, 0),
+        json!({ "ad_popup": steps[0], "blank_then_ad": steps[1], "ordinary_window": steps[2] }),
+    );
+}
+
 fn m3_checks(app: &AppHandle, results: &Results) {
     // 14. Lists loaded and verified by their canaries.
     let states = on_main_get(app, || {
