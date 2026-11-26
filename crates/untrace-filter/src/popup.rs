@@ -115,7 +115,7 @@ impl PopupRules {
         let mut set = FilterSet::new(false);
         let mut rules = 0;
         for s in sources.iter().filter(|s| info(s.id).format == Format::Adblock) {
-            let split = split(&crate::preprocess::list_text(s));
+            let split = split(&crate::preprocess::network_text(s));
             rules += split.popup.len();
             set.add_filter_list(split.popup.join("\n"), opts);
         }

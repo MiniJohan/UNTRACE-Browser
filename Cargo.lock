@@ -4791,6 +4791,7 @@ name = "untrace-filter"
 version = "1.2.0"
 dependencies = [
  "adblock",
+ "regex",
  "serde",
  "serde_json",
  "untrace-core",

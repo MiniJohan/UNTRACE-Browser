@@ -34,6 +34,17 @@ Releases are published on GitHub Releases (D-016). The installer is per-user (no
    $p = Read-Host 'Update key password' -AsSecureString
    $env:TAURI_SIGNING_PRIVATE_KEY_PASSWORD = [Runtime.InteropServices.Marshal]::PtrToStringBSTR([Runtime.InteropServices.Marshal]::SecureStringToBSTR($p))
    ```
+
+   All three lines and the build must run in the same window: a variable set in another window is not seen. Check the password before the long build, in that window. It signs a throw-away file; "Your file was signed successfully" means the password is right:
+
+   ```powershell
+   Set-Content "$env:TEMP\untrace-pw-test.txt" 'test'
+   ```
+   ```powershell
+   cargo tauri signer sign -k (Get-Content $env:TAURI_SIGNING_PRIVATE_KEY -Raw).Trim() "$env:TEMP\untrace-pw-test.txt"
+   ```
+
+   "Wrong password for that key" means the build got a different password: typed differently (Caps Lock, keyboard layout), or none at all because `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` was not set in this window (the build then tries an empty password). If the test asks for a password instead, the variable is not set.
 3. Build:
 
    ```powershell

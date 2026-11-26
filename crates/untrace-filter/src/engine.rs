@@ -29,6 +29,26 @@ pub const ADBLOCK_VERSION: &str = "0.13.6";
 /// Page that canary requests pretend to come from (third-party context).
 pub const CANARY_PAGE: &str = "https://page.canary.untrace.invalid/";
 
+/// D-058: the host of the regular-expression canary.
+pub const REGEX_CANARY_HOST: &str = "regex.canary.untrace.invalid";
+
+/// D-058: two rules with the same options, which the matching library fuses into one set of
+/// regular expressions: one it cannot compile (lookahead), one it can. They are filtered like
+/// the lists' rules ([`crate::preprocess::network_text`]). Had the first reached the library,
+/// the second would stop matching as well: the canary proves that working rules are not
+/// disabled by the rules they are fused with.
+const REGEX_CANARY_RULES: &str = "/^https:\\/\\/regex\\.canary\\.untrace\\.invalid\\/(?=[a-z])[a-z]+\\.js$/$xhr\n\
+                                  /^https:\\/\\/regex\\.canary\\.untrace\\.invalid\\/[a-z]+\\.js$/$xhr\n";
+
+/// D-058: a host blocked as a page (`$document`), as the lists block ad, scam and badware
+/// pages. Part of every content engine, for the self-check of page redirects.
+pub const DOCUMENT_CANARY_HOST: &str = "document.canary.untrace.invalid";
+
+/// The address the regular-expression canary matches (as a request from a page, [`ResourceKind::Xhr`]).
+pub fn regex_canary_url() -> String {
+    format!("https://{REGEX_CANARY_HOST}/check.js")
+}
+
 pub fn canary_host(id: ListId) -> &'static str {
     match id {
         ListId::EasyList => "ads.canary.untrace.invalid",
@@ -112,7 +132,7 @@ impl ContentEngine {
         let mut set = FilterSet::new(false);
         let mut lists = vec![];
         for s in sources.iter().filter(|s| info(s.id).format == Format::Adblock) {
-            let text = crate::preprocess::list_text(s);
+            let text = crate::preprocess::network_text(s);
             // Rules that name `popup` beside other types: the library drops them whole, so
             // their other types are added back without `popup` (crate::popup).
             set.add_filter_list(crate::popup::split(&text).rest.join("\n"), opts);
@@ -123,6 +143,9 @@ impl ContentEngine {
         if lists.is_empty() {
             return None;
         }
+        let canary = crate::preprocess::without_unsupported_regex(REGEX_CANARY_RULES.into());
+        set.add_filter_list(canary.into_owned(), opts);
+        set.add_filter_list(format!("||{DOCUMENT_CANARY_HOST}^$document\n"), opts);
         Some(Self {
             engine: Engine::new_with_filter_set(set),
             lists,
@@ -142,8 +165,16 @@ impl ContentEngine {
         let me = Self { engine, lists };
         match me.lists.iter().find(|id| !me.blocks_canary(**id)) {
             Some(id) => Err(format!("cached filter engine does not block the {id:?} canary")),
+            None if !me.blocks_regex_canary() => {
+                Err("cached filter engine does not block the regular-expression canary".into())
+            }
             None => Ok(me),
         }
+    }
+
+    /// D-058: do rules fused with one the matching library cannot compile still match?
+    pub fn blocks_regex_canary(&self) -> bool {
+        self.matches(&regex_canary_url(), CANARY_PAGE, ResourceKind::Xhr)
     }
 
     pub fn lists(&self) -> &[ListId] {
@@ -354,7 +385,7 @@ pub fn cache_key(sources: &[Source<'_>]) -> u64 {
     eat(ADBLOCK_VERSION.as_bytes());
     eat(env!("CARGO_PKG_VERSION").as_bytes());
     // What UNTRACE adds to the library's rules (crate::popup): bumped when that changes.
-    eat(b"popup-rest-1;ublock-preprocess-2");
+    eat(b"popup-rest-1;ublock-preprocess-3;regex-compiles-1");
     for s in sources.iter().filter(|s| info(s.id).format == Format::Adblock) {
         eat(s.id.stem().as_bytes());
         eat(&[0]);
@@ -409,6 +440,115 @@ mod tests {
         ];
         for (u, k) in allowed {
             assert_eq!(f.check(u, page, k), Verdict::Allow, "{u}");
+        }
+    }
+
+    /// D-058, found on 9anime.es: the library fuses rules with the same options, and one rule
+    /// it cannot compile (lookahead) disables the whole set.
+    #[test]
+    fn rules_fused_with_an_unsupported_regex_still_match() {
+        let good = "/^https:\\/\\/[a-z]{2}\\.[a-z]{7,14}\\.com\\/[rt][0-9A-Za-z]{10,16}\\/[A-Za-z]{4,5}$/$script,xhr,3p,match-case";
+        let lookahead = "/^https:\\/\\/(?:[0-9a-z]+\\.){1,2}cfd\\/[a-z](?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,27}\\/(?:\\d{6}|[A-Za-z]{5})$/$script,xhr,3p,match-case";
+        let text = format!("{lookahead}\n{good}\n");
+        let (url, page) = (
+            "https://pr.snarescarate.com/rOhVQoppdUGnO/VNGBo",
+            "https://cdn.9animez.to/v/x",
+        );
+        // The library on its own: the working rule is lost with the other.
+        let mut raw = FilterSet::new(false);
+        raw.add_filter_list(
+            text.clone(),
+            ParseOptions {
+                rule_types: RuleTypes::NetworkOnly,
+                ..ParseOptions::default()
+            },
+        );
+        let req = Request::new(url, page, "script", "GET").unwrap();
+        assert!(
+            !Engine::new_with_filter_set(raw)
+                .check_network_request(&req)
+                .should_block()
+        );
+        // As UNTRACE builds it.
+        let e = ContentEngine::build(&[Source {
+            id: ListId::UboFilters,
+            text: &text,
+        }])
+        .unwrap();
+        assert!(e.matches(url, page, ResourceKind::Script));
+        assert!(e.blocks_regex_canary());
+    }
+
+    /// The ad network on 9anime.es's player (2026-11-26): its pop-up scripts are blocked; the
+    /// site's and the player's own scripts are not.
+    #[test]
+    fn bundled_lists_block_the_player_ad_scripts_seen_on_9anime() {
+        let f = Filters::build(&bundled(&ListId::ALL));
+        for (u, page) in [
+            (
+                "https://pr.snarescarate.com/rOhVQoppdUGnO/VNGBo",
+                "https://cdn.9animez.to/v/XnMDNiPWwWrAbOz",
+            ),
+            (
+                "https://zw.kantiannogg.com/spOtuAaE4Vxq6Mp/162821",
+                "https://cdn.9animez.to/v/XnMDNiPWwWrAbOz",
+            ),
+            (
+                "https://py.paniscamaroon.cfd/r6b089ce9b5bd3/152726",
+                "https://9anime.es/",
+            ),
+        ] {
+            assert_eq!(f.check(u, page, ResourceKind::Script), Verdict::Block, "{u}");
+        }
+        for (u, page) in [
+            (
+                "https://cdn.9animez.to/movi/element.slim.global.js?v=1795637767",
+                "https://9anime.es/watch/x",
+            ),
+            (
+                "https://9anime.es/assets/assets/js/main.min.js?v=1795521866",
+                "https://9anime.es/",
+            ),
+        ] {
+            assert_eq!(f.check(u, page, ResourceKind::Script), Verdict::Allow, "{u}");
+        }
+        assert!(f.content().unwrap().blocks_regex_canary());
+    }
+
+    /// D-058: which addresses the lists block as pages. As uBlock Origin's "strict blocking":
+    /// rules that name pages (`$document`), and rules that name nothing but a host
+    /// (`||ads.example^`); never rules for one kind of request. The links people follow every
+    /// day (shorteners, link wrappers, affiliate links) are not among them.
+    #[test]
+    fn pages_blocked_by_the_lists() {
+        let f = Filters::build(&bundled(&ListId::ALL));
+        let page = |u: &str| f.content_blocks(u, u, ResourceKind::Document);
+        for u in [
+            format!("https://{DOCUMENT_CANARY_HOST}/landing"),
+            "https://ads.canary.untrace.invalid/".into(),
+            "https://fhvfd.com/api/reverse?var=1".into(),
+            "https://www.popads.net/".into(),
+            "https://ad.doubleclick.net/ddm/clk/1".into(),
+        ] {
+            assert!(page(&u), "{u}");
+        }
+        for u in [
+            "https://pr.snarescarate.com/rOhVQoppdUGnO/VNGBo", // a rule for scripts only
+            "https://9anime.es/",
+            "https://www.youtube.com/watch?v=x",
+            "https://t.co/abc",
+            "https://bit.ly/abc",
+            "https://l.facebook.com/l.php?u=x",
+            "https://out.reddit.com/t3_x",
+            "https://www.google.com/url?q=x",
+            "https://duckduckgo.com/l/?uddg=x",
+            "https://click.linksynergy.com/deeplink?id=x",
+            "https://go.skimresources.com/?id=x",
+            "https://www.awin1.com/cread.php?a=1",
+            "https://www.paypal.com/",
+            "https://accounts.google.com/",
+        ] {
+            assert!(!page(u), "{u}");
         }
     }
 

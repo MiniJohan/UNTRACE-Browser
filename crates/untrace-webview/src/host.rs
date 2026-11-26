@@ -708,6 +708,12 @@ struct Tab {
     /// A window a page opened: the opener tab and when. Its navigations are checked against
     /// the pop-up rules for [`POPUP_WATCH`].
     popup_of: Option<(u32, std::time::Instant)>,
+    /// D-058: the address UNTRACE's interface asked this tab to open (address bar, bookmark,
+    /// start page), until that navigation starts. It is the user's, never a page's redirect.
+    user_nav: Option<String>,
+    /// D-058: the top-level navigation in progress was started by the user (or is a redirect
+    /// of one that stays on the same host).
+    nav_by_user: bool,
 }
 
 /// One site's own hiding rules, registered for the site a tab is on (D-045).
@@ -1533,6 +1539,10 @@ impl ContentHost {
                 i.temp_profile = Some((name, None));
             }
             let from_page = on_ready.is_some();
+            let user_nav = url
+                .as_deref()
+                .filter(|_| !from_page)
+                .map(|u| without_fragment(u).to_string());
             i.tabs.push(Tab {
                 info: TabInfo {
                     temporary,
@@ -1557,6 +1567,8 @@ impl ContentHost {
                 background_since: None,
                 media: false,
                 popup_of: None,
+                user_nav,
+                nav_by_user: false,
             });
             i.active = Some(id);
             (id, i.env.is_some())
@@ -1950,7 +1962,14 @@ impl ContentHost {
             .and_then(|t| t.controller.clone())
     }
 
+    /// Open `url` in tab `id` for the user (address bar, bookmark, a warning's buttons).
     fn navigate_tab(&self, id: u32, url: &str) {
+        self.navigate_tab_by(id, url, true);
+    }
+
+    /// `by_user`: the navigation is the user's, so a page-redirect check never stops it (D-058).
+    fn navigate_tab_by(&self, id: u32, url: &str, by_user: bool) {
+        self.with_tab(id, |t| t.user_nav = by_user.then(|| without_fragment(url).to_string()));
         let hold = {
             let i = self.inner.borrow();
             !i.startup_clear_done
@@ -3136,7 +3155,40 @@ impl ContentHost {
         let excepted = registrable_domain(page).is_some_and(|s| {
             i.site_exceptions.contains(&s) || (t.info.temporary && i.temp_site_exceptions.contains(&s))
         });
-        !excepted && i.filters.popups().is_some_and(|p| p.blocks(target, page))
+        !excepted
+            && (i.filters.popups().is_some_and(|p| p.blocks(target, page))
+                || i.filters.content_blocks(target, target, ResourceKind::Document))
+    }
+
+    /// D-058: the page in tab `id` sends the tab to `target`. Should UNTRACE stop it? When the
+    /// lists block `target` as a page, as uBlock Origin's strict blocking does (rules naming
+    /// pages, `$document`, and rules naming only a host, `||ads.example^`: ad, tracker, scam
+    /// and badware sites), unless the user turned blocking off for the page's site, the
+    /// opener's, or `target`'s. Malware and phishing addresses keep their warning (D-033).
+    fn page_redirect_blocked(&self, id: u32, target: &str) -> bool {
+        if !(target.starts_with("http://") || target.starts_with("https://")) || self.threat_for(target).is_some() {
+            return false;
+        }
+        let i = self.inner.borrow();
+        let Some(t) = i.tabs.iter().find(|t| t.info.id == id) else {
+            return false;
+        };
+        let excepted = |url: &str| {
+            registrable_domain(url).is_some_and(|s| {
+                i.site_exceptions.contains(&s) || (t.info.temporary && i.temp_site_exceptions.contains(&s))
+            })
+        };
+        // The page that sends the tab away (what it shows, or what it is loading), and for a
+        // window a page opened, that page too.
+        let page = if t.nav_uri.is_empty() { &t.info.url } else { &t.nav_uri };
+        let opener_excepted = t
+            .popup_of
+            .and_then(|(o, _)| i.tabs.iter().find(|x| x.info.id == o))
+            .is_some_and(|o| excepted(&o.info.url));
+        !excepted(page)
+            && !opener_excepted
+            && !excepted(target)
+            && i.filters.content_blocks(target, target, ResourceKind::Document)
     }
 
     fn count_popup(&self, opener: u32, target: &str) {
@@ -3391,11 +3443,32 @@ impl ContentHost {
 
     fn on_navigation_starting(&self, id: u32, a: &ICoreWebView2NavigationStartingEventArgs) {
         let mut nav_id = 0u64;
+        let mut redirected = BOOL(0);
+        let mut kind = COREWEBVIEW2_NAVIGATION_KIND_NEW_DOCUMENT;
         // SAFETY: getters on live event args.
         let uri = unsafe {
             let _ = a.NavigationId(&mut nav_id);
+            let _ = a.IsRedirected(&mut redirected);
+            if let Ok(a3) = a.cast::<ICoreWebView2NavigationStartingEventArgs3>() {
+                let _ = a3.NavigationKind(&mut kind);
+            }
             take_str(|p| a.Uri(p)).unwrap_or_default()
         };
+        // D-058: whose navigation is this? The user's: what UNTRACE's interface asked for, back,
+        // forward and reload, and a server's redirect of those that stays on the same host.
+        // Anything else was started by a page.
+        let by_user = self
+            .with_tab(id, |t| {
+                if redirected.as_bool() {
+                    t.nav_by_user && host_of(&t.nav_uri) == host_of(&uri)
+                } else if t.user_nav.as_deref() == Some(without_fragment(&uri)) {
+                    t.user_nav = None;
+                    true
+                } else {
+                    kind != COREWEBVIEW2_NAVIGATION_KIND_NEW_DOCUMENT
+                }
+            })
+            .unwrap_or(false);
         // A page's new window sent to an ad (pop-unders open blank, then navigate).
         let opener = self
             .tab_ref(id, |t| {
@@ -3417,6 +3490,23 @@ impl ContentHost {
                 if h.tab_ref(opener, |_| ()).is_some() {
                     h.activate(opener);
                 }
+            });
+            return;
+        }
+        // D-058: a page sending this tab to an ad, scam or badware page: the tab stays.
+        if !by_user && self.page_redirect_blocked(id, &uri) {
+            // SAFETY: setter on live event args.
+            unsafe {
+                let _ = a.SetCancel(true);
+            }
+            self.with_tab(id, |t| t.note_cancelled(&uri));
+            let host = host_of(&uri);
+            self.update(id, |t| {
+                t.blocked.navigations += 1;
+                t.notice = Some(format!(
+                    "UNTRACE stopped this page from sending you to {host}, an ad, tracker or scam site on your block lists. To go there anyway, type its address."
+                ));
+                t.blocked.add_host(host, None, false);
             });
             return;
         }
@@ -3445,6 +3535,7 @@ impl ContentHost {
                     }
                     t.nav_id = nav_id;
                     t.nav_uri = uri.clone();
+                    t.nav_by_user = by_user;
                     t.cert_error = None;
                     let cleaned = t.cleaned.take().filter(|(url, _)| *url == uri);
                     let i = &mut t.info;
@@ -3521,7 +3612,7 @@ impl ContentHost {
                     );
                 } else {
                     let h = self.clone();
-                    defer(move || h.navigate_tab(id, &https));
+                    defer(move || h.navigate_tab_by(id, &https, by_user));
                 }
             }
             NavDecision::Block(reason) => {

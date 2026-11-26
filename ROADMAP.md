@@ -398,6 +398,14 @@ The product owner reported ads, a fake captcha and pop-up tabs on 9anime, and vi
 - **Scriptlets:** uBlock Origin 1.77.2's scriptlets, bundled; YouTube's ad data removed. Self-check 59.
 - **Result:** 9anime.es without captcha, overlay or pop-ups; YouTube without the ad. Open: scriptlets in frames, badware strict blocking, uBlock-only options the engine lacks.
 
+## After 1.2.0 · click redirects on 9anime · **not released yet** (D-058)
+
+The product owner reported that clicks on 9anime still sent them to ads with 1.2.0.
+- **Found:** 9anime's own video player (a frame of another site) opened an ad tab on every click. Its ad script was listed by uBlock Origin, but the matching library fuses rules with the same options and one rule it cannot compile (lookahead) disabled the working one. 44 such rules in the uBlock Origin lists.
+- **Fixed:** rules the library cannot compile are dropped before the engines are built; uBlock Origin Lite's lookahead-free rules are used too. Built-in canary; self-check 60.
+- **Page redirects:** a page can no longer send its tab to a site the lists block as a page (uBlock Origin's strict blocking; this closes the badware gap of D-057 for navigations pages start). The tab stays and shows a notice; addresses the user opens still load. Self-check 61.
+- **Result:** no ad tab or redirect in 12 clicks on 9anime's pages and player; the video plays.
+
 ## Candidate post-v1 items (need approval)
 
 Optional session restore, default-browser registration (explicit, reversible), ARM64 build, per-site containers beyond temporary sessions.

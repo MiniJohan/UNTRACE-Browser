@@ -281,6 +281,7 @@ fn run(app: AppHandle, out: PathBuf) {
     m2_checks(&app, &results);
     m3_checks(&app, &results);
     popup_checks(&app, &results);
+    redirect_checks(&app, &results);
     scriptlet_checks(&app, &results);
     m4_checks(&app, &results);
     m5_checks(&app, &results);
@@ -302,6 +303,8 @@ pub const COVERAGE: &[(&str, &[&str])] = &[
             "every block list is loaded and verified",
             "ad pop-ups opened by a click are refused; other new windows open",
             "the lists' scriptlets run before the page's own scripts",
+            "rules fused with ones the matching library cannot compile still match",
+            "a page cannot send its tab to a blocked site; the user can open it",
         ],
     ),
     (
@@ -312,6 +315,7 @@ pub const COVERAGE: &[(&str, &[&str])] = &[
         "filter.block_ads",
         &[
             "ad pop-ups opened by a click are refused; other new windows open",
+            "a page cannot send its tab to a blocked site; the user can open it",
             "every block list is loaded and verified",
             "requests to listed hosts are blocked and counted, others untouched",
             "switching a list off stops it, verified; switching it on restores it",
@@ -1706,6 +1710,56 @@ fn popup_checks(app: &AppHandle, results: &Results) {
         "ad pop-ups opened by a click are refused; other new windows open",
         step(0, 0, 1) && step(1, 0, 1) && step(2, 1, 0),
         json!({ "ad_popup": steps[0], "blank_then_ad": steps[1], "ordinary_window": steps[2] }),
+    );
+}
+
+/// D-058, found on 9anime.es: (1) a rule the matching library cannot compile no longer
+/// disables the working rules it fuses them with (the regular-expression canary); (2) a page
+/// cannot send its tab to a site the lists block as a page, while the user still can.
+fn redirect_checks(app: &AppHandle, results: &Results) {
+    open_probe(app);
+    page_eval(
+        app,
+        "window.__rx = 'pending'; fetch('https://regex.canary.untrace.invalid/check.js', \
+         { mode: 'no-cors', cache: 'no-store' }).then(() => { window.__rx = 'answered'; }, \
+         () => { window.__rx = 'failed'; }); 'started'",
+    );
+    let seen = page_result(app, "window.__rx");
+    push(
+        results,
+        "rules fused with ones the matching library cannot compile still match",
+        seen == "answered",
+        json!({ "page_saw": seen, "canary": untrace_filter::engine::regex_canary_url() }),
+    );
+
+    let target = untrace_filter::engine::DOCUMENT_CANARY_HOST;
+    let page = format!(
+        "<!doctype html><meta charset=utf-8><title>redirect</title><body style='margin:0;height:100vh'>\
+         <script>addEventListener('click',()=>{{location.href='https://{target}/landing'}})</script>"
+    );
+    let folder = app.state::<AppState>().layout.root.join("self-check-pages");
+    let _ = std::fs::write(folder.join("redirect.html"), page);
+    let start = format!("https://{PROBE_HOST}/redirect.html");
+    navigate(app, start.clone());
+    let clicked = click_active(app, 200.0, 200.0);
+    sleep(2000);
+    let after_click = on_main_get(app, active_tab).unwrap_or(Json::Null);
+    // The same address, opened by the user: not stopped (it then fails to load: `.invalid`).
+    navigate(app, format!("https://{target}/typed"));
+    sleep(1500);
+    let typed = on_main_get(app, active_tab).unwrap_or(Json::Null);
+    let stayed = after_click["url"] == start.as_str()
+        && after_click["blocked"]["navigations"] == 1
+        && after_click["notice"].as_str().is_some_and(|n| n.contains(target));
+    let user_went = typed["interstitial"]["kind"] == "load_error"
+        && typed["interstitial"]["host"] == target
+        && typed["blocked"]["navigations"] == 0;
+    push(
+        results,
+        "a page cannot send its tab to a blocked site; the user can open it",
+        clicked && stayed && user_went,
+        json!({ "clicked": clicked, "after_click": { "url": after_click["url"], "blocked": after_click["blocked"],
+                "notice": after_click["notice"] }, "typed": { "url": typed["url"], "interstitial": typed["interstitial"] } }),
     );
 }
 

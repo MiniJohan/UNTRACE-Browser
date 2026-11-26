@@ -23,6 +23,7 @@ Settings › Your data lists what is stored and deletes it, per category or per 
 
 - **Websites you visit** see your IP address and what every browser sends. UNTRACE is not a VPN. Sites can also tell that UNTRACE runs on Microsoft's WebView2 engine.
 - **Name lookups (DNS):** with Encrypted DNS on Automatic, your usual DNS provider sees the names you look up, encrypted when Windows knows how. In Strict mode, only the provider you chose sees them: Quad9, Cloudflare, Mullvad or your own server.
+- **Your network** (your internet provider, the Wi-Fi you use) can still see which sites you connect to, in every Encrypted DNS mode: the server addresses, and each site's name at the start of the encrypted connection, because UNTRACE's engine does not use Encrypted Client Hello. It cannot see which pages you open or what you send. A VPN or Tor hides this; UNTRACE is neither.
 - **Block-list updates:** while "Update block lists automatically" is on, UNTRACE downloads the lists from their maintainers:
   - `easylist.to` for EasyList and EasyPrivacy;
   - `ublockorigin.github.io` (GitHub) for uBlock Origin's lists;

@@ -231,7 +231,9 @@ pub fn defs() -> Vec<ProtectionDef> {
                           cannot start. UNTRACE's own block-list downloads use Windows networking, so Windows \
                           looks up those two list hosts. WebRTC (calls, peer-to-peer) passes through the network \
                           layer only while \"Keep WebRTC inside the network layer\" is on. Your DNS provider still \
-                          sees the names you look up, and sites still see your IP address: this is not a VPN.",
+                          sees the names you look up, and sites still see your IP address: this is not a VPN. Your \
+                          network can still see which sites you connect to: their addresses, and their names at \
+                          the start of each encrypted connection (Encrypted Client Hello is not used).",
             scope: Scope::Environment,
             kind: Kind::Choice {
                 options: &DNS_MODES,

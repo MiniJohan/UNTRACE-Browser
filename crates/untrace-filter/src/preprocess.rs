@@ -5,11 +5,18 @@
 //! Safari-only rules included. UNTRACE keeps the branches uBlock Origin itself uses on a
 //! Chromium browser that cannot rewrite page HTML: that is what UNTRACE is.
 //!
-//! One exception, found on a real site (D-057): on Chromium, uBlock Origin matches some ad
-//! networks with regular expressions that use lookahead (`(?=…)`), which the matching library
-//! cannot evaluate, so those rules never match. Safari has the same limitation, and the lists
-//! carry lookahead-free versions of these rules for it. UNTRACE also takes the regular-
-//! expression network rules of Safari branches, and nothing else from them.
+//! One exception, found on a real site (D-057, D-058): on Chromium, uBlock Origin matches some
+//! ad networks with regular expressions that use lookahead (`(?=…)`), which the matching
+//! library cannot evaluate. Safari and uBlock Origin Lite have the same limitation, and the
+//! lists carry lookahead-free versions of these rules for them. UNTRACE also takes the
+//! regular-expression network rules of Safari and uBlock Origin Lite branches, and nothing
+//! else from them.
+//!
+//! D-058: the matching library fuses rules that have the same options into one set of regular
+//! expressions. One expression it cannot compile makes the whole set fail, and every rule in it
+//! stops matching, the working lookahead-free versions included. [`network_text`] therefore
+//! drops, from every Adblock-format list, the regular-expression rules the library cannot
+//! compile: they never matched anything, and now they no longer disable the others.
 
 use std::borrow::Cow;
 
@@ -18,6 +25,12 @@ use std::borrow::Cow;
 const CHROMIUM: &[&str] = &["env_chromium", "ext_ublock", "cap_user_stylesheet"];
 /// The same, as uBlock Origin on Safari: used only for regular-expression network rules.
 const SAFARI: &[&str] = &["env_safari", "ext_ublock", "cap_user_stylesheet"];
+/// The same, as uBlock Origin Lite on Chromium (Manifest V3): regular-expression network rules
+/// only.
+const UBOL: &[&str] = &["env_chromium", "env_mv3", "ext_ubol", "cap_user_stylesheet"];
+/// The three readings of each branch: Chromium (everything), Safari and uBlock Origin Lite
+/// (regular-expression network rules only).
+const PLATFORMS: [&[&str]; 3] = [CHROMIUM, SAFARI, UBOL];
 
 /// Evaluate one condition: identifiers, `!`, `&&`, `||` and parentheses.
 fn eval(expr: &str, truths: &[&str]) -> bool {
@@ -107,11 +120,37 @@ fn is_regex_network_rule(line: &str) -> bool {
     l.starts_with('/') && !l.contains("##") && !l.contains("#@#") && (l.contains("/$") || l.ends_with('/'))
 }
 
-/// One open `!#if`: is its branch kept for Chromium, and for Safari (parents included)?
+/// The regular expression of a network rule written as one, as the matching library reads it:
+/// the text between the slashes before the last `$` (which starts the options), with `\/` and
+/// `\:` unescaped. `None` for any other line.
+fn rule_regex(line: &str) -> Option<String> {
+    if !is_regex_network_rule(line) {
+        return None;
+    }
+    let l = line.strip_prefix("@@").unwrap_or(line);
+    let pattern = l.rfind('$').map_or(l, |i| &l[..i]);
+    (pattern.len() > 1 && pattern.ends_with('/'))
+        .then(|| pattern[1..pattern.len() - 1].replace("\\/", "/").replace("\\:", ":"))
+}
+
+/// Can the matching library compile this regular expression? It uses the same library, built
+/// the same way (byte matching, no Unicode classes).
+fn compiles(re: &str) -> bool {
+    regex::bytes::RegexBuilder::new(re).unicode(false).build().is_ok()
+}
+
+/// A regular-expression network rule the matching library cannot compile (lookahead,
+/// look-behind, back-references, …).
+fn unsupported_regex_rule(line: &str) -> bool {
+    rule_regex(line.trim()).is_some_and(|re| !compiles(&re))
+}
+
+/// One open `!#if`: is its branch kept for Chromium, Safari and uBlock Origin Lite (parents
+/// included)?
 #[derive(Clone, Copy)]
 struct Open {
-    parent: (bool, bool),
-    cond: (bool, bool),
+    parent: [bool; 3],
+    cond: [bool; 3],
 }
 
 /// Drop the lines of branches that do not apply. Text without directives is returned as is.
@@ -124,7 +163,7 @@ pub fn preprocess(text: &str) -> Cow<'_, str> {
     let active = |stack: &[Open]| {
         stack
             .last()
-            .map_or((true, true), |o| (o.parent.0 && o.cond.0, o.parent.1 && o.cond.1))
+            .map_or([true; 3], |o| std::array::from_fn(|i| o.parent[i] && o.cond[i]))
     };
     for line in text.lines() {
         let t = line.trim();
@@ -132,17 +171,17 @@ pub fn preprocess(text: &str) -> Cow<'_, str> {
             let parent = active(&stack);
             stack.push(Open {
                 parent,
-                cond: (eval(cond, CHROMIUM), eval(cond, SAFARI)),
+                cond: PLATFORMS.map(|truths| eval(cond, truths)),
             });
         } else if t == "!#else" {
             if let Some(top) = stack.last_mut() {
-                top.cond = (!top.cond.0, !top.cond.1);
+                top.cond = top.cond.map(|c| !c);
             }
         } else if t == "!#endif" {
             stack.pop();
         } else {
-            let (chromium, safari) = active(&stack);
-            if chromium || (safari && is_regex_network_rule(t)) {
+            let [chromium, safari, ubol] = active(&stack);
+            if chromium || ((safari || ubol) && is_regex_network_rule(t)) {
                 out.push_str(line);
                 out.push('\n');
             }
@@ -158,6 +197,36 @@ pub fn list_text<'a>(s: &crate::engine::Source<'a>) -> Cow<'a, str> {
     } else {
         Cow::Borrowed(s.text)
     }
+}
+
+/// A list's text as the network builders (requests, pop-ups) read it: [`list_text`], without
+/// the regular-expression rules the matching library cannot compile (D-058).
+pub fn network_text<'a>(s: &crate::engine::Source<'a>) -> Cow<'a, str> {
+    without_unsupported_regex(list_text(s))
+}
+
+/// `text` without the regular-expression network rules the matching library cannot compile.
+pub(crate) fn without_unsupported_regex(text: Cow<'_, str>) -> Cow<'_, str> {
+    let bad: std::collections::HashSet<usize> = text
+        .lines()
+        .enumerate()
+        .filter(|(_, l)| unsupported_regex_rule(l))
+        .map(|(n, _)| n)
+        .collect();
+    if bad.is_empty() {
+        return text;
+    }
+    let mut out = String::with_capacity(text.len());
+    for (_, line) in text.lines().enumerate().filter(|(n, _)| !bad.contains(n)) {
+        out.push_str(line);
+        out.push('\n');
+    }
+    Cow::Owned(out)
+}
+
+/// How many regular-expression network rules of this text the matching library cannot compile.
+pub fn unsupported_regex_rules(text: &str) -> usize {
+    text.lines().filter(|l| unsupported_regex_rule(l)).count()
 }
 
 #[cfg(test)]
@@ -222,6 +291,97 @@ mod tests {
              @@/^https:\\/\\/ok\\.example\\/[0-9]+/$image\n\
              /^https:\\/\\/[a-z]+\\.cfd\\/(?=x)/$script\n"
         );
+    }
+
+    #[test]
+    fn ubol_branches_give_only_their_regular_expression_rules() {
+        let text = "!#if ext_ubol\n\
+                    /^https:\\/\\/[a-z]{2}\\.[a-z]{7,14}\\.com\\/[rt][0-9A-Za-z]{10,16}\\/[A-Za-z]{4,5}(?:\\?|$)/$script,3p,match-case\n\
+                    ||ubol-only.example^\n\
+                    !#endif\n\
+                    !#if !ext_ubol\n\
+                    ||not-ubol.example^\n\
+                    !#endif\n";
+        assert_eq!(
+            preprocess(text),
+            "/^https:\\/\\/[a-z]{2}\\.[a-z]{7,14}\\.com\\/[rt][0-9A-Za-z]{10,16}\\/[A-Za-z]{4,5}(?:\\?|$)/$script,3p,match-case\n\
+             ||not-ubol.example^\n"
+        );
+        let e = |x| eval(x, UBOL);
+        assert!(e("ext_ubol") && e("env_chromium") && e("env_mv3"));
+        assert!(!e("ext_ublock") && !e("env_safari"));
+    }
+
+    #[test]
+    fn regular_expressions_the_library_cannot_compile_are_dropped() {
+        let good = "/^https:\\/\\/[a-z]+\\.cfd\\/[a-z][0-9A-Za-z]{10,22}\\/(\\d{6}|[A-Za-z]{5})$/$script,3p,match-case";
+        let lookahead = "/^https:\\/\\/(?:[0-9a-z]+\\.){1,2}cfd\\/[a-z](?=[a-z]*[0-9A-Z])[0-9A-Za-z]{10,27}\\/(?:\\d{6}|[A-Za-z]{5})$/$script,xhr,3p,match-case";
+        let exception = "@@/^https:\\/\\/ok\\.example\\/(?!x)/$image";
+        let backreference = "/(a)\\1/$script";
+        assert!(!unsupported_regex_rule(good));
+        assert!(unsupported_regex_rule(lookahead));
+        assert!(unsupported_regex_rule(exception));
+        assert!(unsupported_regex_rule(backreference));
+        // Not regular-expression network rules: left to the library.
+        for other in [
+            "||ads.example^$script",
+            "/banner/*/img^",
+            "/ad.js",
+            "example.com##.ad(?=x)",
+            "! /(?=x)/$script",
+            "/^https:\\/\\/a\\.example\\/(?=x)$/",
+        ] {
+            assert!(!unsupported_regex_rule(other), "{other}");
+        }
+        let text = format!("||a.example^\n{lookahead}\n{good}\n{exception}\nexample.com##.ad\n");
+        assert_eq!(
+            without_unsupported_regex(Cow::Borrowed(&text)),
+            format!("||a.example^\n{good}\nexample.com##.ad\n")
+        );
+        assert_eq!(unsupported_regex_rules(&text), 2);
+        let clean = "||a.example^\n/ad.js\n";
+        assert!(matches!(
+            without_unsupported_regex(Cow::Borrowed(clean)),
+            Cow::Borrowed(_)
+        ));
+    }
+
+    /// The matching library fuses rules with the same options into one set of regular
+    /// expressions. After filtering, every such set in the bundled lists must compile (a set
+    /// can also fail by growing past the library's size limit).
+    #[test]
+    fn regular_expression_sets_of_the_bundled_lists_compile() {
+        use std::collections::HashMap;
+        let mut groups: HashMap<String, Vec<String>> = HashMap::new();
+        let mut dropped = 0;
+        for id in crate::catalog::ListId::ALL {
+            let i = crate::info(id);
+            if i.format != crate::catalog::Format::Adblock {
+                continue;
+            }
+            let s = crate::engine::Source { id, text: i.bundled };
+            dropped += unsupported_regex_rules(&list_text(&s));
+            for line in network_text(&s).lines() {
+                let Some(re) = rule_regex(line.trim()) else { continue };
+                let options = line.rfind('$').map_or("", |n| &line[n + 1..]);
+                // Rules the library never fuses: per-site, per-destination, redirects, CSP.
+                if ["domain=", "from=", "to=", "redirect", "csp"]
+                    .iter()
+                    .any(|o| options.contains(o))
+                {
+                    continue;
+                }
+                let mut opts: Vec<&str> = options.split(',').collect();
+                opts.sort_unstable();
+                let key = format!("{}{}", line.starts_with("@@"), opts.join(","));
+                groups.entry(key).or_default().push(re);
+            }
+        }
+        assert!(dropped > 0, "the bundled uBlock Origin lists have lookahead rules");
+        for (key, res) in &groups {
+            let set = regex::bytes::RegexSetBuilder::new(res).unicode(false).build();
+            assert!(set.is_ok(), "{key}: {} rules: {set:?}", res.len());
+        }
     }
 
     #[test]

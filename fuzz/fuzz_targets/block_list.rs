@@ -25,5 +25,10 @@ fuzz_target!(|data: &[u8]| {
         for r in split.popup.iter().chain(&split.rest) {
             assert!(!r.contains('\n'), "a rewritten rule stays one line");
         }
+        // D-058: the network builders' text (regular expressions the library cannot compile
+        // dropped) only removes lines, and leaves none of those behind.
+        let net = untrace_filter::preprocess::network_text(&untrace_filter::engine::Source { id, text });
+        assert!(net.lines().count() <= text.lines().count(), "only removes lines");
+        assert_eq!(untrace_filter::preprocess::unsupported_regex_rules(&net), 0);
     }
 });

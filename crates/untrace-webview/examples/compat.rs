@@ -21,10 +21,13 @@
 //!
 //! `compat adcheck <out-dir> <data-dir> <url>...` (2026-11-26): ads and pop-ups on real sites.
 //! Each address loads in a host set up as UNTRACE ships (all lists, element hiding, network
-//! layer). The page is then clicked three times the way a person clicks (DevTools input, which
-//! the engine treats as a real user gesture). Recorded: pop-up tabs each click opened, what the
-//! page shows of ads (third-party hosts, frames, YouTube's own ad data), what UNTRACE blocked,
-//! and a screenshot before and after the clicks.
+//! layer). The page is then clicked the way a person clicks (DevTools input, which the engine
+//! treats as a real user gesture): three times on the video player (the largest frame or video,
+//! if any; D-058), then on three spots of the page. Recorded: every address the tab and any new
+//! tab pass through after each click (a redirect loads the page again), what the page shows of
+//! ads (third-party hosts, frames, YouTube's own ad data), what UNTRACE blocked, and a
+//! screenshot before and after the clicks. `UNTRACE_ADCHECK_WARM=1`: the profile first visits
+//! each address with no blocking.
 
 use std::{
     rc::Rc,
@@ -392,6 +395,19 @@ fn main() {
         visit_one(&args[2], std::path::PathBuf::from(&args[3]));
         return;
     }
+    if args.get(1).map(String::as_str) == Some("trace") {
+        // SAFETY: COM/DPI initialisation for this UI thread.
+        unsafe {
+            CoInitializeEx(None, COINIT_APARTMENTTHREADED).ok().expect("COM");
+            let _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
+        }
+        trace(
+            std::path::PathBuf::from(&args[2]),
+            &args[3],
+            args.get(4).map(String::as_str) != Some("off"),
+        );
+        return;
+    }
     if args.get(1).map(String::as_str) == Some("adcheck") {
         // SAFETY: COM/DPI initialisation for this UI thread.
         unsafe {
@@ -546,6 +562,17 @@ const AD_PROBE: &str = r#"(() => {
   };
 })()"#;
 
+/// The centre of the video player: the largest frame or video on the page, in CSS pixels.
+const PLAYER_SPOT: &str = r#"(() => {
+  const el = [...document.querySelectorAll('iframe, video')].filter(e => e.offsetWidth > 200 && e.offsetHeight > 120)
+    .sort((a, b) => b.offsetWidth * b.offsetHeight - a.offsetWidth * a.offsetHeight)[0];
+  if (!el) return [null, null];
+  el.scrollIntoView({ block: 'center' });
+  const c = el.getBoundingClientRect();
+  const top = Math.max(c.top, 0), bottom = Math.min(c.bottom, innerHeight);
+  return [Math.round(c.left + c.width / 2), Math.round((top + bottom) / 2)];
+})()"#;
+
 /// The privacy-preserving answer to a cookie banner, where a page shows one: "Reject all".
 const REJECT_CONSENT: &str = r#"(() => {
   const b = [...document.querySelectorAll('button, input[type=submit]')]
@@ -624,9 +651,52 @@ fn click(host: &ContentHost, id: u32, x: f64, y: f64) -> bool {
         && devtools(host, id, "Input.dispatchMouseEvent", &ev("mouseReleased")).is_ok()
 }
 
+/// `compat trace <data-dir> <url> [off]` (2026-11-26): load one plain-text page, with the network
+/// layer (as UNTRACE ships; Strict when `UNTRACE_COMPAT_DNS` names a provider) or without it
+/// (`off`, as Encrypted DNS Off), and print its `key=value` lines, except the visitor's IP
+/// address. Used with Cloudflare's trace page to see whether the site name is encrypted (ECH).
+fn trace(data: std::path::PathBuf, url: &str, network: bool) {
+    let hwnd = window();
+    let (host, id) = open_host(hwnd, data, true, network, true);
+    let v = visit(&host, id, url);
+    pump_for(Duration::from_secs(1));
+    let text = eval(&host, id, "document.body ? document.body.innerText : ''");
+    eprintln!(
+        "network layer: {}; visit: {}",
+        if network { "on" } else { "off" },
+        line(&v)
+    );
+    for l in text
+        .as_str()
+        .unwrap_or("")
+        .lines()
+        .filter(|l| l.contains('=') && !l.starts_with("ip="))
+    {
+        println!("{l}");
+    }
+    host.shutdown();
+    pump_for(Duration::from_millis(500));
+}
+
 fn adcheck(out: &std::path::Path, data: std::path::PathBuf, urls: &[String]) {
     std::fs::create_dir_all(out).expect("output folder");
     let hwnd = window();
+    // UNTRACE_ADCHECK_WARM: the profile first visits each address with no blocking (as a
+    // browser without these lists would have), so whatever the site stores comes back later.
+    if std::env::var("UNTRACE_ADCHECK_WARM").is_ok() {
+        let (warm, wid) = open_host(hwnd, data.clone(), false, true, true);
+        for url in urls {
+            let _ = visit(&warm, wid, url);
+            pump_for(Duration::from_secs(10));
+            let size = eval(&warm, wid, "[innerWidth, innerHeight]");
+            let (w, h) = (size[0].as_f64().unwrap_or(1200.0), size[1].as_f64().unwrap_or(800.0));
+            let _ = click(&warm, wid, w * 0.3, h * 0.65);
+            pump_for(Duration::from_secs(5));
+            eprintln!("warmed {url}: {} tab(s)", warm.snapshot().tabs.len());
+        }
+        warm.shutdown();
+        pump_for(Duration::from_secs(3));
+    }
     let (host, id) = open_host(hwnd, data, true, true, true);
     let mut report = Vec::new();
     for (n, url) in urls.iter().enumerate() {
@@ -644,32 +714,76 @@ fn adcheck(out: &std::path::Path, data: std::path::PathBuf, urls: &[String]) {
         let shot_before = screenshot(&host, id, &out.join(format!("{n}-before.png")));
         let size = eval(&host, id, "[innerWidth, innerHeight]");
         let (w, h) = (size[0].as_f64().unwrap_or(1200.0), size[1].as_f64().unwrap_or(800.0));
+        // The video player (the largest frame or video), then spots around the page.
+        let player = eval(&host, id, PLAYER_SPOT);
+        let mut spots: Vec<(f64, f64)> = Vec::new();
+        if let (Some(x), Some(y)) = (player[0].as_f64(), player[1].as_f64()) {
+            spots.extend([(x, y), (x, y), (x - 40.0, y + 40.0)]);
+        }
+        spots.extend([(w * 0.5, h * 0.45), (w * 0.3, h * 0.65), (w * 0.75, h * 0.3)]);
+        let site = |u: &str| {
+            let host = u
+                .split("://")
+                .nth(1)
+                .unwrap_or("")
+                .split(['/', '?', '#', ':'])
+                .next()
+                .unwrap_or("");
+            host.rsplit('.').take(2).collect::<Vec<_>>().join(".")
+        };
+        let start_url = tab(&host, id).url;
         let mut clicks = Vec::new();
-        for (fx, fy) in [(0.5, 0.45), (0.3, 0.65), (0.75, 0.3)] {
+        for (x, y) in spots {
             let tabs_before: Vec<u32> = host.snapshot().tabs.iter().map(|t| t.id).collect();
             let popups_blocked_before = tab(&host, id).blocked.popups;
-            let clicked = click(&host, id, w * fx, h * fy);
-            pump_for(Duration::from_secs(5));
-            let snap = host.snapshot();
-            let new_tabs: Vec<Value> = snap
-                .tabs
-                .iter()
-                .filter(|t| !tabs_before.contains(&t.id))
-                .map(|t| json!({ "url": t.url, "title": t.title }))
-                .collect();
+            let clicked = click(&host, id, x, y);
+            // Every address this tab and any new tab pass through in the next five seconds.
+            let (mut path, mut new_tabs): (Vec<String>, Vec<String>) = (Vec::new(), Vec::new());
+            let until_t = Instant::now() + Duration::from_secs(5);
+            while Instant::now() < until_t {
+                pump_for(Duration::from_millis(100));
+                let snap = host.snapshot();
+                for t in &snap.tabs {
+                    let seen = if t.id == id {
+                        &mut path
+                    } else if !tabs_before.contains(&t.id) {
+                        &mut new_tabs
+                    } else {
+                        continue;
+                    };
+                    if !t.url.is_empty() && !seen.contains(&t.url) {
+                        seen.push(t.url.clone());
+                    }
+                }
+            }
             let main = tab(&host, id);
+            let redirected = site(&main.url) != site(&start_url);
             clicks.push(json!({
-                "at": [(w * fx).round(), (h * fy).round()],
+                "at": [x.round(), y.round()],
                 "clicked": clicked,
+                "main_path": path,
+                "redirected": redirected,
                 "new_tabs": new_tabs,
                 "popups_refused": main.blocked.popups - popups_blocked_before,
                 "page_after": main.url,
             }));
-            for t in snap.tabs.iter().filter(|t| !tabs_before.contains(&t.id)) {
+            eprintln!(
+                "  click ({:.0},{:.0}): redirected {redirected}, path {:?}, new tabs {:?}",
+                x,
+                y,
+                clicks.last().unwrap()["main_path"],
+                clicks.last().unwrap()["new_tabs"]
+            );
+            for t in host.snapshot().tabs.iter().filter(|t| !tabs_before.contains(&t.id)) {
                 host.close_tab(t.id);
             }
             host.activate(id);
-            pump_for(Duration::from_secs(1));
+            if redirected {
+                let _ = self::visit(&host, id, &start_url);
+                pump_for(Duration::from_secs(6));
+            } else {
+                pump_for(Duration::from_secs(1));
+            }
         }
         let after = eval(&host, id, AD_PROBE);
         let shot_after = screenshot(&host, id, &out.join(format!("{n}-after.png")));

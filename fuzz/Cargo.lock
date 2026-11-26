@@ -541,7 +541,7 @@ checksum = "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563"
 
 [[package]]
 name = "untrace-core"
-version = "1.1.0"
+version = "1.2.0"
 dependencies = [
  "serde",
  "serde_json",
@@ -550,9 +550,10 @@ dependencies = [
 
 [[package]]
 name = "untrace-filter"
-version = "1.1.0"
+version = "1.2.0"
 dependencies = [
  "adblock",
+ "regex",
  "serde",
  "serde_json",
  "untrace-core",
@@ -572,7 +573,7 @@ dependencies = [
 
 [[package]]
 name = "untrace-net"
-version = "1.1.0"
+version = "1.2.0"
 dependencies = [
  "serde",
  "untrace-filter",
